@@ -353,21 +353,19 @@ For this situation, we have the `Min/Max Rescaled Weight` values set to 0.1 and 
 
 Here is the basic formula:
 
-*M = Min. Scaled Value*
+- *M = Min. Scaled Value*
+- *W = Max. Scaled Value*
+- *T = Thickness*
+- *mV = Minimum Value*
+- *wV = Maximum Value*
 
-*W = Max. Scaled Value*
+- *M x T = mV* 
+- *W x T = wV*
 
-*T = Thickness*
-
-*mV = Minimum Value*
-
-*wV = Maximum Value*
-
-
-*M x T = mV*                                    *0.1 x 200 = 20*
-                  Or, in the previous case:
-*W x T = wV*                                    *2.5 x 200 = 500*
-
+Or, in the previous case:
+  
+- *0.1 x 200 = 20*
+- *2.5 x 200 = 500*
 
 Thus, edge thicknesses - if we follow this formula - will vary between 20 and 500 based on the edge weights. But in this case, our thickness will vary between 10 and 300, as our `Min/Max Rescaled Weight` values are set to 0.1 and 3.0.
 
@@ -397,7 +395,7 @@ You should see that your labels have rescaled. They look small from far away, so
 
 #### Exporting Your Graph
 
-Congratulations! You've made your first cross-reference database in Gephi. In the bottom left corner of the Preview Settings panel, you'll see a `Preview Ratio` slider and an `Export` button.
+Congratulations! You've made another cross-reference graph in Gephi. In the bottom left corner of the Preview Settings panel, you'll see a `Preview Ratio` slider and an `Export` button.
 
 ![Export and Preview Ratio](https://github.com/user-attachments/assets/8eaa2ffb-28cb-4c04-b50f-d28809bc73fe)
 
