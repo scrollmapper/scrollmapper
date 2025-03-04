@@ -262,7 +262,7 @@ This was a simple tutorial on your first large graph.
 
 This only scratches the surface of how Gephi is used. There are lots of methods for isolating data and patterns using Gephi -- this tutorial was enough to show you the most basic features.
 
-Here is the saved file for the graph we just produced in Gephi: [Canonical Scripture Cross-references - Gephi](../../canonical_bible_cross_references.gephi)
+Here is the saved file for the graph we just produced in Gephi: [canonical_bible_cross_references.gephi](../../canonical_bible_cross_references.gephi)
 
 Here are some more beginner tutorials on Gephi networks: https://www.youtube.com/playlist?list=PLk_jmmkw5S2
 
