@@ -254,6 +254,10 @@ Now if you zoom in and hover over nodes, you can isolate them and their connecti
 
 ![Focusing labels and connections](../../images/t2-focused-labels.png)
 
+Here is a rendered preview. 
+
+![Force Atlas Rendered](../../images/t2-render-force-atlas-2.png)
+
 This was a simple tutorial on your first large graph.
 
 This only scratches the surface of how Gephi is used. There are lots of methods for isolating data and patterns using Gephi -- this tutorial was enough to show you the most basic features.
@@ -261,7 +265,7 @@ This only scratches the surface of how Gephi is used. There are lots of methods 
 Here are some more beginner tutorials on Gephi networks: https://www.youtube.com/playlist?list=PLk_jmmkw5S2
 
 
-### An Alternative Method
+### Advanced Layout Options and Rendering
 
 The `Yifan Hu` layout is a force-directed layout algorithm designed to visualize large-scale graphs efficiently. It works by simulating physical forces between nodes, where Nodes repel each other while Edges act as springs pulling connected nodes together. This will ultimately give us a visually appealing, easy-to-understand graph layout.
 
