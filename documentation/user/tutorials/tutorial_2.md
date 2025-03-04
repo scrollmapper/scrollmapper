@@ -263,7 +263,7 @@ Here are some more beginner tutorials on Gephi networks: https://www.youtube.com
 
 ### An Alternative Method
 
-The `Yifan Hu` layout is a force-directed layout algorithm designed to visualize large-scale graphs efficiently. It works by simulating physical forces between nodes, where nodes repel each other while edges act as springs pulling connected nodes together. This will ultimately give us a visually appealing, easy-to-understand graph layout.
+The `Yifan Hu` layout is a force-directed layout algorithm designed to visualize large-scale graphs efficiently. It works by simulating physical forces between nodes, where Nodes repel each other while Edges act as springs pulling connected nodes together. This will ultimately give us a visually appealing, easy-to-understand graph layout.
 
 ![Yifan Hu Layout Option](https://github.com/user-attachments/assets/e0681fd4-a3a4-47f6-9d8c-1043aabbeeb4)
 
@@ -275,7 +275,7 @@ The `Optimal Distance` property dictates the preferred distance between nodes in
 
 > **NOTE:** Higher values place nodes further apart, while lower values bring them closer together. The latter is good for small, sparse graphs, or when trying to highlight relationships. However, in our case, the graph is very large and will look messy with so many nodes bunched together.
 
-Next is `Relative Strength`. This adjusts the strength of the attractive and repulsive forces (the edges) between nodes. Higher values increase the influence of *attractive forces* (edges), pulling connected nodes together. Lower values increase the influence of *repulsive forces*, pushing nodes away from one another.
+Next is `Relative Strength`. This adjusts the strength of the attractive (Edges) and repulsive forces between nodes. Higher values increase the influence of *attractive forces* (Edges), pulling connected nodes together. Lower values increase the influence of *repulsive forces*, pushing nodes away from one another.
 
 In this case, we have found that a value between 4.0 and 7.0 for this parameter works well, though the latter is likely to push nodes to the borders. This is not exactly bad, as those nodes will most likely be the nodes with the least connections.
 
@@ -287,15 +287,15 @@ The layout has pushed nodes away from each other while simultaneously keeping re
 
 ### Wrapping It Up
 
-If you got this far, congratulations! You took a giant black box of messy nodes just a few steps short of resembling abstract artist Jackson Pollock's "Autumn Rhythm #30" and weaved it into an easier-to-read, colorful graph more suitable for displaying relationships in God's words. If you're happy with your graph, navigate over to the `Preview` tab so we can put a bow on this new graph of yours!
+If you got this far, congratulations! You took a giant black box of messy nodes just a few steps short of resembling abstract artist Jackson Pollock's "Autumn Rhythm #30" and weaved it into an easier-to-read, colorful graph more suitable for displaying relationships in God's words. If you're happy with your graph, navigate over to the `Preview` tab so we can prepare the graph for Export.
 
 ![Preview Tab](https://github.com/user-attachments/assets/ab733ebd-b3b1-49bd-ac9b-94356286b5b9)
 
 #### Rescale Weight
 
-> **NOTE:** Have you saved your graph? Now would be a good time to do it! Press Ctrl + S to save. If you have not saved it previously, you will need to select a location to save it to on your computer.
+> **NOTE:** Have you saved your graph? Press Ctrl + S to save. If you have not saved it previously, you will need to select a location to save it to on your computer.
 
-You will be greeted by a bit of information on the left under `Preview Settings`, and a large `Preview Panel` on the right... which is currently empty. At the bottom right of the `Preview Settings` panel, click the `Refresh` button and wait for the graph to load into the `Preview` panel.
+You will be greeted by a bit of information on the left under `Preview Settings`, and a large `Preview Panel` on the right, which is currently empty. At the bottom right of the `Preview Settings` panel, click the `Refresh` button and wait for the graph to load into the `Preview` panel.
 
 ![Refresh Preview Button](https://github.com/user-attachments/assets/c286b52a-90af-4951-a8f7-3feeca80a18c)
 
@@ -313,9 +313,9 @@ Now click the Refresh button at the bottom of the `Preview Panel` again.
 
 ##### Bonus
 
-What did checking that box do? Well, I'm glad you asked! (Yes, you did, I heard you. Stop lying.)
+What did checking that box do?
 
-Checking this box has rescaled the edges according to their 'Weight'. Remember the Data Laboratory? Pop back in there for a minute so I can show you what I mean.
+Checking this box has rescaled the edges according to their 'Weight'. Remember the Data Laboratory?
 
 ![Data Laboratory](https://github.com/user-attachments/assets/cb7c9390-a2ab-491d-8188-f9dd052b94a2)
 
@@ -327,13 +327,11 @@ Now there's a lot of numbers here, but right now the only ones you need to focus
 
 ![Weight Column](https://github.com/user-attachments/assets/7f1285d7-7fe0-4123-9881-d7e26ec37342)
 
-When we ticked the 'Rescale Weights' box, we visually rescaled all of the edges according to their weight. The higher the weight, the thicker the line. 'How is this helpful', I hear you ask again? (You did, stop denying it. It's a good thing, it means you're paying attention!)
-
-The answer is it makes it easier to identify stronger and/or more significant connections in our graph! Plus, it just looks nicer. Had we kept this box unchecked, all of the edges would have been one size. Now let's go back to the preview tab so we can continue.
+When we ticked the 'Rescale Weights' box, we visually rescaled all of the edges according to their weight. The higher the weight, the thicker the line. This makes it easier to identify stronger and/or more significant connections in our graph. Had we kept this box unchecked, all of the edges would have been one size. Now let's go back to the `Preview` tab so we can continue.
 
 #### Rescaling Edges
 
-Our graph looks a bit better now. But let's make the edges a bit more noticeable, shall we?
+Our graph looks a bit better now, but let's make the edges a bit more noticeable.
 
 As you can see, the edges are a bit dim at the moment, which is better than how it was before, but not quite what we want. We can change this a few different ways. You can either tweak the overall `Thickness`, which will scale the edges relative to their weights, or you can change the `Min/Max Rescaled Weight` parameters. Let's do the former.
 
@@ -343,11 +341,11 @@ Leave the `Min Rescaled Weight` parameter as is, but set the `Max Rescaled Weigh
 
 ### Bonus
 
-I won't bore you with the mathematics behind it, but this essentially means that edges will vary in thickness between the `Min Rescaled Weight` and `Max Rescaled Weight` based on the `Thickness` value. Let me explain:
+This essentially means that edges will vary in thickness between the `Min Rescaled Weight` and `Max Rescaled Weight` based on the `Thickness` value. Let me explain:
 
-For this situation, we have the `Min/Max Rescaled Weight` values set to 0.1 and 3.0 respectively. This means edge thickness will vary between 10 and 300. If the `Max Rescaled Weight` was set to 2.5, thicknesses would now vary between 10 and 250. To make this logic easier to understand, you just need to add a 0 to the end of the `Min/Max Rescaled Weight` value decimals, then remove the decimal point. If our thickness was 200, edge thicknesses would now vary between 20 and 500 - twice that of before.
+For this situation, we have the `Min/Max Rescaled Weight` values set to 0.1 and 3.0 respectively. This means edge thickness will vary between 10 and 300. If the `Max Rescaled Weight` was set to 2.5, thicknesses would now vary between 10 and 250. If our thickness was 200, edge thicknesses would now vary between 20 and 500 - twice that of before.
 
-I said I wouldn't bore you with the math. I lied, here's the basic formula:
+Here is the basic formula:
 
 *M = Min. Scaled Value*
 
@@ -359,15 +357,11 @@ I said I wouldn't bore you with the math. I lied, here's the basic formula:
 
 *wV = Maximum Value*
 
-*M x T = mV*
 
-*W x T = wV*
+*M x T = mV*                                    *0.1 x 200 = 20*
+                  Or, in the previous case:
+*W x T = wV*                                    *2.5 x 200 = 500*
 
-Or, in this case:
-
-*0.1 x 200 = 20*
-
-*2.5 x 200 = 500*
 
 Thus, edge thicknesses - if we follow this formula - will vary between 20 and 500 based on the edge weights. But in this case, our thickness will vary between 10 and 300, as our `Min/Max Rescaled Weight` values are set to 0.1 and 3.0.
 
@@ -379,7 +373,7 @@ This will only be visible if you zoom in on the graph, but to keep it uncluttere
 
 #### Node Labels
 
-Finally, let's slap some labels onto our nodes. We briefly covered them earlier within the Overview tab, but they work a bit differently here. Scroll up to the `Node Labels` tab and click the 'Show Labels' checkbox to turn them on, then click "Refresh" again.
+Finally, let's add some labels onto our nodes. We briefly covered them earlier within the Overview tab, but they work a bit differently here. Scroll up to the `Node Labels` tab and click the 'Show Labels' checkbox to turn them on, then click "Refresh" again.
 
 ![Show Labels](https://github.com/user-attachments/assets/df54b0c2-86de-474f-8c1b-61601f286518)
 
@@ -393,7 +387,7 @@ Once you have done this, hit apply, head back to the `Preview` tab and click "Re
 
 ![Labels Preview](https://github.com/user-attachments/assets/96cc2ee0-8658-450c-8c78-2c9f17bb3095)
 
-You should see that your labels have rescaled. They look small from far away, so zoom in to get a better look. You can see that the biggest labels belong to the biggest nodes. Or, more specifically, the nodes with the highest degree. Or, even more specifically, the nodes with the most in/out connections. Remember, 'Degree' in this case is not to be confused with that thing you get for finishing a study course at college.
+You should see that your labels have rescaled. They look small from far away, so zoom in to get a better look. You can see that the biggest labels belong to the biggest nodes. Or, more specifically, the nodes with the highest degree. Or, even more specifically, the nodes with the most in/out connections.
 
 #### Exporting Your Graph
 
