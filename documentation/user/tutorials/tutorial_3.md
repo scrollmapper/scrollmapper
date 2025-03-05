@@ -56,5 +56,39 @@ Examples:
 - In researching roles and occurances of bible characters, you may create `Meta Key` **character** with `Meta Value` **\<Character Name\>**.
 - And with increased experience/knowledge in Gephi, you will likely find even more ways to use Verse Meta as you design networks ahead of time in Scrollmapper. 
 
+> **NOTE** Meta is recognized universally in Scrollmapper. Adding meta to a verse in any of the editors will cause that meta to show up in the verses wherever they are used. Meta is only used, however, when you specify it during export.
 
+## Using the Main Meta Editor 
+
+![Main Meta Editor](../../images/t3-meta-edit-1-b.png)
+
+This main editor requires some explanation, as it may not seem obvious at first how it is used. 
+
+Here is how things look after you do a *text search*: 
+
+![Main Meta Editor Features - Text Search](../../images/t3-main-editor-features.png)
  
+Here is how things look if you toggle the top radio button to do a *meta search*:
+
+![Main Meta Editor Features - Meta Search](../../images/t3-main-editor-features-2.png)
+
+In the above two examples, you see: 
+
+- Verses have been searched in by means of text. 
+- Verses have been searched by means of meta added to them. 
+
+You can select any verses you wish and then add meta via the controls on the right side of the interface, as follows: 
+
+![Meta Editor: Assign Meta](../../images/t3-meta-editor-assign-meta.png)
+
+In the above image, you can see that we have searched **Goliath** and added the `Meta Key` **giant** and `Meta Value` **Goliath** to all selected verses. 
+
+It is a fairly simple operation. You could find all mentions of Giants in the canonical and non-canonical scriptures and tag them accordingly for some Gephi research project. 
+
+What if you need to find all verses tagged with **giant**? You can now do a reverse-lookup. Toggle the radio button `Search Scripture/Meta` above and search by Meta: 
+
+![Browse Meta](../../images/t3-meta-reverse-search.png)
+
+Clicking the `Browse Meta Keys` button will bring up this interface:
+
+![Browse Meta Keys](../../images/t3-browse-meta-keys.png)
