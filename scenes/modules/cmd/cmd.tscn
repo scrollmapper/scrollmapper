@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqqnuwbchtcqm" path="res://addons/cmd/interface/cmd_interface.tscn" id="1_mancq"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ipws"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ieol"]
 bg_color = Color(0.117, 0.117, 0.117, 1)
 
 [node name="Cmd" type="Control"]
@@ -17,6 +17,6 @@ mouse_filter = 2
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CmdInterface" parent="CanvasLayer" instance=ExtResource("1_mancq")]
-theme_override_styles/panel = SubResource("StyleBoxFlat_1ipws")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ieol")
 
 [editable path="CanvasLayer/CmdInterface"]
