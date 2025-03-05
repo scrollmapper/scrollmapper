@@ -43,7 +43,7 @@ In short:
 
 ## Why Use Verse Meta?
 
-Primarily, **verse meta** was implemented for creating Gephi Attributes ahead of time. This is its main use now. An example would be isolating a theme in a certain scripture thread you are researching, and then tagging that theme with relevant meta. 
+Primarily, **verse meta** was implemented for creating **Gephi Attributes** ahead of time. This is its main use now. An example would be isolating a theme in a certain scripture thread you are researching, and then tagging that theme with relevant meta. 
 
 Upon exporting to Gephi, you are given the option to include this meta. 
 
@@ -52,8 +52,8 @@ Secondarily, it was added as an anticipatory measure for the future of Scrollmap
 ### Use Cases for Verse Meta 
 
 Examples: 
-- In researching the [Great Harlot](https://en.wikipedia.org/wiki/Whore_of_Babylon), you may wish to tag all relevant verses with the `Meta Key` **great-whore** and the `Meta Value` **<Specific Nuance>**.
-- In researching roles and occurances of bible characters, you may create `Meta Key` **character** with `Meta Value` **<Character Name>**.
+- In researching the [Great Harlot](https://en.wikipedia.org/wiki/Whore_of_Babylon), you may wish to tag all relevant verses with the `Meta Key` **great-whore** and the `Meta Value` **\<Specific Nuance\>**.
+- In researching roles and occurances of bible characters, you may create `Meta Key` **character** with `Meta Value` **\<Character Name\>**.
 - And with increased experience/knowledge in Gephi, you will likely find even more ways to use Verse Meta as you design networks ahead of time in Scrollmapper. 
 
 
