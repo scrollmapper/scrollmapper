@@ -405,8 +405,8 @@ The `Preview Ratio` slider will decrease the number of nodes shown in the previe
 
 - [ROOT](README.md)
 - [Introduction](introduction.md)
-- [Getting Started](getting_started.md)
 - [Features](features.md)
+- [Getting Started](getting_started.md)
 - [Tutorial 1: Using the Node System](tutorials/tutorial_1.md)
 - [Tutorial 2: Using Scrollmapper with Gephi](tutorials/tutorial_2.md)
 - [Tutorial 3: Using Scrollmapper's Meta with Gephi's Attributes](tutorials/tutorial_3.md)
