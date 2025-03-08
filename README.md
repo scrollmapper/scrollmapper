@@ -1,5 +1,7 @@
 # Scrollmapper - Scripture Analysis Tool
 
+[USER DOCUMENTATION](documentation/user/README.md)
+
 ![Scrollmap](documentation/images/scrollmap.png)
 
 A scripture analysis tool created with Godot 4. *Presently in prototype phase. Major features are working.*
