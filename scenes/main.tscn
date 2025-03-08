@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dget04dncj64c" path="res://scenes/modules/cmd/cmd.tscn" id="4_ymvhv"]
 [ext_resource type="Script" path="res://scenes/modules/cmd/cmd.gd" id="5_mn4tt"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pw2y4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_naidu"]
 bg_color = Color(0.117, 0.117, 0.117, 1)
 
 [node name="Main" type="Node3D"]
@@ -39,7 +39,7 @@ script = ExtResource("5_mn4tt")
 canvas_layer = NodePath("CanvasLayer")
 
 [node name="CmdInterface" parent="UI/Cmd/CanvasLayer" index="0"]
-theme_override_styles/panel = SubResource("StyleBoxFlat_pw2y4")
+theme_override_styles/panel = SubResource("StyleBoxFlat_naidu")
 
 [editable path="UI/Cmd"]
 [editable path="UI/Cmd/CanvasLayer/CmdInterface"]

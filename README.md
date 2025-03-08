@@ -14,7 +14,7 @@ Scrollmapper is a scripture analysis tool created with Godot 4. *Presently in th
 - [Tutorial 2: Using Scrollmapper with Gephi](documentation/user/tutorials/tutorial_2.md)
 - [Tutorial 3: Using Scrollmapper's Meta with Gephi's Attributes](documentation/user/tutorials/tutorial_3.md)
 
-Scrollmapper is a scripture analysis tool designed to create detailed cross-references for canonical and apocryphal scriptures. It features a basic reader, a cross-reference viewing system, and a graphing method to illustrate complex relationships between books. Scrollmapper can export these relationships to Gephi for advanced analysis, allowing users to visualize and explore connections within the scriptures.
+Scrollmapper is a scripture analysis tool designed to create detailed cross-references for canonical and apocryphal scriptures. It features a basic reader, a cross-reference viewing system, and a graphing method to illustrate complex relationships between books. Scrollmapper can export these relationships to [Gephi](https://gephi.org) for advanced analysis, allowing users to visualize and explore connections within the scriptures.
 
 Other features are planned for Scrollmapper, such as plugin support.
 
@@ -28,7 +28,7 @@ See the [Documentation](documentation/user/README.md).
 
 ## Gephi Integration
 
-Scrollmapper exports cross-reference/graph data to Gephi for advanced analysis of scripture relationships.
+Scrollmapper exports cross-reference/graph data to [Gephi](https://gephi.org) for advanced analysis of scripture relationships.
 
 ![Gephi Integration](documentation/images/t2-focused-labels.png)
 
