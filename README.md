@@ -8,8 +8,8 @@ Scrollmapper is a scripture analysis tool created with Godot 4. *Presently in th
 
 - [Documentation Root](documentation/user/README.md)
 - [Introduction](documentation/user/introduction.md)
-- [Getting Started](documentation/user/getting_started.md)
 - [Features](documentation/user/features.md)
+- [Getting Started](documentation/user/getting_started.md)
 - [Tutorial 1: Using the Node System](documentation/user/tutorials/tutorial_1.md)
 - [Tutorial 2: Using Scrollmapper with Gephi](documentation/user/tutorials/tutorial_2.md)
 - [Tutorial 3: Using Scrollmapper's Meta with Gephi's Attributes](documentation/user/tutorials/tutorial_3.md)
