@@ -52,7 +52,7 @@ Scrollmapper exports cross-reference/graph data to Gephi for advanced analysis o
 ![Basic Scrollmap](documentation/images/basic-scrollmap.png)
 
 #### Meta Editing
-![Meta Editing](documentation/images/meta.png)
+![Meta Editing](documentation/images/t3-meta-edit-2-b.png)
 
 #### Basic Scrollmap
 ![Basic Scrollmap](documentation/images/basic-scrollmap.png)
