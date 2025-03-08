@@ -12,7 +12,7 @@ Scripture graphs, or "Scroll Maps," can be exported to [Gephi](https://gephi.org
 
 Scrollmapper can export thousands of cross-references to Gephi for deep analysis of scripture relationships. This feature helps visualize and explore connections between verses and books, providing valuable insights.
 
-Scrollmapper comes pre-populated with 34,000 cross-references from [openbible.info](https://www.openbible.info/labs/cross-references/), allowing immediate exploration and analysis without additional data entry.
+Scrollmapper comes pre-populated with 340,000 cross-references from [openbible.info](https://www.openbible.info/labs/cross-references/), allowing immediate exploration and analysis without additional data entry.
 
 > **Note:** [Gephi](https://gephi.org/) is the leading visualization and exploration software for all kinds of graphs and networks. Gephi is open-source and free.
 
