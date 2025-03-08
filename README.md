@@ -1,5 +1,7 @@
 # Scrollmapper - Scripture Analysis Tool
 
+![Scrollmap](documentation/images/scrollmap.png)
+
 A scripture analysis tool created with Godot 4.
 
 *Presently in prototype phase. Major features are working.*
@@ -40,7 +42,7 @@ Scrollmapper includes a basic reader so that you can read any of the biblical or
 
 ### Meta Editing
 
-Metadata can be attached to individual verses. This can be applied on exports to Gephi to later isolate unique data that you previously set for node/edge network analysis.
+Metadata can be attached to individual verses. This can be applied on exports to [Gephi](https://gephi.org/) to later isolate unique data that you previously set for node/edge network analysis.
 
 ## Getting Started
 
@@ -74,7 +76,7 @@ The reader allows you to read the books in-app. This is useful because there are
 
 ## Advanced Use: Gephi Integration
 
-Scrollmapper can export thousands of cross-references to Gephi for deep analysis of scripture relationships. This feature helps visualize and explore connections between verses and books, providing valuable insights.
+Scrollmapper can export thousands of cross-references to [Gephi](https://gephi.org/) for deep analysis of scripture relationships. This feature helps visualize and explore connections between verses and books, providing valuable insights.
 
 Scrollmapper comes pre-populated with 340,000 cross-references from [openbible.info](https://www.openbible.info/labs/cross-references/), allowing immediate exploration and analysis without additional data entry.
 
