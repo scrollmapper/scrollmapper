@@ -2,25 +2,71 @@
 
 ![Scrollmap](documentation/images/scrollmap.png)
 
-Scrollmapper is a scripture analysis tool created with Godot 4. *Presently in prototype phase. Major features are working.*
+Scrollmapper is a scripture analysis tool created with Godot 4. *Presently in the prototype phase. Major features are working.*
 
-__See the [USER DOCUMENTATION](documentation/user/README.md)__
+## Scrollmapper Documentation - Table of Contents:
+
+- [Documentation Root](README.md)
+- [Introduction](introduction.md)
+- [Getting Started](getting_started.md)
+- [Features](features.md)
+- [Tutorial 1: Using the Node System](tutorials/tutorial_1.md)
+- [Tutorial 2: Using Scrollmapper with Gephi](tutorials/tutorial_2.md)
+- [Tutorial 3: Using Scrollmapper's Meta with Gephi's Attributes](tutorials/tutorial_3.md)
 
 Scrollmapper is a scripture analysis tool designed to create detailed cross-references for canonical and apocryphal scriptures. It features a basic reader, a cross-reference viewing system, and a graphing method to illustrate complex relationships between books. Scrollmapper can export these relationships to Gephi for advanced analysis, allowing users to visualize and explore connections within the scriptures.
 
-Other features are planned for Scrollmapper, such as plugin support. 
+Other features are planned for Scrollmapper, such as plugin support.
 
 ![Intro Graphic](documentation/images/intro.png)
 
-Scrollmapper is available on Steam <link>. 
+Scrollmapper is available on Steam <link>.
 
 If you wish to build from source, this should work "out of the box" as a Godot 4 project. It should export as a running app without any issues. We will provide the actual package as a download after we have completed and polished the tool as a whole and completed the documentation.
 
-See the [Documentation](documentation/user/README.md)
+See the [Documentation](documentation/user/README.md).
 
-## Gephi Integration 
+## Gephi Integration
 
-Scrollmapper exports cross reference / graph data to Gephi for advanced analysis of scripture relationships. 
+Scrollmapper exports cross-reference/graph data to Gephi for advanced analysis of scripture relationships.
 
 ![Gephi Integration](documentation/images/t2-focused-labels.png)
 
+## Screenshots
+
+### Scrollmapper Screenshots:
+
+#### Introduction
+![Introduction](documentation/images/intro.png)
+
+#### Book Library
+![Book Library](documentation/images/book-library.png)
+
+#### Synchronize Library
+![Synchronize Library](documentation/images/syncronize.png)
+
+#### Reader
+![Reader](documentation/images/reader-1.png)
+
+#### Scrollmap
+![Scrollmap](documentation/images/scrollmap.png)
+
+#### Meta Editing
+![Meta Editing](documentation/images/meta.png)
+
+#### Basic Scrollmap
+![Basic Scrollmap](documentation/images/basic-scrollmap.png)
+
+#### Ezekiel Scrollmap
+![Ezekiel Scrollmap](documentation/images/ezekiel.png)
+
+### Gephi Integration Screenshots
+
+#### Detailed Gephi Integration
+![Simple Gephi Graph Zoomed In](documentation/images/gephi-graph-1.png)
+
+#### Gephi Data Laboratory Imported From Scrollmapper
+![Data Laboratory](documentation/images/t2-data-laboratory.png)
+
+#### Complex and Beautiful Cross-Reference Graphs
+![Gephi Graph](documentation/images/t2-force-atlas-2-preview.png)
