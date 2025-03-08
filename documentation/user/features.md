@@ -29,3 +29,13 @@ Scrollmapper includes a basic reader so that you can read any of the biblical or
 Meta data can be attached to individual verses. This can be applied on exports to Gephi to later isolate unique data that you previously set for node/edge network analysis. 
 
 ![Meta Editing](../images/meta.png)
+
+## Scrollmapper Documentation -Table of Contents:
+
+- [ROOT](README.md)
+- [Introduction](introduction.md)
+- [Getting Started](getting_started.md)
+- [Features](features.md)
+- [Tutorial 1: Using the Node System](tutorials/tutorial_1.md)
+- [Tutorial 2: Using Scrollmapper with Gephi](tutorials/tutorial_2.md)
+- [Tutorial 3: Using Scrollmapper's Meta with Gephi's Attributes](tutorials/tutorial_3.md)

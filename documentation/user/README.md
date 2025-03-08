@@ -4,6 +4,7 @@ Welcome to the user documentation for Scrollmapper. Here, you will find all the 
 
 ## Table of Contents
 
+- [ROOT](README.md)
 - [Introduction](introduction.md)
 - [Getting Started](getting_started.md)
 - [Features](features.md)

@@ -144,3 +144,13 @@ To do so:
 - Now the attribute you just created will be assigned to those selected rows.
 
 This is an alternative to assigning meta in Scrollmapper - whether you assign meta in Scrollmapper or Attributes in Gephi is completely based on your own preferences and workflows.
+
+## Scrollmapper Documentation -Table of Contents:
+
+- [ROOT](README.md)
+- [Introduction](introduction.md)
+- [Getting Started](getting_started.md)
+- [Features](features.md)
+- [Tutorial 1: Using the Node System](tutorials/tutorial_1.md)
+- [Tutorial 2: Using Scrollmapper with Gephi](tutorials/tutorial_2.md)
+- [Tutorial 3: Using Scrollmapper's Meta with Gephi's Attributes](tutorials/tutorial_3.md)

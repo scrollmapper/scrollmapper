@@ -25,3 +25,12 @@ Scrollmapper is built using the game engine [Godot](https://godotengine.org/), w
 We hope to include more features such as flash cards, slide shows, and more. 
  
  
+## Scrollmapper Documentation -Table of Contents:
+
+- [ROOT](README.md)
+- [Introduction](introduction.md)
+- [Getting Started](getting_started.md)
+- [Features](features.md)
+- [Tutorial 1: Using the Node System](tutorials/tutorial_1.md)
+- [Tutorial 2: Using Scrollmapper with Gephi](tutorials/tutorial_2.md)
+- [Tutorial 3: Using Scrollmapper's Meta with Gephi's Attributes](tutorials/tutorial_3.md)
