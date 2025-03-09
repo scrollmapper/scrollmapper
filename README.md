@@ -4,6 +4,9 @@
 
 Scrollmapper is a scripture analysis tool created with Godot 4. *Presently in the prototype phase. Major features are working.*
 
+- Intro video: https://www.youtube.com/watch?v=EPIxNJ3A7FM
+- Scrollmapper on Reddit: https://www.reddit.com/r/Scrollmapper/
+
 ## Scrollmapper Documentation - Table of Contents:
 
 - [Documentation Root](documentation/user/README.md)

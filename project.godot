@@ -30,6 +30,10 @@ DialogueManager="*res://scripts/global/dialogue_manager.gd"
 LibraryManager="*res://scripts/global/library_manager.gd"
 GlobalFunctions="*res://scripts/global/global_functions.gd"
 
+[display]
+
+window/size/mode=2
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/cmd/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg", "res://addons/scrollmapper_exporter/plugin.cfg")

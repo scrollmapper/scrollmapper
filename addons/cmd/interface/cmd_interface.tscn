@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://fvkj56svylua" path="res://addons/cmd/interface/styles/cmd_styles/cmd_style_editor.tres" id="2_cyfg3"]
 [ext_resource type="Resource" uid="uid://cyg6ps7wvikxp" path="res://addons/cmd/interface/styles/cmd_styles/cmd_style_app.tres" id="3_lwudu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfx3m"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxojd"]
 bg_color = Color(0.117, 0.117, 0.117, 1)
 
 [sub_resource type="Theme" id="Theme_8iw7o"]
@@ -16,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_sfx3m")
+theme_override_styles/panel = SubResource("StyleBoxFlat_hxojd")
 script = ExtResource("1_21qk7")
 cmd_style_editor = ExtResource("2_cyfg3")
 cmd_style_app = ExtResource("3_lwudu")
