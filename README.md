@@ -1,4 +1,8 @@
+![Scrollmapper Intro](documentation/images/store_capsule_header.png)
+
 # Scrollmapper - Scripture Analysis Tool
+
+
 
 ![Scrollmap](documentation/images/scrollmap.png)
 
