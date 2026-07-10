@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://wsudt3gy208e"]
+[gd_scene format=3 uid="uid://wsudt3gy208e"]
 
-[ext_resource type="Script" path="res://scenes/modules/meta_editor/meta_editor.gd" id="1_apfka"]
+[ext_resource type="Script" uid="uid://bieibhdp3k3ld" path="res://scenes/modules/meta_editor/meta_editor.gd" id="1_apfka"]
 [ext_resource type="PackedScene" uid="uid://b47hcwlb6la61" path="res://scenes/modules/search/search.tscn" id="2_hvipb"]
 [ext_resource type="PackedScene" uid="uid://c88o0hnxbt2a5" path="res://scenes/modules/meta_editor/meta_elements/meta_fliter.tscn" id="2_w24kb"]
 [ext_resource type="PackedScene" uid="uid://bp6wpif7dba1a" path="res://scenes/modules/meta_editor/meta_elements/scripture_meta_listing.tscn" id="4_7xfgp"]
@@ -13,7 +13,6 @@ bg_color = Color(0.180005, 0.180005, 0.180005, 1)
 [sub_resource type="GDScript" id="GDScript_a68tc"]
 script/source = "extends Panel
 
-class_name MetaBrowsePanel
 
 func _ready() -> void:
 	visibility_changed.connect(_on_visibility_changed)
@@ -25,7 +24,7 @@ func _on_visibility_changed():
 		print(\"NOT VISIBLE\")
 "
 
-[node name="MetaEditor" type="Control" node_paths=PackedStringArray("search", "search_mode_check_button", "scripture_search_v_box_container", "meta_search_v_box_container", "meta_scripture_button_v_box_container", "select_all_button", "select_none_button", "selected_listings_rich_text_label", "meta_search_line_edit", "search_meta_fliter", "browse_meta_keys_button", "search_by_meta_button", "meta_browse_panel", "translation_meta_v_box_container", "book_meta_v_box_container", "verse_meta_v_box_container", "close_meta_browse_button", "meta_fliter", "meta_key_line_edit", "meta_value_text_edit", "add_meta_button", "delete_meta_button", "connected_meta_browser_v_box_container")]
+[node name="MetaEditor" type="Control" unique_id=1036832439 node_paths=PackedStringArray("search", "search_mode_check_button", "scripture_search_v_box_container", "meta_search_v_box_container", "meta_scripture_button_v_box_container", "select_all_button", "select_none_button", "selected_listings_rich_text_label", "meta_search_line_edit", "search_meta_fliter", "browse_meta_keys_button", "search_by_meta_button", "meta_browse_panel", "translation_meta_v_box_container", "book_meta_v_box_container", "verse_meta_v_box_container", "close_meta_browse_button", "meta_fliter", "meta_key_line_edit", "meta_value_text_edit", "add_meta_button", "delete_meta_button", "connected_meta_browser_v_box_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,7 +56,7 @@ add_meta_button = NodePath("VBoxContainer/MarginContainer/HBoxContainer/MarginCo
 delete_meta_button = NodePath("VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/DeleteMetaButton")
 connected_meta_browser_v_box_container = NodePath("VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/ConnectedMetaBrowserScrollContainer/ConnectedMetaBrowserVBoxContainer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=701345755]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,14 +64,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=198132051]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=417141575]
 layout_mode = 2
 
-[node name="SearchMarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="SearchMarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=956653166]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
@@ -80,123 +79,123 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="SearchVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer"]
+[node name="SearchVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer" unique_id=913574431]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer" unique_id=187313520]
 layout_mode = 2
 
-[node name="SearchModeCheckButton" type="CheckButton" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer"]
+[node name="SearchModeCheckButton" type="CheckButton" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer" unique_id=1250070921]
 layout_mode = 2
 button_pressed = true
 text = "Search Scripture/Meta"
 
-[node name="ScriptureSearchVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer"]
+[node name="ScriptureSearchVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer" unique_id=1872492610]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/ScriptureSearchVBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/ScriptureSearchVBoxContainer" unique_id=1409063229]
 layout_mode = 2
 
-[node name="ScriptureSearchRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/ScriptureSearchVBoxContainer/VBoxContainer"]
+[node name="ScriptureSearchRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/ScriptureSearchVBoxContainer/VBoxContainer" unique_id=1382074014]
 layout_mode = 2
 text = "Scripture Search"
 fit_content = true
 
-[node name="Search" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/ScriptureSearchVBoxContainer/VBoxContainer" instance=ExtResource("2_hvipb")]
+[node name="Search" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/ScriptureSearchVBoxContainer/VBoxContainer" unique_id=1820265113 instance=ExtResource("2_hvipb")]
 layout_mode = 2
 
-[node name="MetaSearchVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer"]
+[node name="MetaSearchVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer" unique_id=253477314]
 layout_mode = 2
 
-[node name="MetaSearchRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer"]
+[node name="MetaSearchRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer" unique_id=737626137]
 layout_mode = 2
 tooltip_text = "Search for verses that have certain meta keys attached to them. "
 text = "Meta Search"
 fit_content = true
 
-[node name="MetaSearchMarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer"]
+[node name="MetaSearchMarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer" unique_id=1617993102]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer/MetaSearchMarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer/MetaSearchMarginContainer" unique_id=524459234]
 layout_mode = 2
 
-[node name="MetaSearchLineEdit" type="LineEdit" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer/MetaSearchMarginContainer/VBoxContainer"]
+[node name="MetaSearchLineEdit" type="LineEdit" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer/MetaSearchMarginContainer/VBoxContainer" unique_id=157635021]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SearchMetaFliter" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer/MetaSearchMarginContainer/VBoxContainer" instance=ExtResource("2_w24kb")]
+[node name="SearchMetaFliter" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer/MetaSearchMarginContainer/VBoxContainer" unique_id=2093972197 instance=ExtResource("2_w24kb")]
 layout_mode = 2
 
-[node name="SearchDirectivesHBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer/MetaSearchMarginContainer/VBoxContainer"]
+[node name="SearchDirectivesHBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer/MetaSearchMarginContainer/VBoxContainer" unique_id=1973954281]
 layout_mode = 2
 alignment = 2
 
-[node name="BrowseMetaKeysButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer/MetaSearchMarginContainer/VBoxContainer/SearchDirectivesHBoxContainer"]
+[node name="BrowseMetaKeysButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer/MetaSearchMarginContainer/VBoxContainer/SearchDirectivesHBoxContainer" unique_id=1481788826]
 layout_mode = 2
 tooltip_text = "Shows a list of unique meta keys in the database for Translations, Books, and Verses."
 text = "Browse Meta Keys"
 
-[node name="SearchByMetaButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer/MetaSearchMarginContainer/VBoxContainer/SearchDirectivesHBoxContainer"]
+[node name="SearchByMetaButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/MetaSearchVBoxContainer/MetaSearchMarginContainer/VBoxContainer/SearchDirectivesHBoxContainer" unique_id=1038170618]
 layout_mode = 2
 text = "Search by Meta"
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer" unique_id=1206797199]
 layout_mode = 2
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/MarginContainer" unique_id=1488958531]
 layout_mode = 2
 
-[node name="SelectedListingsRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/MarginContainer/HBoxContainer"]
+[node name="SelectedListingsRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/MarginContainer/HBoxContainer" unique_id=1866941060]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 text = "111 Selected"
 
-[node name="SelectAllButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/MarginContainer/HBoxContainer"]
+[node name="SelectAllButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/MarginContainer/HBoxContainer" unique_id=545241269]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 15
 text = "Select All"
 
-[node name="SelectNoneButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/MarginContainer/HBoxContainer"]
+[node name="SelectNoneButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/MarginContainer/HBoxContainer" unique_id=2068824539]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 15
 text = "Select None"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer" unique_id=1949171263]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/ScrollContainer" unique_id=931832544]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="MetaScriptureButtonVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/ScrollContainer/MarginContainer"]
+[node name="MetaScriptureButtonVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/ScrollContainer/MarginContainer" unique_id=1860379096]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ScriptureMetaListing" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/ScrollContainer/MarginContainer/MetaScriptureButtonVBoxContainer" instance=ExtResource("4_7xfgp")]
+[node name="ScriptureMetaListing" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/ScrollContainer/MarginContainer/MetaScriptureButtonVBoxContainer" unique_id=838117990 instance=ExtResource("4_7xfgp")]
 layout_mode = 2
 
-[node name="ScriptureMetaListing2" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/ScrollContainer/MarginContainer/MetaScriptureButtonVBoxContainer" instance=ExtResource("4_7xfgp")]
+[node name="ScriptureMetaListing2" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/ScrollContainer/MarginContainer/MetaScriptureButtonVBoxContainer" unique_id=1757574937 instance=ExtResource("4_7xfgp")]
 layout_mode = 2
 
-[node name="ScriptureMetaListing3" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/ScrollContainer/MarginContainer/MetaScriptureButtonVBoxContainer" instance=ExtResource("4_7xfgp")]
+[node name="ScriptureMetaListing3" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/ScrollContainer/MarginContainer/MetaScriptureButtonVBoxContainer" unique_id=1713331101 instance=ExtResource("4_7xfgp")]
 layout_mode = 2
 
-[node name="MetaBrowsePanel" type="Panel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer"]
+[node name="MetaBrowsePanel" type="Panel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer" unique_id=184665385]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lyxnh")
 script = SubResource("GDScript_a68tc")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel" unique_id=257606932]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -208,51 +207,51 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer" unique_id=2067667542]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer" unique_id=370995525]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TranslationMetaRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="TranslationMetaRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1465542642]
 layout_mode = 2
 theme_override_colors/default_color = Color(1, 0.329412, 0.270588, 1)
 text = "Translation Meta"
 fit_content = true
 
-[node name="TranslationMetaVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="TranslationMetaVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=399119897]
 layout_mode = 2
 
-[node name="MetaKeyBrowserOption" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer/TranslationMetaVBoxContainer" instance=ExtResource("5_3v47g")]
+[node name="MetaKeyBrowserOption" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer/TranslationMetaVBoxContainer" unique_id=1378626111 instance=ExtResource("5_3v47g")]
 layout_mode = 2
 
-[node name="BookMetaRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="BookMetaRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1968963997]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.270588, 1, 0.329412, 1)
 text = "Book Meta"
 fit_content = true
 
-[node name="BookMetaVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="BookMetaVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=707916000]
 layout_mode = 2
 
-[node name="VerseMetaRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="VerseMetaRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1749374765]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.270588, 0.509804, 1, 1)
 text = "Verse Meta"
 fit_content = true
 
-[node name="VerseMetaVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="VerseMetaVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=447329880]
 layout_mode = 2
 
-[node name="CloseMetaBrowseButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="CloseMetaBrowseButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1866691969]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
 text = "Close"
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=640189685]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
@@ -260,39 +259,39 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=1493035471]
 layout_mode = 2
 
-[node name="MetaEditorRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="MetaEditorRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1919170343]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 24
 text = "Meta Editor"
 fit_content = true
 
-[node name="MetaKeyRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="MetaKeyRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1170854122]
 layout_mode = 2
 text = "Meta Key"
 fit_content = true
 
-[node name="MetaKeyLineEdit" type="LineEdit" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="MetaKeyLineEdit" type="LineEdit" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=877966581]
 layout_mode = 2
 
-[node name="MetaValueRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="MetaValueRichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1217917869]
 layout_mode = 2
 text = "Meta Value"
 fit_content = true
 
-[node name="MetaValueTextEdit" type="TextEdit" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="MetaValueTextEdit" type="TextEdit" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=982736633]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
-[node name="MetaFliter" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_w24kb")]
+[node name="MetaFliter" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1138882670 instance=ExtResource("2_w24kb")]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1716666052]
 layout_mode = 2
 
-[node name="AddMetaButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="AddMetaButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=837959608]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Adds or updates meta depending upon Meta Key assigned in editor.
@@ -300,7 +299,7 @@ tooltip_text = "Adds or updates meta depending upon Meta Key assigned in editor.
 Applied to every scripture selected in search area. "
 text = "Add Meta"
 
-[node name="DeleteMetaButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="DeleteMetaButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1727203391]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Deletes meta depending upon Meta Key assigned in editor.
@@ -308,26 +307,26 @@ tooltip_text = "Deletes meta depending upon Meta Key assigned in editor.
 Applied to every scripture selected in search area. "
 text = "Delete Meta"
 
-[node name="ConnectedMetaBrowserScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="ConnectedMetaBrowserScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=347569258]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ConnectedMetaBrowserVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/ConnectedMetaBrowserScrollContainer"]
+[node name="ConnectedMetaBrowserVBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/ConnectedMetaBrowserScrollContainer" unique_id=2033076343]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="FooterMarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="FooterMarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1094277242]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/FooterMarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/FooterMarginContainer" unique_id=1785331867]
 layout_mode = 2
 alignment = 2
 
-[node name="ExitButton" parent="VBoxContainer/FooterMarginContainer/HBoxContainer" instance=ExtResource("4_tcnqq")]
+[node name="ExitButton" parent="VBoxContainer/FooterMarginContainer/HBoxContainer" unique_id=1034901845 instance=ExtResource("4_tcnqq")]
 layout_mode = 2
 size_flags_horizontal = 8
