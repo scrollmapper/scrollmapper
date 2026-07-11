@@ -117,7 +117,7 @@ func _on_mouse_drag_started(position: Vector2):
 
 ## This function will be called when the mouse drag is ended.
 ## Will turn processing OFF.
-func _on_mouse_drag_ended(position: Vector2):
+func _on_mouse_drag_ended(_position: Vector2):
 	set_process(false)
 	is_dragging = false
 	is_dragging_allowed = true

@@ -262,10 +262,7 @@ func _handle_mouse_button_released(
 	# Legacy click_released represents the left mouse button only.
 	if event.button_index == MOUSE_BUTTON_LEFT:
 		click_released.emit()
-
-	if event.button_index == MOUSE_BUTTON_LEFT:
 		_end_legacy_drag(event.position)
-
 
 func _emit_double_click_signals(
 	event: InputEventMouseButton
@@ -309,12 +306,17 @@ func _emit_mouse_wheel_event(
 ) -> void:
 	var direction: int
 
-	if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-		direction = 1
-		mouse_wheel_increased.emit()
-	else:
-		direction = -1
-		mouse_wheel_decreased.emit()
+	match event.button_index:
+		MOUSE_BUTTON_WHEEL_UP:
+			direction = 1
+			mouse_wheel_increased.emit()
+
+		MOUSE_BUTTON_WHEEL_DOWN:
+			direction = -1
+			mouse_wheel_decreased.emit()
+
+		_:
+			return
 
 	mouse_wheel_pulsed.emit(
 		direction,

@@ -118,8 +118,7 @@ func _ready():
 	UserInput.clicked.connect(select_node)
 	UserInput.ctrl_double_clicked.connect(arrange_connected_nodes)
 	UserInput.double_clicked.connect(open_node_options)
-	UserInput.click_released.connect(unselect_node_set)
-	UserInput.click_released.connect(log_last_set_global_position)
+	UserInput.mouse_button_released.connect(_on_mouse_button_released)
 	UserInput.shift_clicked.connect(select_node_multiple)
 	UserInput.right_clicked.connect(delete_node)
 	UserInput.mouse_dragged.connect(drag_node)
@@ -297,14 +296,14 @@ func delete_node():
 func select_node():
 	if not can_edit() || is_selected:
 		return
-	if UserInput.is_shift_pressed() && last_selected_node != null:
-		node_selected_plus.emit(last_selected_node)	
+	if (UserInput.is_shift_pressed() and is_instance_valid(last_selected_node)):
+		node_selected_plus.emit(last_selected_node)
 	node_selected.emit(self)
 	last_selected_node = self
 
 ## Unselects the node set in VXGraph
-func unselect_node_set() ->void:
-	if not Input.is_key_pressed(KEY_SHIFT):
+func unselect_node_set() -> void:
+	if not UserInput.is_shift_pressed():
 		VXGraph.get_instance().clear_selection_set()
 
 ## This function is called from the _mouse_drag_ended in UserInput
@@ -711,6 +710,12 @@ func can_edit() -> bool:
 	if current_node_dragging == id && dragging_already_in_progress:
 		return true
 	return is_mouse_over_node && !dragging_already_in_progress 
+
+func _on_mouse_button_released(	button_index: MouseButton,	_position: Vector2) -> void:
+	if button_index != MOUSE_BUTTON_LEFT:
+		return
+	unselect_node_set()
+	log_last_set_global_position()
 
 ## This function is called from the _mouse_drag_ended in UserInput
 ## so that if we stop dragging over some other node, that node will
