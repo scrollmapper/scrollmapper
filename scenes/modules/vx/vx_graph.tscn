@@ -19,8 +19,6 @@
 default_font_size = 18
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sm5ja"]
-
 [node name="VXGraph" type="Control" unique_id=1118597352 node_paths=PackedStringArray("vx_canvas", "vx_editor", "vx_search_results", "camera_2d", "nodes_info", "connections_info", "selection_info", "feed_back_notes", "snap_check_box")]
 layout_mode = 3
 anchors_preset = 15
@@ -207,9 +205,6 @@ vx_graph = NodePath("../../..")
 
 [node name="VXCanvas" parent="." unique_id=1426450468 instance=ExtResource("2_jc8ca")]
 position = Vector2(-16, -16)
-
-[node name="PointLight2D" type="PointLight2D" parent="VXCanvas" unique_id=633583577]
-texture = SubResource("NoiseTexture2D_sm5ja")
 
 [node name="VXCamera2D" parent="." unique_id=180019818 instance=ExtResource("2_vbhxy")]
 script = ExtResource("3_gnil0")

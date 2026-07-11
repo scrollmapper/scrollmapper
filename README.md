@@ -1,3 +1,5 @@
+> Do not use this repo at this time. It is undergoing some overhaul. 
+
 ![Scrollmapper Intro](documentation/images/store_capsule_header.png)
 
 # Scrollmapper - Scripture Analysis Tool
