@@ -31,17 +31,17 @@ var starting_drag_position: Vector2 = Vector2.ZERO
 var starting_drag_position_global: Vector2 = Vector2.ZERO
 
 func _ready():
-	
-	UserInput.double_clicked.connect(_on_mouse_double_clicked)
+		
+	UserInput.mouse_double_clicked.connect(_on_mouse_double_clicked)
 	UserInput.mouse_drag_started.connect(_on_mouse_drag_started)
 	UserInput.mouse_drag_ended.connect(_on_mouse_drag_ended)
 
-	UserInput.mouse_wheel_increased.connect(_on_mouse_wheel_increased)
-	UserInput.mouse_wheel_decreased.connect(_on_mouse_wheel_decreased)
+	UserInput.mouse_wheel_pulsed.connect(_on_mouse_wheel_pulsed)
 
 	UserInput.mouse_drag_started.connect(_on_drag_started)
+
+	UserInput.escape_pushed.connect(close_all_dialogues)
 	
-	UserInput.escape_key_pressed.connect(close_all_dialogues)
 	vx_search_and_execute.operation_selected.connect(_on_graph_action_selected)
 	vx_graph.node_control_opened.connect(open_node_control_dialogue)
 	
@@ -89,17 +89,19 @@ func get_current_graph_description()->String:
 func get_current_graph_id()->int:
 	return vx_graph.id
 
-## When the mouse wheel is "increased" the camera zoom is increased. 
-func _on_mouse_wheel_increased():
+## Control zoom on mouse wheel rotation...
+func _on_mouse_wheel_pulsed(
+	direction: int,
+	_ticks_msec: int,
+	_position: Vector2
+) -> void:
 	if VXGraph.is_graph_locked:
 		return
-	vx_camera_2d.zoom *= 1.1
 
-## When the mouse wheel is "decreased" the camera zoom is decreased.
-func _on_mouse_wheel_decreased():
-	if VXGraph.is_graph_locked:
-		return
-	vx_camera_2d.zoom *= 0.9
+	if direction > 0:
+		vx_camera_2d.zoom *= 1.1
+	else:
+		vx_camera_2d.zoom *= 0.9
 
 ## This function will be called when the mouse drag is started.
 ## Will turn processing ON for the moment, for other actions to run.
@@ -199,13 +201,24 @@ func _on_vx_graph_ready() -> void:
 
 ## This function will be called when the mouse is double clicked.
 ## It is responsible for setting the cursor position.
-func _on_mouse_double_clicked():
-	if is_mouse_over_any_element():
+func _on_mouse_double_clicked(
+	button_index: MouseButton,
+	_position: Vector2
+) -> void:
+	if button_index != MOUSE_BUTTON_LEFT:
 		return
+
 	if VXGraph.is_graph_locked:
 		return
-	var mouse_position:Vector2 = vx_graph.get_global_mouse_position()
-	set_cursor_position(mouse_position)
+
+	if is_mouse_over_any_element():
+		return
+
+	var mouse_world_position: Vector2 = (
+		vx_graph.get_global_mouse_position()
+	)
+
+	set_cursor_position(mouse_world_position)
 
 ## This function will be called when the mouse drag is started.
 func _on_drag_started(pos:Vector2) -> void:

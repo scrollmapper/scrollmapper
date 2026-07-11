@@ -259,8 +259,9 @@ func _handle_mouse_button_released(
 		event.position
 	)
 
-	# Preserve the existing signal behavior for non-wheel releases.
-	click_released.emit()
+	# Legacy click_released represents the left mouse button only.
+	if event.button_index == MOUSE_BUTTON_LEFT:
+		click_released.emit()
 
 	if event.button_index == MOUSE_BUTTON_LEFT:
 		_end_legacy_drag(event.position)
@@ -544,11 +545,6 @@ func cancel_active_input() -> void:
 ## Unlike the old implementation, this performs full cleanup and emits
 ## drag-ended so subscribers cannot remain stuck in an active state.
 func force_release_drag() -> void:
-	if not is_dragging:
-		return
-
-	is_dragging = false
-	drag_start_position = Vector2.ZERO
-	mouse_drag_ended.emit(mouse_position)
+	cancel_active_input()
 
 #endregion
