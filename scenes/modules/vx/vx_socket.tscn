@@ -1,27 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8p2px11bw8g2"]
+[gd_scene format=3 uid="uid://c8p2px11bw8g2"]
 
-[ext_resource type="Script" path="res://scenes/modules/vx/vx_socket.gd" id="1_rqvmn"]
+[ext_resource type="Script" uid="uid://r77bdqont404" path="res://scenes/modules/vx/vx_socket.gd" id="1_rqvmn"]
 
-[node name="VXSocket" type="Control" groups=["sockets"]]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 5.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[sub_resource type="CircleShape2D" id="CircleShape2D_w54dg"]
+
+[node name="VXSocket" type="Node2D" unique_id=1144943666 node_paths=PackedStringArray("center")]
 script = ExtResource("1_rqvmn")
+center = NodePath("Center")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
+[node name="Center" type="Node2D" parent="." unique_id=573273576]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1967479346]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=480366708]
+shape = SubResource("CircleShape2D_w54dg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1691056581]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

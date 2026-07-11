@@ -19,12 +19,14 @@ signal file_selected(file_path:String)
 func _ready() -> void:
 	# Set up the file save dialogue.
 	file_save_dialog = FILE_SAVE_DIALOG.instantiate()
-	file_save_dialog.file_selected.connect(_on_file_selected)	
+	file_save_dialog.file_selected.connect(_on_file_selected)
+	file_save_dialog.visible = false
 	add_child(file_save_dialog)
 	hide_file_save_dialog()
 	# Set up the file load dialogue.
 	file_load_dialog = FILE_LOAD_DIALOG.instantiate()
 	file_load_dialog.file_selected.connect(_on_file_selected)
+	file_load_dialog.visible = false
 	add_child(file_load_dialog)
 	hide_file_load_dialog()
 	create_progress_dialogue()

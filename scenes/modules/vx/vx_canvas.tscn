@@ -1,11 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfxi6tibdx3cp"]
+[gd_scene format=3 uid="uid://cp0o1tuvvutai"]
 
-[ext_resource type="Script" path="res://scenes/modules/vx/vx_canvas.gd" id="1_t06pg"]
+[ext_resource type="Script" uid="uid://bbiedrvlb0w6i" path="res://scenes/modules/vx/vx_canvas.gd" id="1_t06pg"]
 
-[node name="VXCanvas" type="TextureRect"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VXCanvas" type="Node2D" unique_id=1426450468]
 script = ExtResource("1_t06pg")

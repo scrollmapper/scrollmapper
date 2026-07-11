@@ -134,6 +134,8 @@ func _process(_delta: float):
 ## Will return true of the mouse is over a VXNode or VXSocket
 ## Note: This implementation uses a loop, which can be improved to avoid relying on loops.
 func is_mouse_over_any_element(include_vx_search_element:bool = true) -> bool:
+	if is_mouse_over_area2d():
+		return true
 	for node:VXNode in get_tree().get_nodes_in_group("nodes"):
 		if node.is_mouse_over_node:
 			return true
@@ -144,6 +146,30 @@ func is_mouse_over_any_element(include_vx_search_element:bool = true) -> bool:
 		if get_viewport().get_mouse_position().y < vx_search_and_execute.size.y:
 			return true
 	return false
+
+## Checks to see if the mouse is over any area 2d.
+func is_mouse_over_area2d() -> bool:
+	var viewport := get_viewport()
+
+	# The mouse begins in viewport/screen coordinates.
+	var mouse_viewport_position := viewport.get_mouse_position()
+
+	# Convert it into the world coordinates affected by Camera2D.
+	var mouse_world_position := (
+		viewport.get_canvas_transform().affine_inverse()
+		* mouse_viewport_position
+	)
+
+	var query := PhysicsPointQueryParameters2D.new()
+	query.position = mouse_world_position
+	query.collision_mask = 0xFFFFFFFF
+	query.collide_with_areas = true
+	query.collide_with_bodies = false
+
+	var space_state := viewport.world_2d.direct_space_state
+	var results := space_state.intersect_point(query, 32)
+
+	return not results.is_empty()
 
 ## Gets the camera 2D from the VXGraph
 func get_camera_2d() -> Camera2D:

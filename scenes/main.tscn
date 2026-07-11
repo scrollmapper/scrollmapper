@@ -1,20 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcxpkinhle2o6"]
+[gd_scene format=3 uid="uid://bcxpkinhle2o6"]
 
 [ext_resource type="PackedScene" uid="uid://d3qvylpwpsnm1" path="res://scripts/data_manager/resource_downloader.tscn" id="1_bealw"]
 [ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/main.tres" id="2_8jhig"]
 [ext_resource type="PackedScene" uid="uid://dget04dncj64c" path="res://scenes/modules/cmd/cmd.tscn" id="4_ymvhv"]
-[ext_resource type="Script" path="res://scenes/modules/cmd/cmd.gd" id="5_mn4tt"]
+[ext_resource type="Script" uid="uid://d1qg8tl727gjq" path="res://scenes/modules/cmd/cmd.gd" id="5_mn4tt"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr0hf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyhfs"]
 bg_color = Color(0.117, 0.117, 0.117, 1)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" unique_id=1503054346]
 
-[node name="Systems" type="Node3D" parent="."]
+[node name="Systems" type="Node3D" parent="." unique_id=563306156]
 
-[node name="ResourceDownloader" parent="Systems" instance=ExtResource("1_bealw")]
+[node name="ResourceDownloader" parent="Systems" unique_id=213668630 instance=ExtResource("1_bealw")]
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=1589849335]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +24,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("2_8jhig")
 
-[node name="Modules" type="Control" parent="UI"]
+[node name="Modules" type="Control" parent="UI" unique_id=920970108]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,13 +33,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Cmd" parent="UI" node_paths=PackedStringArray("canvas_layer") instance=ExtResource("4_ymvhv")]
+[node name="Cmd" parent="UI" unique_id=1259092171 node_paths=PackedStringArray("canvas_layer") instance=ExtResource("4_ymvhv")]
 layout_mode = 1
 script = ExtResource("5_mn4tt")
 canvas_layer = NodePath("CanvasLayer")
 
 [node name="CmdInterface" parent="UI/Cmd/CanvasLayer" index="0"]
-theme_override_styles/panel = SubResource("StyleBoxFlat_qr0hf")
+theme_override_styles/panel = SubResource("StyleBoxFlat_jyhfs")
 
 [editable path="UI/Cmd"]
 [editable path="UI/Cmd/CanvasLayer/CmdInterface"]

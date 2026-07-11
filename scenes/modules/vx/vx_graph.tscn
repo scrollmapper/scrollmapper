@@ -1,10 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://bh1iyds4cy28s"]
+[gd_scene format=3 uid="uid://bh1iyds4cy28s"]
 
-[ext_resource type="Script" path="res://scenes/modules/vx/vx_graph.gd" id="1_sckcm"]
-[ext_resource type="PackedScene" uid="uid://cfxi6tibdx3cp" path="res://scenes/modules/vx/vx_canvas.tscn" id="2_jc8ca"]
-[ext_resource type="Script" path="res://scenes/modules/vx/vx_editor.gd" id="2_jscly"]
+[ext_resource type="Script" uid="uid://bhbylc60ljvn5" path="res://scenes/modules/vx/vx_graph.gd" id="1_sckcm"]
+[ext_resource type="PackedScene" uid="uid://cp0o1tuvvutai" path="res://scenes/modules/vx/vx_canvas.tscn" id="2_jc8ca"]
+[ext_resource type="Script" uid="uid://i2olx3cady2f" path="res://scenes/modules/vx/vx_editor.gd" id="2_jscly"]
 [ext_resource type="PackedScene" uid="uid://bmalaegyokgpk" path="res://scenes/modules/vx/vx_camera_2d.tscn" id="2_vbhxy"]
-[ext_resource type="Script" path="res://scenes/modules/vx/vx_camera_2d.gd" id="3_gnil0"]
+[ext_resource type="Script" uid="uid://c4p52k03fcnhj" path="res://scenes/modules/vx/vx_camera_2d.gd" id="3_gnil0"]
 [ext_resource type="PackedScene" uid="uid://bre0y3462iq32" path="res://scenes/modules/vx/vx_search_results.tscn" id="4_gm67k"]
 [ext_resource type="PackedScene" uid="uid://bt4kol5jle5rl" path="res://scenes/modules/vx/dialogues/settings_dialogue.tscn" id="5_32rsg"]
 [ext_resource type="PackedScene" uid="uid://bmg34cgf1y4wo" path="res://scenes/modules/vx/vx_search_and_execute.tscn" id="5_rl1km"]
@@ -15,16 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://bxvpvgnaquqyu" path="res://scenes/modules/vx/dialogues/dialogue_node_control.tscn" id="9_uamg3"]
 [ext_resource type="PackedScene" uid="uid://8m2hmqh70q4q" path="res://scenes/modules/vx/dialogues/meta_control_dialogue.tscn" id="10_tyroj"]
 
-[sub_resource type="Theme" id="Theme_wu5qn"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kvkb"]
-bg_color = Color(0.34902, 0.290196, 0.211765, 1)
-
 [sub_resource type="Theme" id="Theme_tyyt6"]
 default_font_size = 18
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 
-[node name="VXGraph" type="Control" node_paths=PackedStringArray("vx_canvas", "vx_editor", "vx_search_results", "camera_2d", "nodes_info", "connections_info", "selection_info", "feed_back_notes")]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sm5ja"]
+
+[node name="VXGraph" type="Control" unique_id=1118597352 node_paths=PackedStringArray("vx_canvas", "vx_editor", "vx_search_results", "camera_2d", "nodes_info", "connections_info", "selection_info", "feed_back_notes", "snap_check_box")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,7 +31,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
-theme = SubResource("Theme_wu5qn")
 script = ExtResource("1_sckcm")
 vx_canvas = NodePath("VXCanvas")
 vx_editor = NodePath("VXEditor")
@@ -44,16 +40,18 @@ nodes_info = NodePath("VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphIn
 connections_info = NodePath("VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer/ConnectionsInfo")
 selection_info = NodePath("VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer/SelectedInfo")
 feed_back_notes = NodePath("VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer/FeedBackNotes")
+snap_check_box = NodePath("VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer/HBoxContainer/SnapCheckBox")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2064135321]
 layout_mode = 0
 offset_left = -50000.0
 offset_top = -50000.0
 offset_right = 50000.0
 offset_bottom = 50000.0
-color = Color(0.54902, 0.486275, 0.368627, 1)
+mouse_filter = 2
+color = Color(0.011764706, 0.039215688, 0.078431375, 1)
 
-[node name="VXEditor" type="CanvasLayer" parent="." node_paths=PackedStringArray("vx_graph", "vx_camera_2d", "vx_search_and_execute", "cursor", "dialogues", "dialogues_anchor", "blocker_panel", "settings_dialog", "delete_graph_dialogue", "new_graph_dialogue", "load_graphs_dialogue", "node_control_dialogue", "meta_control_dialogue")]
+[node name="VXEditor" type="CanvasLayer" parent="." unique_id=1928952859 node_paths=PackedStringArray("vx_graph", "vx_camera_2d", "vx_search_and_execute", "cursor", "dialogues", "dialogues_anchor", "blocker_panel", "settings_dialog", "delete_graph_dialogue", "new_graph_dialogue", "load_graphs_dialogue", "node_control_dialogue", "meta_control_dialogue")]
 script = ExtResource("2_jscly")
 vx_graph = NodePath("..")
 vx_camera_2d = NodePath("../VXCamera2D")
@@ -69,7 +67,7 @@ load_graphs_dialogue = NodePath("Dialogues/LoadGraphsDialogue")
 node_control_dialogue = NodePath("Dialogues/NodeControlDialogue")
 meta_control_dialogue = NodePath("Dialogues/MetaControlDialogue")
 
-[node name="EditorUI" type="Control" parent="VXEditor"]
+[node name="EditorUI" type="Control" parent="VXEditor" unique_id=1133730341]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,7 +78,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VXEditor/EditorUI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VXEditor/EditorUI" unique_id=292836040]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,64 +87,70 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="VXSearchAndExecute" parent="VXEditor/EditorUI/VBoxContainer" instance=ExtResource("5_rl1km")]
+[node name="VXSearchAndExecute" parent="VXEditor/EditorUI/VBoxContainer" unique_id=115145096 instance=ExtResource("5_rl1km")]
 layout_mode = 2
 
-[node name="VXSearchResults" parent="VXEditor/EditorUI/VBoxContainer" node_paths=PackedStringArray("spacer") instance=ExtResource("4_gm67k")]
+[node name="VXSearchResults" parent="VXEditor/EditorUI/VBoxContainer" unique_id=1707180805 node_paths=PackedStringArray("spacer") instance=ExtResource("4_gm67k")]
 visible = false
 layout_mode = 2
 spacer = NodePath("../Spacer")
 
-[node name="Spacer" type="MarginContainer" parent="VXEditor/EditorUI/VBoxContainer"]
+[node name="Spacer" type="MarginContainer" parent="VXEditor/EditorUI/VBoxContainer" unique_id=524896859]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VXEditor/EditorUI/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VXEditor/EditorUI/VBoxContainer" unique_id=1948008721]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer"]
+[node name="Panel" type="Panel" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer" unique_id=2114436222]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7kvkb")
 
-[node name="VXGraphInfo" type="MarginContainer" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer"]
+[node name="VXGraphInfo" type="MarginContainer" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer" unique_id=124363831]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo" unique_id=327779511]
 layout_mode = 2
 size_flags_vertical = 4
 theme = SubResource("Theme_tyyt6")
 
-[node name="NodesInfo" type="RichTextLabel" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer"]
-clip_contents = false
+[node name="NodesInfo" type="RichTextLabel" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer" unique_id=1176820020]
 custom_minimum_size = Vector2(150, 0)
+clip_contents = false
 layout_mode = 2
 text = "Nodes: 0"
 fit_content = true
 
-[node name="ConnectionsInfo" type="RichTextLabel" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer"]
-clip_contents = false
+[node name="ConnectionsInfo" type="RichTextLabel" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer" unique_id=1828135392]
 custom_minimum_size = Vector2(150, 0)
+clip_contents = false
 layout_mode = 2
 text = "Connections: 0"
 fit_content = true
 
-[node name="SelectedInfo" type="RichTextLabel" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer"]
-clip_contents = false
+[node name="SelectedInfo" type="RichTextLabel" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer" unique_id=1513760073]
 custom_minimum_size = Vector2(150, 0)
+clip_contents = false
 layout_mode = 2
 text = "Selected: 0"
 fit_content = true
 
-[node name="FeedBackNotes" type="RichTextLabel" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer"]
+[node name="FeedBackNotes" type="RichTextLabel" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer" unique_id=1244075875]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Dialogues" type="MarginContainer" parent="VXEditor"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer" unique_id=438658621]
+layout_mode = 2
+
+[node name="SnapCheckBox" type="CheckBox" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer/HBoxContainer" unique_id=998321286]
+layout_mode = 2
+text = "Snap"
+
+[node name="Dialogues" type="MarginContainer" parent="VXEditor" unique_id=685815018]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -158,57 +162,57 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="BlockerPanel" type="Panel" parent="VXEditor/Dialogues"]
+[node name="BlockerPanel" type="Panel" parent="VXEditor/Dialogues" unique_id=97837098]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SettingsDialogue" parent="VXEditor/Dialogues" node_paths=PackedStringArray("vx_editor") instance=ExtResource("5_32rsg")]
+[node name="SettingsDialogue" parent="VXEditor/Dialogues" unique_id=195939414 node_paths=PackedStringArray("vx_editor") instance=ExtResource("5_32rsg")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 vx_editor = NodePath("../..")
 
-[node name="DeleteGraphDialogue" parent="VXEditor/Dialogues" node_paths=PackedStringArray("vx_editor") instance=ExtResource("6_xma0l")]
+[node name="DeleteGraphDialogue" parent="VXEditor/Dialogues" unique_id=1830001552 node_paths=PackedStringArray("vx_editor") instance=ExtResource("6_xma0l")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 vx_editor = NodePath("../..")
 
-[node name="NewGraphDialogue" parent="VXEditor/Dialogues" instance=ExtResource("7_4fwow")]
+[node name="NewGraphDialogue" parent="VXEditor/Dialogues" unique_id=1697070770 instance=ExtResource("7_4fwow")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="LoadGraphsDialogue" parent="VXEditor/Dialogues" node_paths=PackedStringArray("vx_editor") instance=ExtResource("8_3crsv")]
+[node name="LoadGraphsDialogue" parent="VXEditor/Dialogues" unique_id=281763522 node_paths=PackedStringArray("vx_editor") instance=ExtResource("8_3crsv")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 vx_editor = NodePath("../..")
 
-[node name="NodeControlDialogue" parent="VXEditor/Dialogues" node_paths=PackedStringArray("vx_editor") instance=ExtResource("9_uamg3")]
+[node name="NodeControlDialogue" parent="VXEditor/Dialogues" unique_id=45363931 node_paths=PackedStringArray("vx_editor") instance=ExtResource("9_uamg3")]
 visible = false
 layout_mode = 2
 vx_editor = NodePath("../..")
 
-[node name="MetaControlDialogue" parent="VXEditor/Dialogues" node_paths=PackedStringArray("vx_graph") instance=ExtResource("10_tyroj")]
+[node name="MetaControlDialogue" parent="VXEditor/Dialogues" unique_id=1037997397 node_paths=PackedStringArray("vx_graph") instance=ExtResource("10_tyroj")]
 visible = false
 layout_mode = 2
 vx_graph = NodePath("../../..")
 
-[node name="VXCanvas" parent="." instance=ExtResource("2_jc8ca")]
-layout_mode = 1
-mouse_filter = 0
+[node name="VXCanvas" parent="." unique_id=1426450468 instance=ExtResource("2_jc8ca")]
+position = Vector2(-16, -16)
 
-[node name="VXCamera2D" parent="." instance=ExtResource("2_vbhxy")]
+[node name="PointLight2D" type="PointLight2D" parent="VXCanvas" unique_id=633583577]
+texture = SubResource("NoiseTexture2D_sm5ja")
+
+[node name="VXCamera2D" parent="." unique_id=180019818 instance=ExtResource("2_vbhxy")]
 script = ExtResource("3_gnil0")
 
-[node name="VXCursor" parent="." instance=ExtResource("6_h1ilm")]
+[node name="VXCursor" parent="." unique_id=2134486155 instance=ExtResource("6_h1ilm")]
 layout_mode = 1
-
-[connection signal="ready" from="." to="VXCanvas" method="_on_vx_graph_ready"]

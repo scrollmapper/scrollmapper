@@ -1,45 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo4ahtqmwhvd5"]
+[gd_scene format=3 uid="uid://bo4ahtqmwhvd5"]
 
-[ext_resource type="Script" path="res://scenes/modules/vx/vx_node.gd" id="1_0d16a"]
+[ext_resource type="Script" uid="uid://y0nqmwo2ep1w" path="res://scenes/modules/vx/vx_node.gd" id="1_0d16a"]
 [ext_resource type="Texture2D" uid="uid://ctfuodikeog1o" path="res://theme/backgrounds/selected_red.png" id="3_7lnj1"]
 [ext_resource type="Texture2D" uid="uid://lxcqp3e4clo5" path="res://theme/backgrounds/selected_blue.png" id="4_r3tjm"]
 
-[node name="VXNode" type="MarginContainer" node_paths=PackedStringArray("verse_container", "preview_text", "primary_selection_icon", "secondary_selection_icon", "sockets_mount_top", "sockets_mount_bottom", "sockets_mount_left", "sockets_mount_right") groups=["nodes"]]
-custom_minimum_size = Vector2(150, 100)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm5ja"]
+size = Vector2(288.5, 274)
+
+[node name="Node2D" type="Node2D" unique_id=709888359 node_paths=PackedStringArray("node_container", "verse_panel", "verse_container", "preview_text", "primary_selection_icon", "secondary_selection_icon", "area_2d", "collision_shape_2d", "sockets_mount_top", "sockets_mount_bottom", "sockets_mount_left", "sockets_mount_right") groups=["nodes"]]
+script = ExtResource("1_0d16a")
+node_container = NodePath("NodeContainer")
+verse_panel = NodePath("NodeContainer/VersePanel")
+verse_container = NodePath("NodeContainer/VerseContainer")
+preview_text = NodePath("NodeContainer/VerseContainer/PreviewText")
+primary_selection_icon = NodePath("NodeContainer/Icons/PrimarySelect")
+secondary_selection_icon = NodePath("NodeContainer/Icons/SecondarySelect")
+area_2d = NodePath("Area2D")
+collision_shape_2d = NodePath("Area2D/CollisionShape2D")
+sockets_mount_top = NodePath("NodeContainer/SocketMount2/SocketsMountTop")
+sockets_mount_bottom = NodePath("NodeContainer/SocketMount2/SocketsMountBottom")
+sockets_mount_left = NodePath("NodeContainer/SocketMount2/SocketsMountLeft")
+sockets_mount_right = NodePath("NodeContainer/SocketMount2/SocketsMountRight")
+
+[node name="NodeContainer" type="MarginContainer" parent="." unique_id=1089172001]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_0d16a")
-verse_container = NodePath("VerseContainer")
-preview_text = NodePath("VerseContainer/PreviewText")
-primary_selection_icon = NodePath("Icons/PrimarySelect")
-secondary_selection_icon = NodePath("Icons/SecondarySelect")
-sockets_mount_top = NodePath("SocketMount/SocketsMountTop")
-sockets_mount_bottom = NodePath("SocketMount/SocketsMountBottom")
-sockets_mount_left = NodePath("SocketMount/SocketsMountLeft")
-sockets_mount_right = NodePath("SocketMount/SocketsMountRight")
+mouse_filter = 2
 
-[node name="VersePanel" type="MarginContainer" parent="."]
+[node name="VersePanel" type="MarginContainer" parent="NodeContainer" unique_id=184417714]
 layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ColorRect" type="ColorRect" parent="NodeContainer/VersePanel" unique_id=230241428]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.85098, 0.772549, 0.627451, 1)
+
+[node name="VerseContainer" type="MarginContainer" parent="NodeContainer" unique_id=77868896]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="ColorRect" type="ColorRect" parent="VersePanel"]
-layout_mode = 2
-mouse_filter = 2
-color = Color(0.85098, 0.772549, 0.627451, 1)
-
-[node name="VerseContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(300, 150)
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 45
-theme_override_constants/margin_top = 45
-theme_override_constants/margin_right = 45
-theme_override_constants/margin_bottom = 45
-
-[node name="PreviewText" type="RichTextLabel" parent="VerseContainer"]
+[node name="PreviewText" type="RichTextLabel" parent="NodeContainer/VerseContainer" unique_id=373705824]
 layout_mode = 2
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.14902, 0.109804, 0.0784314, 1)
@@ -47,76 +57,44 @@ bbcode_enabled = true
 text = "[b]John 1:1:[/b]  In the beginning was the Word, and the Word was with God, and the Word was God. The same was in the beginning with God. All things were made by him; and without him was not any thing made that was made."
 fit_content = true
 
-[node name="SocketMount" type="Control" parent="."]
+[node name="SocketMount2" type="Node2D" parent="NodeContainer" unique_id=1512612298]
+
+[node name="SocketsMountTop" type="Node2D" parent="NodeContainer/SocketMount2" unique_id=61824059]
+position = Vector2(0, -5)
+
+[node name="SocketsMountBottom" type="Node2D" parent="NodeContainer/SocketMount2" unique_id=829040663]
+position = Vector2(0, 292)
+
+[node name="SocketsMountLeft" type="Node2D" parent="NodeContainer/SocketMount2" unique_id=1580853485]
+position = Vector2(-5, 0)
+
+[node name="SocketsMountRight" type="Node2D" parent="NodeContainer/SocketMount2" unique_id=858835015]
+position = Vector2(295, 0)
+
+[node name="Icons" type="Control" parent="NodeContainer" unique_id=391529274]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="SocketsMountTop" type="HBoxContainer" parent="SocketMount"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = -5.0
-offset_bottom = 5.0
-grow_horizontal = 2
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="SocketsMountBottom" type="HBoxContainer" parent="SocketMount"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -5.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="SocketsMountLeft" type="VBoxContainer" parent="SocketMount"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = -5.0
-offset_right = 5.0
-grow_vertical = 2
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="SocketsMountRight" type="VBoxContainer" parent="SocketMount"]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -5.0
-offset_right = 5.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="Icons" type="Control" parent="."]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="SecondarySelect" type="TextureRect" parent="Icons"]
+[node name="SecondarySelect" type="TextureRect" parent="NodeContainer/Icons" unique_id=658822870]
 layout_mode = 0
 offset_left = -31.0
 offset_top = 5.0
 offset_right = 9.0
 offset_bottom = 45.0
+mouse_filter = 2
 texture = ExtResource("4_r3tjm")
 
-[node name="PrimarySelect" type="TextureRect" parent="Icons"]
+[node name="PrimarySelect" type="TextureRect" parent="NodeContainer/Icons" unique_id=1674991944]
 layout_mode = 0
 offset_left = -31.0
 offset_top = 4.0
 offset_right = 9.0
 offset_bottom = 44.0
+mouse_filter = 2
 texture = ExtResource("3_7lnj1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1746361356]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1167082078]
+position = Vector2(150.75, 148)
+shape = SubResource("RectangleShape2D_sm5ja")

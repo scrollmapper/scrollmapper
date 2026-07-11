@@ -33,6 +33,7 @@ var selected_nodes:Array[VXNode] = []
 @export var connections_info: RichTextLabel 
 @export var selection_info: RichTextLabel 
 @export var feed_back_notes: RichTextLabel
+@export var snap_check_box:CheckBox
 #endregion 
 
 ## An important dictionary for tracking vx_nodes.
@@ -186,6 +187,10 @@ func set_full_graph_from_dictionary(graph_data:Dictionary) -> void:
 	recalculate_connection_lines()
 	graph_changed.emit()
 
+## Determines whether or not the user has snapping enabled or not. 
+static func is_snap_enabled() -> bool:
+	return VXGraph.instance.snap_check_box.button_pressed
+
 ## Locks the graph if the search results are shown.
 static func lock_graph(lock:bool) -> void:
 	is_graph_locked = lock
@@ -314,10 +319,13 @@ func clear_selection_set() ->void:
 func move_node_set(pos:Vector2) -> void:
 	var drag_start_position_global:Vector2 = vx_editor.starting_drag_position_global
 	var current_mouse_position:Vector2 = camera_2d.get_global_mouse_position()
+	var parent_transform: Transform2D = vx_canvas.get_global_transform()
+	var drag_start_position_local: Vector2 = parent_transform.affine_inverse() * drag_start_position_global
+	var current_mouse_position_local: Vector2 = parent_transform.affine_inverse() * current_mouse_position
 	for node:VXNode in selected_nodes:
 		if node.id == selected_node.id:
 			continue
-		var mouse_offset:Vector2 = current_mouse_position - drag_start_position_global
+		var mouse_offset:Vector2 = current_mouse_position_local - drag_start_position_local
 		var final_position:Vector2 = node.last_set_global_position + mouse_offset
 		node.move_node(final_position)
 

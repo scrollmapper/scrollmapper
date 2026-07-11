@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Node2D
 class_name VXNode
 
 # Main Attributes
@@ -18,6 +18,8 @@ class_name VXNode
 
 # UI Elements
 @export_group("UI Elements")
+@export var node_container:MarginContainer
+@export var verse_panel: MarginContainer
 @export var verse_container: MarginContainer
 @export var preview_text: RichTextLabel
 
@@ -25,12 +27,16 @@ class_name VXNode
 @export var primary_selection_icon:Control
 @export var secondary_selection_icon:Control
 
+@export_group("Interaction / Movement")
+@export var area_2d:Area2D
+@export var collision_shape_2d: CollisionShape2D 
+
 # Socket Management
 @export_group("Socket Management")
-@export var sockets_mount_top: HBoxContainer
-@export var sockets_mount_bottom: HBoxContainer 
-@export var sockets_mount_left: VBoxContainer
-@export var sockets_mount_right: VBoxContainer 
+@export var sockets_mount_top: Node2D
+@export var sockets_mount_bottom: Node2D 
+@export var sockets_mount_left: Node2D
+@export var sockets_mount_right: Node2D 
 
 @export var sockets_top: Array[VXSocket] = []
 @export var sockets_bottom: Array[VXSocket] = []
@@ -40,7 +46,7 @@ class_name VXNode
 # Socket Dimensions
 @export_group("Socket Dimensions")
 @export var socket_dimensions: Vector2 = Vector2(40, 40)
-@export var socket_padding: int = 40
+@export var socket_padding: int = 0
 
 # Signals
 signal new_connection_created(start_socket: VXSocket, end_socket: VXSocket)
@@ -106,8 +112,9 @@ func _ready():
 	update_sockets()
 	new_connection_created.connect(update_sockets)
 	connection_deleted.connect(update_sockets)
-	mouse_entered.connect(_on_mouse_entered)
-	mouse_exited.connect(_on_mouse_exited)
+	sockets_updated.connect(set_collision_bounds)
+	area_2d.mouse_entered.connect(_on_mouse_entered)
+	area_2d.mouse_exited.connect(_on_mouse_exited)
 	UserInput.clicked.connect(select_node)
 	UserInput.ctrl_double_clicked.connect(arrange_connected_nodes)
 	UserInput.double_clicked.connect(open_node_options)
@@ -126,12 +133,32 @@ func initiate(id: int, book: String, chapter: int, verse: int, text: String, tra
 	self.verse = verse
 	self.text = text
 	self.translation = translation
+	self.name = get_verse_string()
 	set_preview_text()
 	# Now add the node to the VXGraph vx_nodes dictionary...
 	VXGraph.get_instance().add_vx_node(self)
 	last_set_global_position = global_position
 	set_selected_state()
 	set_selected_plus_state()
+	set_collision_bounds()
+	
+
+func set_collision_bounds() -> void:	
+	await get_tree().process_frame
+
+	var shape: RectangleShape2D = collision_shape_2d.shape
+	if shape == null:
+		shape = RectangleShape2D.new()
+	elif not shape.resource_local_to_scene:
+		shape = shape.duplicate()
+	collision_shape_2d.shape = shape
+
+	var bounds_size: Vector2 = Vector2(verse_panel.size.x,verse_panel.size.y)
+
+	shape.size = bounds_size
+	
+	collision_shape_2d.position = Vector2(bounds_size.x / 2, bounds_size.y / 2)
+
 
 ## Function to get the node as a dictionary.
 ## Used in saving the node to the database.
@@ -240,7 +267,7 @@ func get_node_id()->int:
 
 ## Returns the size of the node as a Vector2.
 func get_node_size() -> Vector2:
-	return size
+	return node_container.size
 
 ## Delete the node. 
 func delete_node():
@@ -295,23 +322,29 @@ func select_node_multiple(pos:Vector2):
 func drag_node(pos: Vector2):
 	if not can_edit():
 		return
-		
-	dragging_already_in_progress = true
+	
+	var parent_transform: Transform2D = get_parent().get_global_transform()
+	var mouse_in_parent_space: Vector2 = parent_transform.affine_inverse() * get_global_mouse_position()
+	if not dragging_already_in_progress:
+		placement_offset = mouse_in_parent_space - position
+		dragging_already_in_progress = true
 
-	var new_position: Vector2 = get_global_mouse_position() - size / 2 + placement_offset 
-	#new_position = snapped(new_position, Vector2(100, 100))
+	var new_position: Vector2 = mouse_in_parent_space - placement_offset
+	if VXGraph.is_snap_enabled():
+		new_position = snapped(new_position, Vector2(64, 64))
 	node_moved.emit(new_position)
 	node_dragged.emit(pos)
 
 # Moves the node. Distinct from drag node in that it positions the node anywhere. 
 func move_node(pos: Vector2):
+	placement_offset = Vector2.ZERO
 	position = pos
 	show_node()
-	node_moved.emit(pos + placement_offset)
+	node_moved.emit(pos)
 
 ## Deprecated. Use move_node instead.
 func move_to_preview_node(pos: Vector2):
-	position = pos + placement_offset
+	position = pos
 
 ## Emits the node moved signal.
 ## This is sometimes used to initiate functions such as connection recalculation. 
@@ -481,7 +514,7 @@ func create_socket(socket_type: Types.SocketType, direction_type: Types.SocketDi
 ## The socket type and direction type determine the side of the node where the socket will be placed.
 func set_socket(socket_type: Types.SocketType, direction_type: Types.SocketDirectionType) -> void:
 	var socket: VXSocket = create_socket(socket_type, direction_type)
-	socket.position = position
+	socket.position = Vector2.ZERO
 	if socket_type == Types.SocketType.INPUT and direction_type == Types.SocketDirectionType.LINEAR:
 		sockets_top.append(socket)
 	elif socket_type == Types.SocketType.INPUT and direction_type == Types.SocketDirectionType.PARALLEL:
@@ -523,32 +556,151 @@ func get_left_sockets_amount() -> int:
 func get_right_sockets_amount() -> int:
 	return sockets_right.size()
 
-## Recalculates the positions of the sockets and the dimensions of the node.
-func recalculate_socket_positions_and_node_dimensions():
-	var sockets_top_count: int = sockets_top.size()
-	var sockets_bottom_count: int = sockets_bottom.size()
-	var sockets_left_count: int = sockets_left.size()
-	var sockets_right_count: int = sockets_right.size()
+## Recalculates the positions of the socket mounts, the sockets, and the dimensions of the node.
+func recalculate_socket_positions_and_node_dimensions() -> void:
+	await get_tree().process_frame
 
-	var top_socket_array_length: float = sockets_top_count * (socket_dimensions.x * 2)
-	var bottom_socket_array_length: float = sockets_bottom_count * (socket_dimensions.x * 2) 
-	var left_socket_array_length: float = sockets_left_count * (socket_dimensions.y * 2)
-	var right_socket_array_length: float = sockets_right_count * (socket_dimensions.y * 2) 
+	# Resize before positioning the mounts.
+	resize_to_sockets()
 
-	var top_socket_array_length_padded: float = top_socket_array_length + (socket_padding * 2)
-	var bottom_socket_array_length_padded: float = bottom_socket_array_length + (socket_padding * 2)
-	var left_socket_array_length_padded: float = left_socket_array_length + (socket_padding * 2)
-	var right_socket_array_length_padded: float = right_socket_array_length + (socket_padding * 2)
+	# Allow the Control system to apply the changed size.
+	await get_tree().process_frame
 
-	var minimum_horizontal_length: float = max(top_socket_array_length_padded, bottom_socket_array_length_padded)
-	var minimum_vertical_length: float = max(left_socket_array_length_padded, right_socket_array_length_padded)
+	var node_size: Vector2 = get_node_size()
 
-	if get_minimum_size().x < minimum_horizontal_length:
-		size.x = minimum_horizontal_length
-	if get_minimum_size().y < minimum_vertical_length:
-		size.y = minimum_vertical_length
+	# Position each socket mount at the center of its corresponding node edge.
+	sockets_mount_top.position = Vector2(
+		node_size.x / 2.0,
+		0.0
+	)
+	sockets_mount_bottom.position = Vector2(
+		node_size.x / 2.0,
+		node_size.y
+	)
+	sockets_mount_left.position = Vector2(
+		0.0,
+		node_size.y / 2.0
+	)
+	sockets_mount_right.position = Vector2(
+		node_size.x,
+		node_size.y / 2.0
+	)
+
+	distribute_sockets_horizontally(sockets_top)
+	distribute_sockets_horizontally(sockets_bottom)
+	distribute_sockets_vertically(sockets_left)
+	distribute_sockets_vertically(sockets_right)
 
 	sockets_updated.emit()
+
+
+## Resizes node when the sockets start to run over.
+func resize_to_sockets() -> void:
+	var top_length: float = get_sockets_in_line_length(
+		sockets_mount_top
+	)
+	var bottom_length: float = get_sockets_in_line_length(
+		sockets_mount_bottom
+	)
+	var left_length: float = get_sockets_in_line_length(
+		sockets_mount_left
+	)
+	var right_length: float = get_sockets_in_line_length(
+		sockets_mount_right
+	)
+
+	var required_width: float = maxf(
+		node_container.size.x,
+		maxf(top_length, bottom_length)
+	)
+	var required_height: float = maxf(
+		node_container.size.y,
+		maxf(left_length, right_length)
+	)
+
+	node_container.custom_minimum_size = Vector2(
+		required_width,
+		required_height
+	)
+
+
+## Gets the length of the sockets in line.
+func get_sockets_in_line_length(
+	sockets_parent: Node2D
+) -> float:
+	var child_count: int = sockets_parent.get_child_count()
+
+	if child_count == 0:
+		return 0.0
+
+	var sockets_length: float = (
+		child_count * socket_dimensions.x
+	)
+	var padding_count: float = (
+		maxi(child_count - 1, 0) * socket_padding
+	)
+
+	return sockets_length + padding_count
+
+
+## Distributes sockets horizontally and centers their origins around their socket mount.
+func distribute_sockets_horizontally(
+	sockets: Array[VXSocket]
+) -> void:
+	var valid_sockets: Array[VXSocket] = get_valid_sockets(sockets)
+
+	if valid_sockets.is_empty():
+		return
+
+	var spacing: float = socket_dimensions.x + socket_padding
+
+	# This is the distance from the first socket's center to the last
+	# socket's center—not the full visual width of the socket row.
+	var center_span: float = (
+		spacing * float(valid_sockets.size() - 1)
+	)
+	var starting_x: float = -center_span / 2.0
+
+	for index: int in range(valid_sockets.size()):
+		valid_sockets[index].position = Vector2(
+			starting_x + spacing * float(index),
+			0.0
+		)
+
+
+## Distributes sockets vertically and centers their origins around their socket mount.
+func distribute_sockets_vertically(
+	sockets: Array[VXSocket]
+) -> void:
+	var valid_sockets: Array[VXSocket] = get_valid_sockets(sockets)
+
+	if valid_sockets.is_empty():
+		return
+
+	var spacing: float = socket_dimensions.y + socket_padding
+
+	# This is the distance from the first socket's center to the last
+	# socket's center—not the full visual height of the socket column.
+	var center_span: float = (
+		spacing * float(valid_sockets.size() - 1)
+	)
+	var starting_y: float = -center_span / 2.0
+
+	for index: int in range(valid_sockets.size()):
+		valid_sockets[index].position = Vector2(
+			0.0,
+			starting_y + spacing * float(index)
+		)
+
+## Returns only valid socket instances.
+func get_valid_sockets(sockets: Array[VXSocket]) -> Array[VXSocket]:
+	var valid_sockets: Array[VXSocket] = []
+
+	for socket: VXSocket in sockets:
+		if is_instance_valid(socket):
+			valid_sockets.append(socket)
+
+	return valid_sockets
 
 ## Determines of the node can be edited. 
 func can_edit() -> bool:
@@ -566,6 +718,7 @@ func can_edit() -> bool:
 ## UserInput.mouse_drag_ended.connect(_mouse_drag_ended_any_node)
 func _mouse_drag_ended_any_node(pos:Vector2):
 	dragging_already_in_progress = false
+	placement_offset = Vector2.ZERO
 
 ## On mouse entered, sets some edit-related values.
 func _on_mouse_entered() -> void:

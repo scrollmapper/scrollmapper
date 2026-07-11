@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bmg34cgf1y4wo"]
+[gd_scene format=3 uid="uid://bmg34cgf1y4wo"]
 
 [ext_resource type="PackedScene" uid="uid://b47hcwlb6la61" path="res://scenes/modules/search/search.tscn" id="1_6rdk2"]
-[ext_resource type="Script" path="res://scenes/modules/vx/vx_search_and_execute.gd" id="1_8olel"]
+[ext_resource type="Script" uid="uid://48oip0s5udca" path="res://scenes/modules/vx/vx_search_and_execute.gd" id="1_8olel"]
 [ext_resource type="Texture2D" uid="uid://cp7wi7w1bgpew" path="res://images/icons/editor/Save.svg" id="3_li55u"]
 [ext_resource type="Texture2D" uid="uid://7junss6685ni" path="res://images/icons/editor/FileBrowse.svg" id="3_nllwr"]
 [ext_resource type="Texture2D" uid="uid://2pao3tccym3q" path="res://images/icons/editor/FileTree.svg" id="4_7bkm2"]
@@ -15,10 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b5i2nrntib2ua" path="res://images/icons/json.svg" id="12_nwu17"]
 [ext_resource type="Texture2D" uid="uid://b66frwatqu7i8" path="res://images/icons/editor/NodeInfo.svg" id="14_b7et8"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8o4w"]
-bg_color = Color(0.34902, 0.290196, 0.211765, 1)
-
-[node name="VXSearchAndExecute" type="MarginContainer" node_paths=PackedStringArray("menu_button_graph", "menu_button_import", "menu_button_export", "edit_meta_button")]
+[node name="VXSearchAndExecute" type="MarginContainer" unique_id=849079776 node_paths=PackedStringArray("menu_button_graph", "menu_button_import", "menu_button_export", "edit_meta_button")]
 custom_minimum_size = Vector2(0, 100)
 anchors_preset = 10
 anchor_right = 1.0
@@ -30,19 +27,18 @@ menu_button_import = NodePath("HBoxContainer/Ops/VBoxContainer/MarginContainer/V
 menu_button_export = NodePath("HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer/MenusHBoxContainer/MenuButtonExport")
 edit_meta_button = NodePath("HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer/ButtonsHBoxContainer/EditMetaButton")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=817022052]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_t8o4w")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Search" parent="HBoxContainer" instance=ExtResource("1_6rdk2")]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=300233372]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Ops" type="MarginContainer" parent="HBoxContainer"]
+[node name="Search" parent="HBoxContainer" unique_id=1643275859 instance=ExtResource("1_6rdk2")]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Ops" type="MarginContainer" parent="HBoxContainer" unique_id=807150364]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -51,33 +47,34 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Ops"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Ops" unique_id=514095967]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Ops/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/Ops/VBoxContainer" unique_id=1268009711]
 layout_mode = 2
 text = "Operations"
 fit_content = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Ops/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Ops/VBoxContainer" unique_id=995134204]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Ops/VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Ops/VBoxContainer/MarginContainer" unique_id=433536258]
 layout_mode = 2
 
-[node name="MenusHBoxContainer" type="HBoxContainer" parent="HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="MenusHBoxContainer" type="HBoxContainer" parent="HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1279896230]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="MenuButtonGraph" type="MenuButton" parent="HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer/MenusHBoxContainer"]
+[node name="MenuButtonGraph" type="MenuButton" parent="HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer/MenusHBoxContainer" unique_id=224061010]
 layout_mode = 2
 text = "Graph"
 icon = ExtResource("3_nllwr")
 item_count = 6
 popup/item_0/text = "Settings"
 popup/item_0/icon = ExtResource("4_7bkm2")
+popup/item_0/id = 0
 popup/item_1/text = "Save"
 popup/item_1/icon = ExtResource("3_li55u")
 popup/item_1/id = 1
@@ -94,24 +91,26 @@ popup/item_5/text = "Exit"
 popup/item_5/icon = ExtResource("8_gggap")
 popup/item_5/id = 5
 
-[node name="MenuButtonImport" type="MenuButton" parent="HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer/MenusHBoxContainer"]
+[node name="MenuButtonImport" type="MenuButton" parent="HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer/MenusHBoxContainer" unique_id=1527985718]
 layout_mode = 2
 text = "Import"
 icon = ExtResource("6_75kp4")
 item_count = 2
 popup/item_0/text = "Import from JSON"
 popup/item_0/icon = ExtResource("12_nwu17")
+popup/item_0/id = 0
 popup/item_1/text = "Import  User-created Cross References from CSV"
 popup/item_1/icon = ExtResource("11_05qnt")
 popup/item_1/id = 1
 
-[node name="MenuButtonExport" type="MenuButton" parent="HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer/MenusHBoxContainer"]
+[node name="MenuButtonExport" type="MenuButton" parent="HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer/MenusHBoxContainer" unique_id=157974672]
 layout_mode = 2
 text = "Export"
 icon = ExtResource("6_75kp4")
 item_count = 5
 popup/item_0/text = "Export to Cross References (Save to Database)"
 popup/item_0/icon = ExtResource("9_lfpp7")
+popup/item_0/id = 0
 popup/item_1/text = "Export Graph to Gephi"
 popup/item_1/icon = ExtResource("10_1k00h")
 popup/item_1/id = 1
@@ -125,10 +124,10 @@ popup/item_4/text = "Export User-created Cross References to CSV"
 popup/item_4/icon = ExtResource("11_05qnt")
 popup/item_4/id = 4
 
-[node name="ButtonsHBoxContainer" type="HBoxContainer" parent="HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="ButtonsHBoxContainer" type="HBoxContainer" parent="HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer" unique_id=534317584]
 layout_mode = 2
 
-[node name="EditMetaButton" type="Button" parent="HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer/ButtonsHBoxContainer"]
+[node name="EditMetaButton" type="Button" parent="HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer/ButtonsHBoxContainer" unique_id=1276071952]
 layout_mode = 2
 text = "Edit Meta"
 icon = ExtResource("14_b7et8")

@@ -1,7 +1,13 @@
-extends Control
+extends Node2D
 class_name VXSocket
 
 # Variables
+
+@export var size:Vector2 = Vector2(20,20)
+@onready var area_2d: Area2D = $Area2D
+@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
+@export var center: Node2D 
+
 ## The type of the socket, input or output. vx_socket
 var socket_type: Types.SocketType
 ## The direction of the socket, parallel or linear. vx_socket
@@ -33,8 +39,8 @@ signal socket_edit_ended
 func _ready():
 	UserInput.mouse_drag_started.connect(_on_editing_started)
 	UserInput.mouse_drag_ended.connect(_on_editing_ended)
-	mouse_entered.connect(_on_mouse_entered)
-	mouse_exited.connect(_on_mouse_exited)
+	area_2d.mouse_entered.connect(_on_mouse_entered)
+	area_2d.mouse_exited.connect(_on_mouse_exited)
 	new_connection_created.connect(notify_node_of_new_connection)
 
 func _input_event(_viewport, event, _shape_idx):
@@ -115,10 +121,12 @@ func delete():
 func _on_mouse_entered() -> void:
 	VXGraph.current_focused_socket = self
 	is_mouse_over_socket = true
+	print(is_mouse_over_socket)
 
 func _on_mouse_exited() -> void:
 	VXGraph.current_focused_socket = null
 	is_mouse_over_socket = false
+	print(is_mouse_over_socket)
 
 # Editing Status
 func set_currently_editing(editing: bool):
@@ -144,7 +152,7 @@ func create_new_connection() -> VXConnection:
 	return connection
 
 func get_connection_point() -> Vector2:
-	return global_position + Vector2(size.x / 2, size.y / 2)
+	return center.global_position
 
 # Signal Handlers
 func _on_node_moved(pos: Vector2) -> void:

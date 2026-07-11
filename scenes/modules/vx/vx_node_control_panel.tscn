@@ -1,9 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dasyxotsjqpyw"]
+[gd_scene format=3 uid="uid://dasyxotsjqpyw"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6oc6"]
-bg_color = Color(0.15, 0.15, 0.15, 1)
-
-[node name="VXNodeControlPanel" type="MarginContainer"]
+[node name="VXNodeControlPanel" type="MarginContainer" unique_id=1773142965]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,9 +11,8 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1621886833]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h6oc6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=369955767]
 layout_mode = 2

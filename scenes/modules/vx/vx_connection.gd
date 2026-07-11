@@ -272,10 +272,10 @@ func get_target_socket() -> VXSocket:
 		return VXGraph.current_focused_socket
 	return null
 
-## Establish initial connection points
-func establish_starting_connection_points():
-	add_point(get_starting_socket().get_connection_point())
-	add_point(get_global_mouse_position())
+## Establish initial connection points.
+func establish_starting_connection_points() -> void:
+	add_point(get_socket_point(get_starting_socket()))
+	add_point(get_connection_mouse_position())
 
 ## Finalize connection points
 func finalize_connection_points():
@@ -301,14 +301,30 @@ func update_connection_points_mouse_drag():
 	create_node_curve_by_mouse()
 
 ## Creates the start and end points based on the finalized connection
-func set_start_and_end_points_connected():
-	set_point_position(get_start_point_index(), get_starting_socket().get_connection_point())
-	set_point_position(get_end_point_index(), get_ending_socket().get_connection_point())
+func set_start_and_end_points_connected() -> void:
+	set_point_position(
+		get_start_point_index(),
+		get_socket_point(get_starting_socket())
+	)
 
-## Creates the start and end points based on the mouse (starting connection and mouse position)
-func set_start_and_end_points_mouse_drag():
-	set_point_position(get_start_point_index(), get_start_point())
-	set_point_position(get_end_point_index(), get_global_mouse_position())
+	set_point_position(
+		get_end_point_index(),
+		get_socket_point(get_ending_socket())
+	)
+	
+
+## Creates the start and end points based on the mouse.
+## The starting point remains attached to the starting socket.
+func set_start_and_end_points_mouse_drag() -> void:
+	set_point_position(
+		get_start_point_index(),
+		get_socket_point(get_starting_socket())
+	)
+
+	set_point_position(
+		get_end_point_index(),
+		get_connection_mouse_position()
+	)
 
 func start_and_end_point_exists() -> bool:
 	return points.size() >= 2
@@ -371,6 +387,15 @@ func get_end_control_point() -> Vector2:
 
 	return control_point
 
+## Converts a socket's global connection point into this Line2D's local space.
+func get_socket_point(socket: VXSocket) -> Vector2:
+	return to_local(socket.get_connection_point())
+
+
+## Gets the mouse position in this Line2D's local space.
+func get_connection_mouse_position() -> Vector2:
+	return get_local_mouse_position()
+
 ## Cubic Bezier curve calculation
 func cubic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, p3: Vector2, t: float):
 	var q0 = p0.lerp(p1, t)
@@ -394,21 +419,33 @@ func create_node_curve_by_connection():
 	create_node_curve()
 
 ## Create node curve
-func create_node_curve():
-	var start_point = get_start_point()
-	var end_point = get_end_point()
+func create_node_curve() -> void:
+	var start_point := get_start_point()
+	var end_point := get_end_point()
 
-	var start_control = get_start_control_point()
+	var start_control := get_start_control_point()
+
 	# The default state of the end point is the mouse position.
-	var end_control = get_global_mouse_position()
-	# If we are not editing, and the end control point exists, then it is a finalized connection.
-	if !is_connection_being_edited and get_end_control_point() != null:
+	var end_control := get_connection_mouse_position()
+
+	# If we are not editing, and the end control point exists, then it is
+	# a finalized connection.
+	if not is_connection_being_edited:
 		end_control = get_end_control_point()
+
 	clear_points()
+
 	for i in range(points_per_meter + 1):
-		var t = float(i) / float(points_per_meter)
-		var curve_point = cubic_bezier(start_point, start_control, end_control, end_point, t)
+		var t := float(i) / float(points_per_meter)
+		var curve_point = cubic_bezier(
+			start_point,
+			start_control,
+			end_control,
+			end_point,
+			t
+		)
 		add_point(curve_point)
+
 	if is_parallel:
 		default_color = color_parallel
 	else:
