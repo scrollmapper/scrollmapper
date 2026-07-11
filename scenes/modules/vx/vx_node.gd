@@ -122,7 +122,7 @@ func _ready():
 	UserInput.shift_clicked.connect(select_node_multiple)
 	UserInput.right_clicked.connect(delete_node)
 	UserInput.mouse_dragged.connect(drag_node)
-	UserInput.mouse_drag_ended.connect(_mouse_drag_ended_any_node)
+	UserInput.input_cancelled.connect(_on_input_cancelled)
 
 ## Initialization 
 func initiate(id: int, book: String, chapter: int, verse: int, text: String, translation: String):
@@ -711,17 +711,23 @@ func can_edit() -> bool:
 		return true
 	return is_mouse_over_node && !dragging_already_in_progress 
 
-func _on_mouse_button_released(	button_index: MouseButton,	_position: Vector2) -> void:
+func _on_mouse_button_released(
+	button_index: MouseButton,
+	_position: Vector2
+) -> void:
 	if button_index != MOUSE_BUTTON_LEFT:
 		return
 	unselect_node_set()
 	log_last_set_global_position()
+	_reset_drag_state()
 
-## This function is called from the _mouse_drag_ended in UserInput
-## so that if we stop dragging over some other node, that node will
-## not ignore a new drag operation. Connected from 	
-## UserInput.mouse_drag_ended.connect(_mouse_drag_ended_any_node)
-func _mouse_drag_ended_any_node(pos:Vector2):
+func _on_input_cancelled() -> void:
+	_reset_drag_state()
+
+
+## Clears this node's local dragging state after either a normal release
+## or forced input cancellation.
+func _reset_drag_state() -> void:
 	dragging_already_in_progress = false
 	placement_offset = Vector2.ZERO
 
