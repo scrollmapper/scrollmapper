@@ -1,0 +1,121 @@
+extends Node
+
+const HELD_DELAY:float = 0.25
+
+#region Keyboard
+
+signal key_pressed(key:String)
+signal key_released(key:String)
+signal key_held(key:String)
+
+signal escape_pushed()
+signal space_pushed()
+
+#endregion 
+
+#region Mouse Buttons
+signal mouse_double_clicked()
+signal mouse_button_pressed(idx:int)
+signal mouse_button_released(idx:int)
+signal mouse_button_held(idx:int, held_time:float)
+signal mouse_button_held_started(idx:int)
+signal mouse_button_held_ended(idx:int)
+
+var mouse_left_held:bool = false
+var mouse_right_held:bool = false
+var mouse_left_held_started:bool = false
+var mouse_right_held_started:bool = false
+
+var mouse_left_held_start_time:float = -1
+var mouse_right_held_start_time:float = -1
+#endregion 
+
+#region Mouse Motion  
+
+signal mouse_moved(position:Vector2, relative:Vector2, velocity:Vector2)
+signal mouse_wheel_pulsed(direction:int, ticks_msec:int)
+
+var mouse_position:Vector2 = Vector2.ZERO
+var mouse_relative:Vector2 = Vector2.ZERO
+var mouse_velocity:Vector2 = Vector2.ZERO
+
+#endregion 
+
+func _physics_process(delta: float) -> void:
+	if mouse_left_held and mouse_left_held_start_time != -1:
+		var held_time:float = (Time.get_ticks_msec() - mouse_left_held_start_time) / 1000 
+		if held_time > HELD_DELAY:
+			if !mouse_left_held_started:
+				mouse_left_held_started= true
+				mouse_button_held_started.emit(MOUSE_BUTTON_LEFT)
+			mouse_button_held.emit(MOUSE_BUTTON_LEFT, held_time)
+
+	if mouse_right_held and mouse_right_held_start_time != -1:
+		var held_time:float = (Time.get_ticks_msec() - mouse_right_held_start_time) / 1000 
+		if held_time > HELD_DELAY:
+			if !mouse_right_held_started:
+				mouse_right_held_started= true
+				mouse_button_held_started.emit(MOUSE_BUTTON_RIGHT)
+			mouse_button_held.emit(MOUSE_BUTTON_RIGHT, held_time)
+
+func _input(event: InputEvent) -> void:
+	
+	if event is InputEventKey:
+		if event.is_pressed() and !event.is_echo():
+			key_pressed.emit(event.as_text())
+		if !event.is_pressed() and !event.is_echo():
+			key_released.emit(event.as_text())
+		if event.is_pressed() and event.is_echo():
+			key_held.emit(event.as_text())
+			
+		# Special / convenience events
+		if event.is_pressed():
+			if event.keycode == KEY_ESCAPE:
+				escape_pushed.emit()
+				
+			if event.keycode == KEY_SPACE:
+				space_pushed.emit()
+
+	if event is InputEventMouseButton:
+		if event.double_click:
+			mouse_double_clicked.emit()
+		
+		if event.pressed:
+			mouse_button_pressed.emit(event.button_index)
+			
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				mouse_left_held = true
+				mouse_left_held_start_time = Time.get_ticks_msec()
+
+			if event.button_index == MOUSE_BUTTON_RIGHT:
+				mouse_right_held = true
+				mouse_right_held_start_time = Time.get_ticks_msec()
+					
+		if !event.pressed:
+			mouse_button_released.emit(event.button_index)
+			
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				mouse_left_held = false
+				mouse_left_held_start_time = -1
+				if mouse_left_held_started:
+					mouse_left_held_started = false
+					mouse_button_held_ended.emit(MOUSE_BUTTON_LEFT)
+					
+			if event.button_index == MOUSE_BUTTON_RIGHT:
+				mouse_right_held = false
+				mouse_right_held_start_time = -1
+				if mouse_right_held_started:
+					mouse_right_held_started = false
+					mouse_button_held_ended.emit(MOUSE_BUTTON_RIGHT)
+			
+			if (event.button_index == MOUSE_BUTTON_WHEEL_DOWN) || (event.button_index == MOUSE_BUTTON_WHEEL_UP):
+				var direction:int = -1
+				if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+					direction = 1
+				mouse_wheel_pulsed.emit(direction, Time.get_ticks_msec())
+				
+	if event is InputEventMouseMotion:
+		mouse_position = event.position
+		mouse_relative = event.relative
+		mouse_velocity = event.velocity 
+		mouse_moved.emit(event.position, event.relative, event.velocity)

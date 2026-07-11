@@ -729,10 +729,12 @@ func _on_mouse_entered() -> void:
 
 ## On mouse exited, sets some edit-related values.
 func _on_mouse_exited() -> void:
+	is_mouse_over_node = false
+
 	if current_node_dragging > 0:
 		return
+
 	dragging_already_in_progress = UserInput.is_dragging
-	is_mouse_over_node = false
 
 ## Gets an empty socket based on the socket type and direction type.
 func get_empty_socket(socket_type: Types.SocketType, direction_type: Types.SocketDirectionType) -> VXSocket:
