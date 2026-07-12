@@ -128,6 +128,7 @@ func get_selected_verses_sorted() -> Array[Verse]:
 func _on_button_add_pressed() -> void:
 	request_verses_to_vx_graph()
 	hide_search_results()
+	get_viewport().set_input_as_handled()
 
 func _on_check_button_select_all_toggled(on:bool) -> void:
 	if on:

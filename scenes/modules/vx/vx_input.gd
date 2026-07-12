@@ -172,6 +172,7 @@ func _on_mouse_double_clicked(button_index: MouseButton, position: Vector2) -> v
 
 func _on_mouse_button_pressed(button_index: MouseButton, _position: Vector2) -> void:
 	
+	
 	if button_index == MouseButton.MOUSE_BUTTON_LEFT:
 		if is_mouse_over_node() and hovered_vx_node != null:
 			if UserInput.is_shift_pressed():
@@ -179,7 +180,7 @@ func _on_mouse_button_pressed(button_index: MouseButton, _position: Vector2) -> 
 			else:			
 				node_selection_requested.emit(hovered_vx_node)
 		
-		if is_mouse_over_canvas():
+		if is_mouse_over_canvas() and is_mouse_over_work_area():
 			# A hack to overcome a bug where if the user starts panning from a point
 			# near a node, it doesn't register in time and starts dragging the node
 			# shortly after intended panning starts.
@@ -328,16 +329,26 @@ func is_mouse_over_canvas() -> bool:
 	)
 
 
-## Returns true when the mouse is geometrically inside the graph's work area.
-##
-## This check ignores graph objects beneath the mouse. It only compares the
-## viewport mouse position against the global rectangle of `canvas_area`.
+## Returns true when the mouse is inside the graph work area and the point is
+## not covered by unrelated UI.
 func is_mouse_over_work_area() -> bool:
 	if not is_instance_valid(canvas_area):
 		return false
 
-	return canvas_area.get_global_rect().has_point(
-		get_viewport().get_mouse_position()
+	var viewport := get_viewport()
+	var mouse_position := viewport.get_mouse_position()
+
+	if not canvas_area.get_global_rect().has_point(mouse_position):
+		return false
+
+	var hovered_control := viewport.gui_get_hovered_control()
+
+	if hovered_control == null:
+		return true
+
+	return (
+		hovered_control == canvas_area
+		or canvas_area.is_ancestor_of(hovered_control)
 	)
 
 #endregion
