@@ -68,6 +68,7 @@ enum VXInteraction {
 ## The active VXInput instance.
 static var instance: VXInput = null
 
+
 ## Physics-query results beneath the mouse during the current frame.
 ##
 ## Each entry is a dictionary returned by `intersect_point()` and contains a
