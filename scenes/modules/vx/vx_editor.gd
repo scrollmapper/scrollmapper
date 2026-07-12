@@ -127,14 +127,13 @@ func _on_mouse_drag_ended(_position: Vector2):
 
 ## Will be turned off and on when the mouse drag is started and ended.
 func _process(_delta: float):
-	if is_dragging:
+	if VXInput.instance.current_action == VXInput.VXInteraction.PANNING_CANVAS:
 		var mouse_position: Vector2 = get_viewport().get_mouse_position()
 		var drag_offset: Vector2 = (mouse_position - drag_start_position) / vx_camera_2d.zoom
 		drag_start_position = mouse_position
 		
 		# Check if the mouse is over a node or socket
-		if not is_mouse_over_any_element():
-			vx_camera_2d.position -= drag_offset
+		vx_camera_2d.position -= drag_offset
 
 ## Will return true of the mouse is over a VXNode or VXSocket
 ## Note: This implementation uses a loop, which can be improved to avoid relying on loops.

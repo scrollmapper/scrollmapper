@@ -8,7 +8,7 @@ extends Node
 ## New interaction logic should subscribe to the generic signals and decide
 ## ownership inside a feature-specific controller such as VXInteractionController.
 
-const HELD_DELAY: float = 0.25
+const HELD_DELAY: float = 0.1
 
 #region Generic keyboard signals
 

@@ -120,10 +120,28 @@ func _exit_tree() -> void:
 
 #endregion
 
+#region Helpers
+
+## Forces dragging connection mode (to beat input lag or delay)
+func force_dragging_connection() -> void:
+	current_action = VXInteraction.DRAGGING_CONNECTION
+
+## Forces dragging node mode (to beat input lag or delay)
+func force_dragging_node() -> void:
+	current_action = VXInteraction.DRAGGING_NODE
+
+## Forces panning canvase mode (to beat input lag or delay)
+func force_panning_canvas() -> void:
+	current_action = VXInteraction.PANNING_CANVAS
+
+#endregion
+
 #region Signal Processing
 
 func _on_mouse_button_held_started(button_index: MouseButton, _position: Vector2) -> void:
 	if button_index == MouseButton.MOUSE_BUTTON_LEFT:
+		if current_action != VXInteraction.NONE:
+			return
 		if is_mouse_over_node():
 			current_action = VXInteraction.DRAGGING_NODE
 		if is_mouse_over_socket():
@@ -160,6 +178,13 @@ func _on_mouse_button_pressed(button_index: MouseButton, _position: Vector2) -> 
 				node_multi_selection_requested.emit(hovered_vx_node)
 			else:			
 				node_selection_requested.emit(hovered_vx_node)
+		
+		if is_mouse_over_canvas():
+			# A hack to overcome a bug where if the user starts panning from a point
+			# near a node, it doesn't register in time and starts dragging the node
+			# shortly after intended panning starts.
+			force_panning_canvas()
+		
 	if button_index == MouseButton.MOUSE_BUTTON_RIGHT:
 		if is_mouse_over_node() and hovered_vx_node != null:
 			node_deletion_requested.emit(hovered_vx_node)
@@ -269,7 +294,7 @@ func is_mouse_over_node() -> bool:
 
 ## Check to see if the node being tested is the same being hovered. 
 func is_mouse_over_this_node(vx_node:VXNode) -> bool:
-	return hovered_vx_node == VXNode
+	return hovered_vx_node == vx_node
 
 ## Returns true when the mouse is over an Area2D belonging directly to a VXSocket.
 ##

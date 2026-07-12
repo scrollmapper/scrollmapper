@@ -60,12 +60,13 @@ static var connection_drag_active:bool = false
 signal connection_finalized(start_node:VXNode, end_node:VXNode)
 
 ## Initialization function
-func initiate(start_socket: VXSocket, end_socket: VXSocket = null):	
+func initiate(start_socket: VXSocket, end_socket: VXSocket = null):
 	is_connection_being_edited = true
 	self.start_socket = start_socket
 	self.end_socket = end_socket
 	get_starting_socket().socket_edit_ended.connect(_on_editing_ended)
 	establish_starting_connection_points()
+	VXInput.instance.force_dragging_connection() 
 
 ## Function to get the connection as a dictionary.
 ## This is used to save the connection to the database.

@@ -319,8 +319,6 @@ func select_node_multiple(pos:Vector2):
 
 ## Drags the node. Emits moved and dragged signals. 
 func drag_node(pos: Vector2):
-	if VXInput.instance.current_action == VXInput.VXInteraction.PANNING_CANVAS:
-		return false
 	if not can_edit():
 		return	
 	var parent_transform: Transform2D = get_parent().get_global_transform()
@@ -704,6 +702,8 @@ func get_valid_sockets(sockets: Array[VXSocket]) -> Array[VXSocket]:
 
 ## Determines of the node can be edited. 
 func can_edit() -> bool:
+	if VXInput.instance.current_action == VXInput.VXInteraction.PANNING_CANVAS:
+		return false
 	if VXGraph.is_graph_locked:
 		return false
 	if VXConnection.connection_drag_active:
