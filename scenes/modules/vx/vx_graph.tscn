@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bh1iyds4cy28s"]
 
 [ext_resource type="Script" uid="uid://bhbylc60ljvn5" path="res://scenes/modules/vx/vx_graph.gd" id="1_sckcm"]
+[ext_resource type="PackedScene" uid="uid://dxmjgp6r1w30c" path="res://scenes/modules/vx/vx_input.tscn" id="2_36hn7"]
 [ext_resource type="PackedScene" uid="uid://cp0o1tuvvutai" path="res://scenes/modules/vx/vx_canvas.tscn" id="2_jc8ca"]
 [ext_resource type="Script" uid="uid://i2olx3cady2f" path="res://scenes/modules/vx/vx_editor.gd" id="2_jscly"]
 [ext_resource type="PackedScene" uid="uid://bmalaegyokgpk" path="res://scenes/modules/vx/vx_camera_2d.tscn" id="2_vbhxy"]
@@ -39,6 +40,11 @@ connections_info = NodePath("VXEditor/EditorUI/VBoxContainer/MarginContainer/VXG
 selection_info = NodePath("VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer/SelectedInfo")
 feed_back_notes = NodePath("VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer/FeedBackNotes")
 snap_check_box = NodePath("VXEditor/EditorUI/VBoxContainer/MarginContainer/VXGraphInfo/HBoxContainer/HBoxContainer/SnapCheckBox")
+
+[node name="VXInput" parent="." unique_id=1687188277 node_paths=PackedStringArray("canvas_area") instance=ExtResource("2_36hn7")]
+layout_mode = 0
+mouse_filter = 2
+canvas_area = NodePath("../VXEditor/EditorUI/VBoxContainer/CanvasArea")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2064135321]
 layout_mode = 0
@@ -91,12 +97,11 @@ layout_mode = 2
 [node name="VXSearchResults" parent="VXEditor/EditorUI/VBoxContainer" unique_id=1707180805 node_paths=PackedStringArray("spacer") instance=ExtResource("4_gm67k")]
 visible = false
 layout_mode = 2
-spacer = NodePath("../Spacer")
+spacer = NodePath("../CanvasArea")
 
-[node name="Spacer" type="MarginContainer" parent="VXEditor/EditorUI/VBoxContainer" unique_id=524896859]
+[node name="CanvasArea" type="MarginContainer" parent="VXEditor/EditorUI/VBoxContainer" unique_id=524896859]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="VXEditor/EditorUI/VBoxContainer" unique_id=1948008721]
 layout_mode = 2

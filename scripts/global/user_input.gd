@@ -466,6 +466,8 @@ func _end_legacy_drag(position: Vector2) -> void:
 func is_shift_pressed() -> bool:
 	return Input.is_key_pressed(KEY_SHIFT)
 
+func is_ctrl_pressed() -> bool:
+	return Input.is_key_pressed(KEY_CTRL)
 
 func is_mouse_button_held(
 	button_index: MouseButton

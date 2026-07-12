@@ -102,6 +102,9 @@ func _on_mouse_wheel_pulsed(
 		vx_camera_2d.zoom *= 1.1
 	else:
 		vx_camera_2d.zoom *= 0.9
+	vx_camera_2d.zoom.x = clampf(vx_camera_2d.zoom.x, 0.1, 3)
+	vx_camera_2d.zoom.y = clampf(vx_camera_2d.zoom.y, 0.1, 3)
+	
 
 ## This function will be called when the mouse drag is started.
 ## Will turn processing ON for the moment, for other actions to run.
