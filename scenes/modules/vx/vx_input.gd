@@ -108,6 +108,7 @@ func _ready() -> void:
 	UserInput.mouse_button_pressed.connect(_on_mouse_button_pressed)
 	UserInput.mouse_wheel_pulsed.connect(_on_mouse_wheel_pulsed)
 	UserInput.escape_pushed.connect(_on_escape_pushed)
+	UserInput.mouse_button_released.connect(_on_mouse_button_released)
 	
 ## Refreshes the collection of physics objects beneath the mouse once per frame.
 func _process(_delta: float) -> void:
@@ -203,6 +204,10 @@ func _on_mouse_wheel_pulsed(direction: int, _ticks_msec: int, _position: Vector2
 
 func _on_escape_pushed() -> void:
 	selection_clear_requested.emit()
+
+func _on_mouse_button_released(button_index: MouseButton, _position: Vector2) -> void:
+	if button_index == MOUSE_BUTTON_LEFT:
+		current_action = VXInteraction.NONE
 
 #endregion 
 
