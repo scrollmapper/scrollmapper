@@ -30,8 +30,6 @@ var socket_direction: Types.SocketDirectionType
 var connection: VXConnection = null
 ## The node that the socket is connected to. vx_node
 var connected_node: VXNode = null
-## This determines if the mouse is over the socket for editing purposes.
-var is_mouse_over_socket = false
 
 var suppress_socket_edit_ended: bool = false
 
@@ -161,12 +159,10 @@ func delete() -> void:
 # Mouse Events
 func _on_mouse_entered() -> void:
 	VXGraph.current_focused_socket = self
-	is_mouse_over_socket = true
 
 func _on_mouse_exited() -> void:
 	if VXGraph.current_focused_socket == self:
 		VXGraph.current_focused_socket = null
-	is_mouse_over_socket = false
 
 #endregion
 
@@ -178,7 +174,8 @@ func set_currently_editing(editing: bool) -> void:
 	is_socket_being_edited = editing
 
 func _on_editing_started(_start_position: Vector2) -> void:
-	if not is_mouse_over_socket:
+	# First check to ensure we are over a socket. This is a clean excluder. 
+	if !VXInput.instance.is_mouse_over_this_socket(self):
 		return
 	if connection != null:
 		connection.delete_connection()

@@ -63,7 +63,6 @@ const VX_NODE = preload("res://scenes/modules/vx/vx_node.tscn")
 const VX_SOCKET = preload("res://scenes/modules/vx/vx_socket.tscn")
 
 # Booleans
-var is_mouse_over_node:bool = false
 var dragging_already_in_progress:bool = false:
 	set(value):
 		dragging_already_in_progress = value
@@ -709,7 +708,7 @@ func can_edit() -> bool:
 		return false
 	if current_node_dragging == id && dragging_already_in_progress:
 		return true
-	return is_mouse_over_node && !dragging_already_in_progress 
+	return VXInput.instance.is_mouse_over_this_node(self) && !dragging_already_in_progress 
 
 func _on_mouse_button_released(
 	button_index: MouseButton,
@@ -736,15 +735,11 @@ func _on_mouse_entered() -> void:
 	if current_node_dragging > -1:
 		return
 	dragging_already_in_progress = UserInput.is_dragging
-	is_mouse_over_node = true
 
 ## On mouse exited, sets some edit-related values.
 func _on_mouse_exited() -> void:
-	is_mouse_over_node = false
-
 	if current_node_dragging > 0:
 		return
-
 	dragging_already_in_progress = UserInput.is_dragging
 
 ## Gets an empty socket based on the socket type and direction type.

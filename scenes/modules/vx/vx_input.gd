@@ -51,8 +51,6 @@ enum VXInteraction {
 
 #endregion
 
-
-
 #region Exported Variables
 
 ## The Control defining the usable rectangular area of the graph canvas.
@@ -66,6 +64,9 @@ enum VXInteraction {
 
 
 #region Main Variables
+
+## The active VXInput instance.
+static var instance: VXInput = null
 
 ## Physics-query results beneath the mouse during the current frame.
 ##
@@ -93,6 +94,13 @@ var hovered_vx_socket:VXSocket = null
 #region Lifecycle
 
 func _ready() -> void:
+	if instance != null and instance != self:
+		push_error("Multiple VXInput instances detected.")
+		queue_free()
+		return
+
+	instance = self
+	
 	UserInput.mouse_button_held_started.connect(_on_mouse_button_held_started)
 	UserInput.mouse_button_held_ended.connect(_on_mouse_button_held_ended)
 	UserInput.mouse_double_clicked.connect(_on_mouse_double_clicked)
@@ -104,6 +112,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	update_objects_under_mouse()
 	update_hovered_data()
+
+func _exit_tree() -> void:
+	if instance == self:
+		instance = null
 
 #endregion
 
@@ -254,6 +266,9 @@ func is_mouse_over_node() -> bool:
 
 	return false
 
+## Check to see if the node being tested is the same being hovered. 
+func is_mouse_over_this_node(vx_node:VXNode) -> bool:
+	return hovered_vx_node == VXNode
 
 ## Returns true when the mouse is over an Area2D belonging directly to a VXSocket.
 ##
@@ -269,6 +284,10 @@ func is_mouse_over_socket() -> bool:
 			return true
 
 	return false
+
+## Check to see if the socket being tested is the same being hovered. 
+func is_mouse_over_this_socket(vx_socket:VXSocket) -> bool:
+	return hovered_vx_socket == vx_socket
 
 
 ## Returns true when the mouse is over an empty portion of the graph canvas.

@@ -142,7 +142,7 @@ func is_mouse_over_any_element(include_vx_search_element:bool = true) -> bool:
 	if is_mouse_over_area2d():
 		return true
 	for node:VXNode in get_tree().get_nodes_in_group("nodes"):
-		if node.is_mouse_over_node:
+		if VXInput.instance.is_mouse_over_this_node(node):
 			return true
 	for socket:VXSocket in get_tree().get_nodes_in_group("sockets"):
 		if socket.is_mouse_over_socket:
