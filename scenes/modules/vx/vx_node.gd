@@ -319,9 +319,10 @@ func select_node_multiple(pos:Vector2):
 
 ## Drags the node. Emits moved and dragged signals. 
 func drag_node(pos: Vector2):
+	if VXInput.instance.current_action == VXInput.VXInteraction.PANNING_CANVAS:
+		return false
 	if not can_edit():
-		return
-	
+		return	
 	var parent_transform: Transform2D = get_parent().get_global_transform()
 	var mouse_in_parent_space: Vector2 = parent_transform.affine_inverse() * get_global_mouse_position()
 	if not dragging_already_in_progress:
@@ -709,8 +710,6 @@ func can_edit() -> bool:
 		return false
 	if current_node_dragging == id && dragging_already_in_progress:
 		return true
-	if VXInput.instance.current_action == VXInput.VXInteraction.PANNING_CANVAS:
-		return false
 	return is_mouse_over_node && !dragging_already_in_progress 
 
 func _on_mouse_button_released(

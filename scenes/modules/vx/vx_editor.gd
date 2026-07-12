@@ -139,7 +139,7 @@ func _process(_delta: float):
 ## Will return true of the mouse is over a VXNode or VXSocket
 ## Note: This implementation uses a loop, which can be improved to avoid relying on loops.
 func is_mouse_over_any_element(include_vx_search_element:bool = true) -> bool:
-	if is_mouse_over_area2d():
+	if VXInput.instance.is_mouse_over_area2d():
 		return true
 	for node:VXNode in get_tree().get_nodes_in_group("nodes"):
 		if VXInput.instance.is_mouse_over_this_node(node):
