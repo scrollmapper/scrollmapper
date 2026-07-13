@@ -87,6 +87,11 @@ var placement_offset: Vector2 = Vector2.ZERO
 var last_set_global_position:Vector2 = Vector2.ZERO
 static var current_node_dragging:int = -1
 static var last_selected_node:VXNode = null 
+var size:Vector2 = Vector2.ZERO:
+	set(value):
+		set_node_size(value)
+	get():
+		return get_node_size()
 
 ## Is called from the setter is_selected:bool
 ## The purpose is to change whatever mechanisms are needed for the node's 
@@ -267,6 +272,9 @@ func get_node_id()->int:
 ## Returns the size of the node as a Vector2.
 func get_node_size() -> Vector2:
 	return node_container.size
+
+func set_node_size(node_container_size:Vector2) -> void:
+	node_container.size = node_container_size
 
 ## Delete the node. 
 func delete_node():
