@@ -77,6 +77,7 @@ var is_selected:bool = false:
 		is_selected = val
 		set_selected_state()
 
+
 var is_selected_plus:bool = false:
 	set(val):
 		is_selected_plus = val
