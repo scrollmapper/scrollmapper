@@ -133,6 +133,9 @@ func do_socket_connections() -> void:
 		return
 	start_socket.connection = self
 	end_socket.connection = self
+
+	start_socket.is_connected = true
+	end_socket.is_connected = true
 	connect_signals()
 	get_starting_socket().emit_new_connection_created(get_starting_socket(), get_ending_socket())
 	get_ending_socket().emit_new_connection_created(get_starting_socket(), get_ending_socket())

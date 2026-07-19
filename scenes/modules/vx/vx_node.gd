@@ -59,6 +59,8 @@ signal sockets_updated
 signal node_control_opened(node:VXNode)
 
 # Constants
+const NODE_WIDTH: float = 320.0
+const NODE_HEIGHT_STEP: float = 64.0
 const VX_NODE = preload("res://scenes/modules/vx/vx_node.tscn")
 const VX_SOCKET = preload("res://scenes/modules/vx/vx_socket.tscn")
 
@@ -338,7 +340,7 @@ func drag_node(pos: Vector2):
 
 	var new_position: Vector2 = mouse_in_parent_space - placement_offset
 	if VXGraph.is_snap_enabled():
-		new_position = snapped(new_position, Vector2(64, 64))
+		new_position = snapped(new_position, Vector2(64, 64))-Vector2(32,32) # This maintains a -32px offset for the grid. 
 	node_moved.emit(new_position)
 	node_dragged.emit(pos)
 
@@ -629,7 +631,13 @@ func resize_to_sockets() -> void:
 		required_width,
 		required_height
 	)
-
+	
+	# Adjust for grid 
+	if VXGraph.instance.is_snap_enabled():
+		node_container.custom_minimum_size = Vector2(
+			NODE_WIDTH,
+			ceilf(required_height / NODE_HEIGHT_STEP) * NODE_HEIGHT_STEP
+		)
 
 ## Gets the length of the sockets in line.
 func get_sockets_in_line_length(

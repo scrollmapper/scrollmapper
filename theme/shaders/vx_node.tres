@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://de7t1c2whf8yb"]
+
+[ext_resource type="Shader" uid="uid://c3p3s76xjwthj" path="res://theme/shaders/vx_node.gdshader" id="1_pq63g"]
+
+[resource]
+shader = ExtResource("1_pq63g")
+shader_parameter/fog_color = Color(0.08449999, 0.4614999, 0.65, 1)
+shader_parameter/fog_strength = 0.3390000161025
+shader_parameter/fog_reach = 0.10000000335296999
+shader_parameter/fog_scale = 5.90800023313
+shader_parameter/fog_softness = 0.30000001192093
+shader_parameter/fog_speed = 0.0850000040375
+shader_parameter/curl_strength = 1.8200000864499999
+shader_parameter/phase_offset = 0.0

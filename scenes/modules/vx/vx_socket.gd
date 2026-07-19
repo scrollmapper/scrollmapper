@@ -15,8 +15,35 @@ signal socket_edit_ended
 
 #region Variables
 
-# Variables
+@export_category("Appearance")
 
+@export var socket_color: Color = Color("#264c7e"):
+	set(value):
+		socket_color = value
+		queue_redraw()
+		
+@export var socket_color_connected: Color = Color("#55c7f5"):
+	set(value):
+		socket_color = value
+		queue_redraw()
+
+
+@export_range(1.0, 8.0, 0.5)
+var outline_width: float = 2.0:
+	set(value):
+		outline_width = value
+		queue_redraw()
+
+var is_connected: bool = false:
+	set(value):
+		if is_connected == value:
+			return
+
+		is_connected = value
+		queue_redraw()
+
+# Variables
+@export_category("Other Variables")
 @export var size:Vector2 = Vector2(20,20)
 @onready var area_2d: Area2D = $Area2D
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
@@ -64,6 +91,42 @@ func _ready() -> void:
 
 #endregion
 
+
+#region Draw 
+
+func _draw() -> void:
+	var radius := minf(size.x, size.y) * 0.5
+
+	draw_circle(
+		Vector2.ZERO,
+		radius,
+		Color("#030a14"),
+		true,
+		-1.0,
+		true
+	)
+
+	# Dark fill when open; light fill when connected.
+	draw_circle(
+		Vector2.ZERO,
+		radius - 5,
+		socket_color_connected if is_connected else Color("#030a14"),
+		true,
+		-1.0,
+		true
+	)
+
+	# Light outline in both states.
+	draw_circle(
+		Vector2.ZERO,
+		radius,
+		socket_color,
+		false,
+		outline_width,
+		true
+	)
+
+#endregion 
 
 #region Socket Information
 

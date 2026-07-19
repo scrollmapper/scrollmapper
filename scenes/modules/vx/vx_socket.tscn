@@ -6,6 +6,7 @@
 
 [node name="VXSocket" type="Node2D" unique_id=1144943666 node_paths=PackedStringArray("center")]
 script = ExtResource("1_rqvmn")
+socket_color = Color(0.24705882, 0.36862746, 0.49411765, 1)
 center = NodePath("Center")
 
 [node name="Center" type="Node2D" parent="." unique_id=573273576]
@@ -14,18 +15,3 @@ center = NodePath("Center")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=480366708]
 shape = SubResource("CircleShape2D_w54dg")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1691056581]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 5.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.34902, 0.290196, 0.211765, 1)

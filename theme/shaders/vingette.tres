@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b1hikqjnnwded"]
+
+[ext_resource type="Shader" uid="uid://c2fdoks31anoe" path="res://theme/shaders/vingette.gdshader" id="1_ideln"]
+
+[resource]
+shader = ExtResource("1_ideln")
+shader_parameter/edge_color = Color(0.008147509, 0.0117878495, 0.02772811, 1)
+shader_parameter/edge_darkness = 0.41999999061216
+shader_parameter/radius = 0.55999998748288
+shader_parameter/softness = 0.42

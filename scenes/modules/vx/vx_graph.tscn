@@ -10,11 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://bt4kol5jle5rl" path="res://scenes/modules/vx/dialogues/settings_dialogue.tscn" id="5_32rsg"]
 [ext_resource type="PackedScene" uid="uid://bmg34cgf1y4wo" path="res://scenes/modules/vx/vx_search_and_execute.tscn" id="5_rl1km"]
 [ext_resource type="PackedScene" uid="uid://b6jvh448lsipo" path="res://scenes/modules/vx/vx_cursor.tscn" id="6_h1ilm"]
+[ext_resource type="Material" uid="uid://b1hikqjnnwded" path="res://theme/shaders/vingette.tres" id="6_qe6sw"]
 [ext_resource type="PackedScene" uid="uid://cslgs5p2xsfmf" path="res://scenes/modules/vx/dialogues/delete_graph_dialogue.tscn" id="6_xma0l"]
 [ext_resource type="PackedScene" uid="uid://juvfgmrln8tf" path="res://scenes/modules/vx/dialogues/dialogue_new_graph.tscn" id="7_4fwow"]
 [ext_resource type="PackedScene" uid="uid://bt43vy44qgas7" path="res://scenes/modules/vx/dialogues/dialogue_load_graphs.tscn" id="8_3crsv"]
 [ext_resource type="PackedScene" uid="uid://bxvpvgnaquqyu" path="res://scenes/modules/vx/dialogues/dialogue_node_control.tscn" id="9_uamg3"]
 [ext_resource type="PackedScene" uid="uid://8m2hmqh70q4q" path="res://scenes/modules/vx/dialogues/meta_control_dialogue.tscn" id="10_tyroj"]
+[ext_resource type="Texture2D" uid="uid://c2losr0p7gjay" path="res://theme/backgrounds/navy-background.png" id="13_hp7bs"]
+[ext_resource type="Texture2D" uid="uid://d0bqld6cnp20f" path="res://theme/backgrounds/background-lines.png" id="14_hp7bs"]
 
 [sub_resource type="Theme" id="Theme_tyyt6"]
 default_font_size = 18
@@ -102,6 +105,11 @@ spacer = NodePath("../CanvasArea")
 [node name="CanvasArea" type="MarginContainer" parent="VXEditor/EditorUI/VBoxContainer" unique_id=524896859]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Vingette" type="ColorRect" parent="VXEditor/EditorUI/VBoxContainer/CanvasArea" unique_id=58447154]
+material = ExtResource("6_qe6sw")
+layout_mode = 2
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="VXEditor/EditorUI/VBoxContainer" unique_id=1948008721]
 layout_mode = 2
@@ -210,6 +218,25 @@ vx_graph = NodePath("../../..")
 
 [node name="VXCanvas" parent="." unique_id=1426450468 instance=ExtResource("2_jc8ca")]
 position = Vector2(-16, -16)
+
+[node name="Parallax" type="Node2D" parent="VXCanvas" unique_id=1846410268]
+
+[node name="Parallax2DBackground" type="Parallax2D" parent="VXCanvas/Parallax" unique_id=465392877]
+texture_filter = 1
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(512, 512)
+repeat_times = 500
+
+[node name="Background" type="Sprite2D" parent="VXCanvas/Parallax/Parallax2DBackground" unique_id=1043547521]
+texture = ExtResource("13_hp7bs")
+
+[node name="Parallax2DGuides" type="Parallax2D" parent="VXCanvas/Parallax" unique_id=791492470]
+texture_filter = 1
+repeat_size = Vector2(64, 64)
+repeat_times = 500
+
+[node name="Background" type="Sprite2D" parent="VXCanvas/Parallax/Parallax2DGuides" unique_id=464544961]
+texture = ExtResource("14_hp7bs")
 
 [node name="VXCamera2D" parent="." unique_id=180019818 instance=ExtResource("2_vbhxy")]
 script = ExtResource("3_gnil0")

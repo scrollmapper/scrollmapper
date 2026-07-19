@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bo4ahtqmwhvd5"]
 
 [ext_resource type="Script" uid="uid://y0nqmwo2ep1w" path="res://scenes/modules/vx/vx_node.gd" id="1_0d16a"]
+[ext_resource type="Texture2D" uid="uid://c34wv12yqjjfi" path="res://theme/backgrounds/scripture-card.png" id="2_bvpdm"]
+[ext_resource type="Material" uid="uid://de7t1c2whf8yb" path="res://theme/shaders/vx_node.tres" id="2_x6nu1"]
 [ext_resource type="Texture2D" uid="uid://ctfuodikeog1o" path="res://theme/backgrounds/selected_red.png" id="3_7lnj1"]
 [ext_resource type="Texture2D" uid="uid://lxcqp3e4clo5" path="res://theme/backgrounds/selected_blue.png" id="4_r3tjm"]
 
@@ -30,29 +32,33 @@ mouse_filter = 2
 [node name="VersePanel" type="MarginContainer" parent="NodeContainer" unique_id=184417714]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
 
-[node name="ColorRect" type="ColorRect" parent="NodeContainer/VersePanel" unique_id=230241428]
+[node name="NinePatchRect" type="NinePatchRect" parent="NodeContainer/VersePanel" unique_id=506106267]
 layout_mode = 2
-mouse_filter = 2
-color = Color(0.85098, 0.772549, 0.627451, 1)
+texture = ExtResource("2_bvpdm")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 1
+
+[node name="ColorRect" type="ColorRect" parent="NodeContainer/VersePanel" unique_id=312675009]
+material = ExtResource("2_x6nu1")
+layout_mode = 2
 
 [node name="VerseContainer" type="MarginContainer" parent="NodeContainer" unique_id=77868896]
-custom_minimum_size = Vector2(300, 150)
+custom_minimum_size = Vector2(320, 160)
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
 [node name="PreviewText" type="RichTextLabel" parent="NodeContainer/VerseContainer" unique_id=373705824]
 layout_mode = 2
 mouse_filter = 2
-theme_override_colors/default_color = Color(0.14902, 0.109804, 0.0784314, 1)
 bbcode_enabled = true
 text = "[b]John 1:1:[/b]  In the beginning was the Word, and the Word was with God, and the Word was God. The same was in the beginning with God. All things were made by him; and without him was not any thing made that was made."
 fit_content = true
@@ -96,5 +102,6 @@ texture = ExtResource("3_7lnj1")
 [node name="Area2D" type="Area2D" parent="." unique_id=1746361356]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1167082078]
+visible = false
 position = Vector2(150.75, 148)
 shape = SubResource("RectangleShape2D_sm5ja")

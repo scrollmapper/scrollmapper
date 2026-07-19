@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://f3rndjrsob0g"]
+
+[ext_resource type="Shader" uid="uid://c0hh6db3u0yx1" path="res://theme/shaders/vx_connection.gdshader" id="1_ndpcn"]
+
+[resource]
+shader = ExtResource("1_ndpcn")
+shader_parameter/glow_strength = 0.82800003933
+shader_parameter/cycle_speed = 0.3030000143925
+shader_parameter/cloud_size = 23.091000621822502
+shader_parameter/cloud_softness = 0.22200000984648
+shader_parameter/minimum_visibility = 0.2000000095
+shader_parameter/phase_offset = 0.485

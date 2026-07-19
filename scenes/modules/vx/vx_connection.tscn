@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://briy8onaxc1nt"]
+[gd_scene format=3 uid="uid://briy8onaxc1nt"]
 
-[ext_resource type="Script" path="res://scenes/modules/vx/vx_connection.gd" id="1_fj7it"]
+[ext_resource type="Material" uid="uid://f3rndjrsob0g" path="res://theme/shaders/vx_connection.tres" id="1_dm0m2"]
+[ext_resource type="Script" uid="uid://dqjingdlpe2bt" path="res://scenes/modules/vx/vx_connection.gd" id="1_fj7it"]
 
-[node name="Line2D" type="Line2D"]
-width = 3.0
-default_color = Color(0.73, 0.174592, 0.1241, 0.709804)
+[node name="Line2D" type="Line2D" unique_id=490523769]
+material = ExtResource("1_dm0m2")
+points = PackedVector2Array(0, 0, 573, 287)
+width = 2.0
+default_color = Color(0.33333334, 0.78039217, 0.9607843, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 antialiased = true
 script = ExtResource("1_fj7it")
-color_linear = Color(0.85098, 0.772549, 0.627451, 1)
-color_parallel = Color(0.34902, 0.290196, 0.211765, 1)
+color_linear = Color(0.96, 0.96, 0.96, 1)
+color_parallel = Color(0.33333334, 0.78039217, 0.9607843, 1)
