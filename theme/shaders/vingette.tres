@@ -5,6 +5,6 @@
 [resource]
 shader = ExtResource("1_ideln")
 shader_parameter/edge_color = Color(0.008147509, 0.0117878495, 0.02772811, 1)
-shader_parameter/edge_darkness = 0.41999999061216
+shader_parameter/edge_darkness = 0.5999999865888
 shader_parameter/radius = 0.55999998748288
 shader_parameter/softness = 0.42

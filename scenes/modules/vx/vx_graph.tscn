@@ -18,10 +18,21 @@
 [ext_resource type="PackedScene" uid="uid://8m2hmqh70q4q" path="res://scenes/modules/vx/dialogues/meta_control_dialogue.tscn" id="10_tyroj"]
 [ext_resource type="Texture2D" uid="uid://c2losr0p7gjay" path="res://theme/backgrounds/navy-background.png" id="13_hp7bs"]
 [ext_resource type="Texture2D" uid="uid://d0bqld6cnp20f" path="res://theme/backgrounds/background-lines.png" id="14_hp7bs"]
+[ext_resource type="Texture2D" uid="uid://clpw66mxc0c3l" path="res://theme/backgrounds/star_background.png" id="15_maom3"]
+[ext_resource type="Shader" uid="uid://c0hh6db3u0yx1" path="res://theme/shaders/shimmer.gdshader" id="15_p2oqk"]
 
 [sub_resource type="Theme" id="Theme_tyyt6"]
 default_font_size = 18
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p2oqk"]
+shader = ExtResource("15_p2oqk")
+shader_parameter/glow_strength = 1.0
+shader_parameter/cycle_speed = 0.32800001558
+shader_parameter/cloud_size = 38.92800137408
+shader_parameter/cloud_softness = 0.19900000875398
+shader_parameter/minimum_visibility = 0.0
+shader_parameter/phase_offset = 0.0
 
 [node name="VXGraph" type="Control" unique_id=1118597352 node_paths=PackedStringArray("vx_canvas", "vx_editor", "vx_search_results", "camera_2d", "nodes_info", "connections_info", "selection_info", "feed_back_notes", "snap_check_box")]
 layout_mode = 3
@@ -165,6 +176,10 @@ text = "Snap"
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -2.0
+offset_right = -18.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -229,6 +244,16 @@ repeat_times = 500
 
 [node name="Background" type="Sprite2D" parent="VXCanvas/Parallax/Parallax2DBackground" unique_id=1043547521]
 texture = ExtResource("13_hp7bs")
+
+[node name="Parallax2DStars" type="Parallax2D" parent="VXCanvas/Parallax" unique_id=1670272985]
+texture_filter = 1
+scroll_scale = Vector2(0.75, 0.75)
+repeat_size = Vector2(1024, 576)
+repeat_times = 500
+
+[node name="Background" type="Sprite2D" parent="VXCanvas/Parallax/Parallax2DStars" unique_id=779529544]
+material = SubResource("ShaderMaterial_p2oqk")
+texture = ExtResource("15_maom3")
 
 [node name="Parallax2DGuides" type="Parallax2D" parent="VXCanvas/Parallax" unique_id=791492470]
 texture_filter = 1
