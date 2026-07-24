@@ -21,6 +21,12 @@
 [ext_resource type="Texture2D" uid="uid://d0bqld6cnp20f" path="res://theme/backgrounds/background-lines.png" id="14_hp7bs"]
 [ext_resource type="Texture2D" uid="uid://clpw66mxc0c3l" path="res://theme/backgrounds/star_background.png" id="15_maom3"]
 [ext_resource type="Shader" uid="uid://c0hh6db3u0yx1" path="res://theme/shaders/shimmer.gdshader" id="15_p2oqk"]
+[ext_resource type="Script" uid="uid://d14gb7dft6bxu" path="res://scenes/modules/vx/vx_sound.gd" id="22_vbet1"]
+[ext_resource type="AudioStream" uid="uid://ynmrue04velg" path="res://sound/sounds/node_selected.mp3" id="23_0fvvg"]
+[ext_resource type="AudioStream" uid="uid://wvfickha8xkm" path="res://sound/sounds/node_deleted.wav" id="23_6kgcy"]
+[ext_resource type="AudioStream" uid="uid://cxfuy6doowb8q" path="res://sound/sounds/node_created.wav" id="23_20gjn"]
+[ext_resource type="AudioStream" uid="uid://bjt87lvki3q57" path="res://sound/sounds/connection_deleted.wav" id="24_vynim"]
+[ext_resource type="AudioStream" uid="uid://cwlgqvuj0uj0r" path="res://sound/sounds/connection_created.wav" id="26_ofjaa"]
 
 [sub_resource type="Theme" id="Theme_tyyt6"]
 default_font_size = 18
@@ -270,3 +276,29 @@ texture = ExtResource("14_hp7bs")
 script = ExtResource("3_gnil0")
 
 [node name="VXCursor" parent="." unique_id=2134486155 instance=ExtResource("6_h1ilm")]
+
+[node name="VXSound" type="Node" parent="." unique_id=949638555 node_paths=PackedStringArray("node_created", "node_selected", "node_deleted", "connection_deleted", "connection_created")]
+script = ExtResource("22_vbet1")
+node_created = NodePath("NodeCreated")
+node_selected = NodePath("NodeSelected")
+node_deleted = NodePath("NodeDeleted")
+connection_deleted = NodePath("ConnectionDeleted")
+connection_created = NodePath("ConnectionCreated")
+
+[node name="NodeCreated" type="AudioStreamPlayer" parent="VXSound" unique_id=126498308]
+stream = ExtResource("23_20gjn")
+
+[node name="NodeSelected" type="AudioStreamPlayer" parent="VXSound" unique_id=2041917163]
+stream = ExtResource("23_0fvvg")
+volume_db = -5.081
+
+[node name="NodeDeleted" type="AudioStreamPlayer" parent="VXSound" unique_id=433097565]
+stream = ExtResource("23_6kgcy")
+volume_db = -14.345
+
+[node name="ConnectionCreated" type="AudioStreamPlayer" parent="VXSound" unique_id=1368625346]
+stream = ExtResource("26_ofjaa")
+
+[node name="ConnectionDeleted" type="AudioStreamPlayer" parent="VXSound" unique_id=910571974]
+stream = ExtResource("24_vynim")
+volume_db = -9.222

@@ -292,6 +292,7 @@ func set_selected_node(node:VXNode) -> void:
 	selected_node = node
 	selected_node.is_selected = true
 	print_feedback_note("Selected node: " + str(node.get_verse_string()))
+	Signals.node_selected.emit()
 	graph_changed.emit()
 
 ## Adds a node to the selection set. 

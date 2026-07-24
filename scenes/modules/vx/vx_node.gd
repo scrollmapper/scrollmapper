@@ -131,6 +131,8 @@ func _ready():
 	UserInput.right_clicked.connect(delete_node)
 	UserInput.mouse_dragged.connect(drag_node)
 	UserInput.input_cancelled.connect(_on_input_cancelled)
+	
+	
 
 ## Initialization 
 func initiate(id: int, book: String, chapter: int, verse: int, text: String, translation: String):
@@ -148,6 +150,8 @@ func initiate(id: int, book: String, chapter: int, verse: int, text: String, tra
 	set_selected_state()
 	set_selected_plus_state()
 	set_collision_bounds()
+	
+	Signals.node_created.emit()
 	
 
 func set_collision_bounds() -> void:	
@@ -299,6 +303,9 @@ func delete_node():
 	for socket in get_right_sockets():
 		if is_instance_valid(socket) and socket.connection != null:
 			socket.delete_connection()
+			
+	Signals.node_deleted.emit()
+	
 	queue_free()
 
 ## Registers the node as selected via the signal which is heard by VXGraph.
@@ -375,6 +382,7 @@ func emit_new_connection_created(start_socket: VXSocket, end_socket: VXSocket):
 ## Emits the connection deleted signal.
 func emit_connection_deleted(socket:VXSocket) -> void:
 	connection_deleted.emit(socket)
+	Signals.connection_deleted.emit()
 
 ## Socket Distribution
 ## This function maintenances all of the sockets. Distributing them and removing unused ones,

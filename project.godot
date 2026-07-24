@@ -33,6 +33,7 @@ MetaService="*res://scripts/services/meta_service.gd"
 DialogueManager="*res://scripts/global/dialogue_manager.gd"
 LibraryManager="*res://scripts/global/library_manager.gd"
 GlobalFunctions="*res://scripts/global/global_functions.gd"
+Signals="*uid://cn6lq8fjd5fap"
 
 [display]
 

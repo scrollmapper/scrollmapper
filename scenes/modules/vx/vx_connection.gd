@@ -140,6 +140,8 @@ func do_socket_connections() -> void:
 	get_starting_socket().emit_new_connection_created(get_starting_socket(), get_ending_socket())
 	get_ending_socket().emit_new_connection_created(get_starting_socket(), get_ending_socket())
 	finalize_connection_points()
+	
+	Signals.connection_created.emit()
 
 ## Delete the connection
 func delete_connection():
