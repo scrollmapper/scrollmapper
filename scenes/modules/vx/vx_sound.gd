@@ -6,13 +6,16 @@ extends Node
 @export var connection_deleted: AudioStreamPlayer
 @export var connection_created: AudioStreamPlayer
 
-# Called when the node enters the scene tree for the first time.
+@export var cursor_moved: AudioStreamPlayer
+
 func _ready() -> void:
 	Signals.node_created.emit(_on_node_created)
 	Signals.node_selected.connect(_on_node_selected)
 	Signals.node_deleted.connect(_on_node_deleted)
 	Signals.connection_deleted.connect(_on_connection_deleted)
 	Signals.connection_created.connect(_on_connection_created)
+	
+	Signals.cursor_moved.connect(_on_cursor_moved)
 
 func _on_node_created() -> void:
 	node_created.play()
@@ -28,3 +31,6 @@ func _on_connection_deleted() -> void:
 
 func _on_connection_created() -> void:
 	connection_created.play()
+
+func _on_cursor_moved() -> void:
+	cursor_moved.play()

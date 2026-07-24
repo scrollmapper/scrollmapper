@@ -191,6 +191,7 @@ func set_cursor_position(position:Vector2) -> void:
 		return
 	var final_position:Vector2 = position - cursor.size / 2
 	cursor.global_position = final_position
+	Signals.cursor_moved.emit()
 
 ## Gets the cursor position
 func get_cursor_position() -> Vector2:

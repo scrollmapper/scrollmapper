@@ -27,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://cxfuy6doowb8q" path="res://sound/sounds/node_created.wav" id="23_20gjn"]
 [ext_resource type="AudioStream" uid="uid://bjt87lvki3q57" path="res://sound/sounds/connection_deleted.wav" id="24_vynim"]
 [ext_resource type="AudioStream" uid="uid://cwlgqvuj0uj0r" path="res://sound/sounds/connection_created.wav" id="26_ofjaa"]
+[ext_resource type="AudioStream" uid="uid://2nwtceieh25s" path="res://sound/sounds/cursor_moved.wav" id="28_3c8ex"]
 
 [sub_resource type="Theme" id="Theme_tyyt6"]
 default_font_size = 18
@@ -277,13 +278,14 @@ script = ExtResource("3_gnil0")
 
 [node name="VXCursor" parent="." unique_id=2134486155 instance=ExtResource("6_h1ilm")]
 
-[node name="VXSound" type="Node" parent="." unique_id=949638555 node_paths=PackedStringArray("node_created", "node_selected", "node_deleted", "connection_deleted", "connection_created")]
+[node name="VXSound" type="Node" parent="." unique_id=949638555 node_paths=PackedStringArray("node_created", "node_selected", "node_deleted", "connection_deleted", "connection_created", "cursor_moved")]
 script = ExtResource("22_vbet1")
 node_created = NodePath("NodeCreated")
 node_selected = NodePath("NodeSelected")
 node_deleted = NodePath("NodeDeleted")
 connection_deleted = NodePath("ConnectionDeleted")
 connection_created = NodePath("ConnectionCreated")
+cursor_moved = NodePath("CursorMoved")
 
 [node name="NodeCreated" type="AudioStreamPlayer" parent="VXSound" unique_id=126498308]
 stream = ExtResource("23_20gjn")
@@ -302,3 +304,7 @@ stream = ExtResource("26_ofjaa")
 [node name="ConnectionDeleted" type="AudioStreamPlayer" parent="VXSound" unique_id=910571974]
 stream = ExtResource("24_vynim")
 volume_db = -9.222
+
+[node name="CursorMoved" type="AudioStreamPlayer" parent="VXSound" unique_id=1011089151]
+stream = ExtResource("28_3c8ex")
+volume_db = -15.369

@@ -8,4 +8,6 @@ signal node_deleted
 signal connection_created
 signal connection_deleted
 
+signal cursor_moved
+
 #endregion 
