@@ -290,6 +290,7 @@ func _emit_legacy_mouse_press_signals(
 		MOUSE_BUTTON_LEFT:
 			if event.shift_pressed:
 				shift_clicked.emit(event.position)
+				clicked.emit() # Restore the behavior VXNode expects.
 			elif event.ctrl_pressed:
 				ctrl_clicked.emit()
 			else:
