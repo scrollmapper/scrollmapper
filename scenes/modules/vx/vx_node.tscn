@@ -83,13 +83,15 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="PrimarySelect" type="Line2D" parent="NodeContainer/Icons" unique_id=379718375]
-points = PackedVector2Array(0, -32, 0, 0, -32, 0)
+points = PackedVector2Array(0, -64, 0, 0, -64, 0)
 closed = true
 width = 2.0
 default_color = Color(0.33333334, 0.78039217, 0.9607843, 1)
 joint_mode = 2
-begin_cap_mode = 1
+begin_cap_mode = 2
 end_cap_mode = 2
+round_precision = 12
+antialiased = true
 
 [node name="SecondarySelect" type="Line2D" parent="NodeContainer/Icons" unique_id=512702206]
 points = PackedVector2Array(0, -32, 0, 0, -32, 0)
