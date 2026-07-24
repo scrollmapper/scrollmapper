@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bh1iyds4cy28s"]
 
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_li6p2"]
 [ext_resource type="Script" uid="uid://bhbylc60ljvn5" path="res://scenes/modules/vx/vx_graph.gd" id="1_sckcm"]
 [ext_resource type="PackedScene" uid="uid://dxmjgp6r1w30c" path="res://scenes/modules/vx/vx_input.tscn" id="2_36hn7"]
 [ext_resource type="PackedScene" uid="uid://cp0o1tuvvutai" path="res://scenes/modules/vx/vx_canvas.tscn" id="2_jc8ca"]
@@ -44,6 +45,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+theme = ExtResource("1_li6p2")
 script = ExtResource("1_sckcm")
 vx_canvas = NodePath("VXCanvas")
 vx_editor = NodePath("VXEditor")
@@ -124,6 +126,7 @@ mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="VXEditor/EditorUI/VBoxContainer" unique_id=1948008721]
 layout_mode = 2
+theme = ExtResource("1_li6p2")
 
 [node name="Panel" type="Panel" parent="VXEditor/EditorUI/VBoxContainer/MarginContainer" unique_id=2114436222]
 layout_mode = 2
@@ -267,4 +270,3 @@ texture = ExtResource("14_hp7bs")
 script = ExtResource("3_gnil0")
 
 [node name="VXCursor" parent="." unique_id=2134486155 instance=ExtResource("6_h1ilm")]
-layout_mode = 1

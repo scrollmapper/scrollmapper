@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b47hcwlb6la61"]
+[gd_scene format=3 uid="uid://b47hcwlb6la61"]
 
-[ext_resource type="Script" path="res://scenes/modules/search/search.gd" id="1_3myjv"]
+[ext_resource type="Script" uid="uid://bc387emj50x7y" path="res://scenes/modules/search/search.gd" id="1_3myjv"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_63eft"]
 
-[node name="Search" type="MarginContainer" node_paths=PackedStringArray("check_button_search_type", "margin_container_search", "h_box_container_range", "option_scope", "option_translation", "option_books", "option_chapters", "search_input", "option_verses", "option_to_books", "option_to_chapters", "option_to_verses", "button_range_search")]
+[node name="Search" type="MarginContainer" unique_id=459796541 node_paths=PackedStringArray("check_button_search_type", "margin_container_search", "h_box_container_range", "option_scope", "option_translation", "option_books", "option_chapters", "search_input", "option_verses", "option_to_books", "option_to_chapters", "option_to_verses", "button_range_search")]
 offset_right = 477.0
 offset_bottom = 86.0
 size_flags_horizontal = 3
+theme = ExtResource("1_63eft")
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -25,35 +27,35 @@ option_to_chapters = NodePath("VBoxContainer/HBoxContainerRange/OptionToChapters
 option_to_verses = NodePath("VBoxContainer/HBoxContainerRange/OptionToVerses")
 button_range_search = NodePath("VBoxContainer/HBoxContainerRange/ButtonRangeSearch")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2050797943]
 layout_mode = 2
 
-[node name="HBoxContainerSearchTypes" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainerSearchTypes" type="HBoxContainer" parent="VBoxContainer" unique_id=850938643]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainerSearchTypes"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainerSearchTypes" unique_id=1637034309]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainerSearchTypes/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainerSearchTypes/HBoxContainer" unique_id=721753360]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "Search / Range"
 
-[node name="CheckButtonSearchType" type="CheckButton" parent="VBoxContainer/HBoxContainerSearchTypes/HBoxContainer"]
+[node name="CheckButtonSearchType" type="CheckButton" parent="VBoxContainer/HBoxContainerSearchTypes/HBoxContainer" unique_id=185289365]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=92834343]
 layout_mode = 2
 
-[node name="OptionScope" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="OptionTranslation" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+[node name="OptionScope" type="OptionButton" parent="VBoxContainer/HBoxContainer" unique_id=502240027]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="OptionBooks" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+[node name="OptionTranslation" type="OptionButton" parent="VBoxContainer/HBoxContainer" unique_id=2066369332]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionBooks" type="OptionButton" parent="VBoxContainer/HBoxContainer" unique_id=1327468007]
 layout_mode = 2
 size_flags_horizontal = 3
 selected = 0
@@ -61,50 +63,55 @@ item_count = 1
 popup/item_0/text = "-"
 popup/item_0/id = 1
 
-[node name="OptionChapters" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+[node name="OptionChapters" type="OptionButton" parent="VBoxContainer/HBoxContainer" unique_id=1570458479]
 layout_mode = 2
 size_flags_horizontal = 3
 selected = 0
 item_count = 1
 popup/item_0/text = "-"
+popup/item_0/id = 0
 
-[node name="OptionVerses" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+[node name="OptionVerses" type="OptionButton" parent="VBoxContainer/HBoxContainer" unique_id=501734319]
 layout_mode = 2
 size_flags_horizontal = 3
 selected = 0
 item_count = 1
 popup/item_0/text = "-"
+popup/item_0/id = 0
 
-[node name="MarginContainerSearch" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainerSearch" type="MarginContainer" parent="VBoxContainer" unique_id=878597040]
 layout_mode = 2
 
-[node name="SearchInput" type="LineEdit" parent="VBoxContainer/MarginContainerSearch"]
+[node name="SearchInput" type="LineEdit" parent="VBoxContainer/MarginContainerSearch" unique_id=1653942857]
 layout_mode = 2
 
-[node name="HBoxContainerRange" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainerRange" type="HBoxContainer" parent="VBoxContainer" unique_id=353821175]
 layout_mode = 2
 
-[node name="OptionToBooks" type="OptionButton" parent="VBoxContainer/HBoxContainerRange"]
-layout_mode = 2
-size_flags_horizontal = 3
-selected = 0
-item_count = 1
-popup/item_0/text = "-"
-
-[node name="OptionToChapters" type="OptionButton" parent="VBoxContainer/HBoxContainerRange"]
+[node name="OptionToBooks" type="OptionButton" parent="VBoxContainer/HBoxContainerRange" unique_id=1423384392]
 layout_mode = 2
 size_flags_horizontal = 3
 selected = 0
 item_count = 1
 popup/item_0/text = "-"
+popup/item_0/id = 0
 
-[node name="OptionToVerses" type="OptionButton" parent="VBoxContainer/HBoxContainerRange"]
+[node name="OptionToChapters" type="OptionButton" parent="VBoxContainer/HBoxContainerRange" unique_id=1636022328]
 layout_mode = 2
 size_flags_horizontal = 3
 selected = 0
 item_count = 1
 popup/item_0/text = "-"
+popup/item_0/id = 0
 
-[node name="ButtonRangeSearch" type="Button" parent="VBoxContainer/HBoxContainerRange"]
+[node name="OptionToVerses" type="OptionButton" parent="VBoxContainer/HBoxContainerRange" unique_id=2083615363]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 1
+popup/item_0/text = "-"
+popup/item_0/id = 0
+
+[node name="ButtonRangeSearch" type="Button" parent="VBoxContainer/HBoxContainerRange" unique_id=377226552]
 layout_mode = 2
 text = "Search Range"

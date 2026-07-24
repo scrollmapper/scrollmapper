@@ -24,8 +24,8 @@ class_name VXNode
 @export var preview_text: RichTextLabel
 
 # UI Elements / Icons
-@export var primary_selection_icon:Control
-@export var secondary_selection_icon:Control
+@export var primary_selection_icon:Line2D
+@export var secondary_selection_icon:Line2D
 
 @export_group("Interaction / Movement")
 @export var area_2d:Area2D

@@ -6,7 +6,7 @@
 shader = ExtResource("1_ndpcn")
 shader_parameter/glow_strength = 0.82800003933
 shader_parameter/cycle_speed = 0.3030000143925
-shader_parameter/cloud_size = 23.091000621822502
+shader_parameter/cloud_size = 23.091000621822506
 shader_parameter/cloud_softness = 0.22200000984648
-shader_parameter/minimum_visibility = 0.2000000095
+shader_parameter/minimum_visibility = 0.10000000475
 shader_parameter/phase_offset = 0.485

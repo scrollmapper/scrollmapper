@@ -3,10 +3,15 @@
 [ext_resource type="Material" uid="uid://f3rndjrsob0g" path="res://theme/shaders/vx_connection.tres" id="1_dm0m2"]
 [ext_resource type="Script" uid="uid://dqjingdlpe2bt" path="res://scenes/modules/vx/vx_connection.gd" id="1_fj7it"]
 
+[sub_resource type="Curve" id="Curve_p2oqk"]
+_data = [Vector2(0, 1), 0.0, -1.8690995, 0, 0, Vector2(0.49604216, 0.29801327), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.0363607, 0.0, 0, 0]
+point_count = 3
+
 [node name="Line2D" type="Line2D" unique_id=490523769]
 material = ExtResource("1_dm0m2")
 points = PackedVector2Array(0, 0, 573, 287)
-width = 2.0
+width = 6.0
+width_curve = SubResource("Curve_p2oqk")
 default_color = Color(0.33333334, 0.78039217, 0.9607843, 1)
 joint_mode = 2
 begin_cap_mode = 2

@@ -1,18 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6jvh448lsipo"]
+[gd_scene format=3 uid="uid://b6jvh448lsipo"]
 
-[ext_resource type="Texture2D" uid="uid://mftq515vteg" path="res://images/icons/Marker3D.svg" id="1_2u7f0"]
+[ext_resource type="Script" uid="uid://dlpc8328egor5" path="res://scenes/modules/vx/vx_cursor.gd" id="1_mcakt"]
 
-[node name="VXCursor" type="TextureRect"]
-anchors_preset = -1
-anchor_left = -0.014
-anchor_top = -0.025
-anchor_right = 0.014
-anchor_bottom = 0.025
-offset_left = 0.128
-offset_top = 0.200001
-offset_right = -0.128
-offset_bottom = -0.200001
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-texture = ExtResource("1_2u7f0")
+[sub_resource type="Gradient" id="Gradient_xkmyp"]
+colors = PackedColorArray(0.22813772, 1.1509113, 1.5999943, 0.49803922, 0.0918067, 0.57267255, 0.8049552, 0)
+
+[node name="VXCursor" type="Line2D" unique_id=852966138]
+points = PackedVector2Array(0, -34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 4.0
+default_color = Color(0.33333334, 0.78039217, 0.9607843, 1)
+script = ExtResource("1_mcakt")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=82826358]
+amount = 20
+lifetime = 2.0
+emission_shape = 1
+emission_sphere_radius = 64.0
+gravity = Vector2(0, 0)
+orbit_velocity_min = -0.05
+orbit_velocity_max = 0.05
+linear_accel_max = 9.6
+radial_accel_min = 1.0
+radial_accel_max = 20.0
+scale_amount_max = 4.0
+color = Color(0.08627451, 0.54901963, 0.77254903, 1)
+color_ramp = SubResource("Gradient_xkmyp")

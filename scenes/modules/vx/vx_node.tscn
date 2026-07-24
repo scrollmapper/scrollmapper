@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://y0nqmwo2ep1w" path="res://scenes/modules/vx/vx_node.gd" id="1_0d16a"]
 [ext_resource type="Texture2D" uid="uid://c34wv12yqjjfi" path="res://theme/backgrounds/scripture-card.png" id="2_bvpdm"]
+[ext_resource type="Theme" uid="uid://cjyctdcwxxnbk" path="res://theme/vx_node.tres" id="2_c5u2l"]
 [ext_resource type="Material" uid="uid://de7t1c2whf8yb" path="res://theme/shaders/vx_node.tres" id="2_x6nu1"]
-[ext_resource type="Texture2D" uid="uid://ctfuodikeog1o" path="res://theme/backgrounds/selected_red.png" id="3_7lnj1"]
-[ext_resource type="Texture2D" uid="uid://lxcqp3e4clo5" path="res://theme/backgrounds/selected_blue.png" id="4_r3tjm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sm5ja"]
 size = Vector2(288.5, 274)
@@ -28,10 +27,12 @@ sockets_mount_right = NodePath("NodeContainer/SocketMount2/SocketsMountRight")
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
+theme = ExtResource("2_c5u2l")
 
 [node name="VersePanel" type="MarginContainer" parent="NodeContainer" unique_id=184417714]
 layout_mode = 2
 mouse_filter = 2
+theme = ExtResource("2_c5u2l")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="NodeContainer/VersePanel" unique_id=506106267]
 layout_mode = 2
@@ -81,23 +82,22 @@ position = Vector2(295, 0)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="SecondarySelect" type="TextureRect" parent="NodeContainer/Icons" unique_id=658822870]
-layout_mode = 0
-offset_left = -31.0
-offset_top = 5.0
-offset_right = 9.0
-offset_bottom = 45.0
-mouse_filter = 2
-texture = ExtResource("4_r3tjm")
+[node name="PrimarySelect" type="Line2D" parent="NodeContainer/Icons" unique_id=379718375]
+points = PackedVector2Array(0, -32, 0, 0, -32, 0)
+closed = true
+width = 2.0
+default_color = Color(0.33333334, 0.78039217, 0.9607843, 1)
+joint_mode = 2
+begin_cap_mode = 1
+end_cap_mode = 2
 
-[node name="PrimarySelect" type="TextureRect" parent="NodeContainer/Icons" unique_id=1674991944]
-layout_mode = 0
-offset_left = -31.0
-offset_top = 4.0
-offset_right = 9.0
-offset_bottom = 44.0
-mouse_filter = 2
-texture = ExtResource("3_7lnj1")
+[node name="SecondarySelect" type="Line2D" parent="NodeContainer/Icons" unique_id=512702206]
+points = PackedVector2Array(0, -32, 0, 0, -32, 0)
+width = 2.0
+default_color = Color(0.33333334, 0.78039217, 0.9607843, 0.6862745)
+joint_mode = 2
+begin_cap_mode = 1
+end_cap_mode = 2
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1746361356]
 

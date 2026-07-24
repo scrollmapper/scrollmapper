@@ -1,39 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://ngk4ft07vtvp"]
+[gd_scene format=3 uid="uid://ngk4ft07vtvp"]
 
-[ext_resource type="Script" path="res://scenes/modules/reader/reader_books_selector/reader_book_selector.gd" id="1_4if0m"]
+[ext_resource type="Script" uid="uid://cvrg6gh4x3fgv" path="res://scenes/modules/reader/reader_books_selector/reader_book_selector.gd" id="1_4if0m"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_lgd25"]
 [ext_resource type="PackedScene" uid="uid://bwj8dnl7vm0cj" path="res://scenes/modules/reader/reader_books_selector/reader_translation_container/reader_translation_container.tscn" id="2_qs5nu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rq23u"]
-bg_color = Color(0.190762, 0.190762, 0.190762, 1)
-
-[node name="ReaderBookSelector" type="MarginContainer" node_paths=PackedStringArray("translation_v_box_container")]
+[node name="ReaderBookSelector" type="MarginContainer" unique_id=1024967093 node_paths=PackedStringArray("translation_v_box_container")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_lgd25")
 script = ExtResource("1_4if0m")
 translation_v_box_container = NodePath("MarginContainer/ScrollContainer/TranslationVBoxContainer")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1939107871]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_rq23u")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1828982417]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=231163000]
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="TranslationVBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+[node name="TranslationVBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=1672872542]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ReaderTranslationContainer" parent="MarginContainer/ScrollContainer/TranslationVBoxContainer" instance=ExtResource("2_qs5nu")]
+[node name="ReaderTranslationContainer" parent="MarginContainer/ScrollContainer/TranslationVBoxContainer" unique_id=331349012 instance=ExtResource("2_qs5nu")]
 layout_mode = 2
 size_flags_vertical = 1

@@ -26,6 +26,7 @@ uniform float minimum_visibility : hint_range(0.0, 1.0) = 0.12;
 uniform float phase_offset = 0.0;
 
 
+
 float random_value(vec2 position) {
 	return fract(
 		sin(dot(position, vec2(127.1, 311.7)))
@@ -67,6 +68,13 @@ float cloud_noise(vec2 position) {
 	return result;
 }
 
+varying vec2 world_position;
+
+void vertex() {
+	world_position = (
+		MODEL_MATRIX * vec4(VERTEX, 0.0, 1.0)
+	).xy;
+}
 
 void fragment() {
 	/*
@@ -84,7 +92,7 @@ void fragment() {
 		There is no fixed start-to-end movement.
 	*/
 	vec2 cloud_position =
-		FRAGCOORD.xy / cloud_size;
+		world_position / cloud_size;
 
 	vec2 first_wander = vec2(
 		sin(animation_time * 0.73),

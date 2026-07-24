@@ -1,6 +1,7 @@
-[gd_scene load_steps=61 format=3 uid="uid://dbm33xetmvl7y"]
+[gd_scene format=3 uid="uid://dbm33xetmvl7y"]
 
-[ext_resource type="Script" path="res://scenes/modules/book_library/book_library.gd" id="1_y5h8a"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_voj6x"]
+[ext_resource type="Script" uid="uid://dnxmyiib6awdr" path="res://scenes/modules/book_library/book_library.gd" id="1_y5h8a"]
 [ext_resource type="Texture2D" uid="uid://b5mpvku1gxyg3" path="res://theme/icons/scroll_sprites/32/scrolls_pack_1_33.png" id="2_16n2k"]
 [ext_resource type="PackedScene" uid="uid://clb8a32uo7n2i" path="res://scenes/modules/book_library/grid_elements/book_listing.tscn" id="2_q4j6q"]
 [ext_resource type="Texture2D" uid="uid://sy8ryyrb3xh5" path="res://theme/icons/scroll_sprites/32/scrolls_pack_1_39.png" id="3_pv5dr"]
@@ -61,7 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://dka5rbpsti1fk" path="res://theme/icons/scroll_sprites/32/scrolls_pack_1_572.png" id="58_yabpr"]
 [ext_resource type="Texture2D" uid="uid://bqcgomdsdvj2f" path="res://theme/icons/scroll_sprites/32/scrolls_pack_1_580.png" id="59_ncty7"]
 
-[node name="BookLibrary" type="Control" node_paths=PackedStringArray("book_list", "update_list_button", "syncronize_button", "done_button")]
+[node name="BookLibrary" type="Control" unique_id=1641364253 node_paths=PackedStringArray("book_list", "update_list_button", "syncronize_button", "done_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,6 +71,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_voj6x")
 script = ExtResource("1_y5h8a")
 book_list = NodePath("MarginContainer/VBoxContainer/ScrollContainer/BookListContainer/BookList")
 scroll_list = Array[Texture]([ExtResource("2_16n2k"), ExtResource("3_pv5dr"), ExtResource("4_mn84b"), ExtResource("5_2xufu"), ExtResource("6_rbucj"), ExtResource("7_u38ye"), ExtResource("8_wfqqw"), ExtResource("9_okjbr"), ExtResource("10_ospi3"), ExtResource("11_mio28"), ExtResource("12_6pt7m"), ExtResource("13_g5wmr"), ExtResource("14_0ar6x"), ExtResource("15_mnbis"), ExtResource("16_qongs"), ExtResource("17_u4yeq"), ExtResource("18_6kd2j"), ExtResource("19_uty5a"), ExtResource("20_mskgp"), ExtResource("21_1dklu"), ExtResource("22_u7lqf"), ExtResource("23_t6t55"), ExtResource("24_lq8o7"), ExtResource("25_5l1n1"), ExtResource("26_f8bl2"), ExtResource("27_mu1qx"), ExtResource("28_3r71g"), ExtResource("29_10d4m"), ExtResource("30_mif47"), ExtResource("31_r5aow"), ExtResource("32_vogtu"), ExtResource("33_u3t0l"), ExtResource("34_a5v12"), ExtResource("35_5hqlp"), ExtResource("36_2riib"), ExtResource("37_0k55e"), ExtResource("38_coqtw"), ExtResource("39_qvpo4"), ExtResource("40_kcvyd"), ExtResource("41_mb5nv"), ExtResource("42_twcob"), ExtResource("43_gbjwo"), ExtResource("44_vu1hu"), ExtResource("45_v2igr"), ExtResource("46_uh346"), ExtResource("47_rrois"), ExtResource("48_stgdg"), ExtResource("49_8wauw"), ExtResource("50_nswov"), ExtResource("51_igdfp"), ExtResource("52_l7b75"), ExtResource("53_j1oxh"), ExtResource("54_qhb4n"), ExtResource("55_pmdct"), ExtResource("56_46qi3"), ExtResource("57_otvja"), ExtResource("58_yabpr"), ExtResource("59_ncty7")])
@@ -77,7 +79,7 @@ update_list_button = NodePath("MarginContainer/VBoxContainer/ControlsContainer/C
 syncronize_button = NodePath("MarginContainer/VBoxContainer/ControlsContainer/Controls/SyncronizeButton")
 done_button = NodePath("MarginContainer/VBoxContainer/ControlsContainer/Controls/DoneButton")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=315995180]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,21 +91,21 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1368003659]
 layout_mode = 2
 
-[node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1371425513]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Scrollmapper Book Library"
 fit_content = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=419227537]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="BookListContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="BookListContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=1889450361]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -112,35 +114,35 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="BookList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/BookListContainer"]
+[node name="BookList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/BookListContainer" unique_id=459103396]
 layout_mode = 2
 
-[node name="BookListing" parent="MarginContainer/VBoxContainer/ScrollContainer/BookListContainer/BookList" instance=ExtResource("2_q4j6q")]
+[node name="BookListing" parent="MarginContainer/VBoxContainer/ScrollContainer/BookListContainer/BookList" unique_id=1828866025 instance=ExtResource("2_q4j6q")]
 layout_mode = 2
 
-[node name="BookListing2" parent="MarginContainer/VBoxContainer/ScrollContainer/BookListContainer/BookList" instance=ExtResource("2_q4j6q")]
+[node name="BookListing2" parent="MarginContainer/VBoxContainer/ScrollContainer/BookListContainer/BookList" unique_id=522657488 instance=ExtResource("2_q4j6q")]
 layout_mode = 2
 
-[node name="BookListing3" parent="MarginContainer/VBoxContainer/ScrollContainer/BookListContainer/BookList" instance=ExtResource("2_q4j6q")]
+[node name="BookListing3" parent="MarginContainer/VBoxContainer/ScrollContainer/BookListContainer/BookList" unique_id=1561636811 instance=ExtResource("2_q4j6q")]
 layout_mode = 2
 
-[node name="ControlsContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ControlsContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=494380832]
 layout_mode = 2
 
-[node name="Controls" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ControlsContainer"]
+[node name="Controls" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ControlsContainer" unique_id=1337698096]
 layout_mode = 2
 
-[node name="UpdateListButton" type="Button" parent="MarginContainer/VBoxContainer/ControlsContainer/Controls"]
+[node name="UpdateListButton" type="Button" parent="MarginContainer/VBoxContainer/ControlsContainer/Controls" unique_id=620420585]
 layout_mode = 2
 tooltip_text = "Fetches the current book list from the Scrollmapper github book list."
 text = "Update Book List"
 
-[node name="SyncronizeButton" type="Button" parent="MarginContainer/VBoxContainer/ControlsContainer/Controls"]
+[node name="SyncronizeButton" type="Button" parent="MarginContainer/VBoxContainer/ControlsContainer/Controls" unique_id=1608681528]
 layout_mode = 2
 tooltip_text = "Will install or uninstall the books depending on selection."
 text = "Syncronize Library"
 
-[node name="DoneButton" type="Button" parent="MarginContainer/VBoxContainer/ControlsContainer/Controls"]
+[node name="DoneButton" type="Button" parent="MarginContainer/VBoxContainer/ControlsContainer/Controls" unique_id=1780799688]
 layout_mode = 2
 tooltip_text = "Close the Window"
 text = "Done

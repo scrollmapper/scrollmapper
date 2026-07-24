@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b47hcwlb6la61" path="res://scenes/modules/search/search.tscn" id="1_6rdk2"]
 [ext_resource type="Script" uid="uid://48oip0s5udca" path="res://scenes/modules/vx/vx_search_and_execute.gd" id="1_8olel"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_tknkg"]
 [ext_resource type="Texture2D" uid="uid://cp7wi7w1bgpew" path="res://images/icons/editor/Save.svg" id="3_li55u"]
 [ext_resource type="Texture2D" uid="uid://7junss6685ni" path="res://images/icons/editor/FileBrowse.svg" id="3_nllwr"]
 [ext_resource type="Texture2D" uid="uid://2pao3tccym3q" path="res://images/icons/editor/FileTree.svg" id="4_7bkm2"]
@@ -21,6 +22,7 @@ anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_tknkg")
 script = ExtResource("1_8olel")
 menu_button_graph = NodePath("HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer/MenusHBoxContainer/MenuButtonGraph")
 menu_button_import = NodePath("HBoxContainer/Ops/VBoxContainer/MarginContainer/VBoxContainer/MenusHBoxContainer/MenuButtonImport")

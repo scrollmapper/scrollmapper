@@ -10,7 +10,7 @@ class_name VXEditor
 @export var vx_graph:VXGraph
 @export var vx_camera_2d: Camera2D
 @export var vx_search_and_execute: VXSearchAndExute 
-@export var cursor:TextureRect
+@export var cursor:Line2D
 
 @export_group("Dialogues")
 ## Settings dialog that is responsible for name and description of a given graph.

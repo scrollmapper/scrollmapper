@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5aq6u6sn6q1x"]
+[gd_scene format=3 uid="uid://b5aq6u6sn6q1x"]
 
-[ext_resource type="Script" path="res://scenes/modules/reader/reader.gd" id="1_qr023"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_dbrbt"]
+[ext_resource type="Script" uid="uid://cl03wb747fsj2" path="res://scenes/modules/reader/reader.gd" id="1_qr023"]
 [ext_resource type="Texture2D" uid="uid://b1ql3scu2dyyt" path="res://images/icons/editor/ArrowLeft.svg" id="2_n0qoh"]
 [ext_resource type="Texture2D" uid="uid://4v5n7ntpejl7" path="res://images/icons/editor/Script.svg" id="3_6tww0"]
 [ext_resource type="Texture2D" uid="uid://cn2b8usxom1ce" path="res://images/icons/editor/ArrowRight.svg" id="3_omuql"]
@@ -9,13 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b6bcrf1rf2jcq" path="res://images/icons/editor/DistractionFree.svg" id="6_53t8h"]
 [ext_resource type="PackedScene" uid="uid://cboro7vr8pa53" path="res://scenes/modules/shared/exit_button.tscn" id="6_w6xnn"]
 
-[sub_resource type="Theme" id="Theme_v725r"]
-default_font_size = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f53hr"]
-bg_color = Color(0.431373, 0.384314, 0.34902, 1)
-
-[node name="Reader" type="Control" node_paths=PackedStringArray("books_button", "previous_chapter_button", "cross_refs_button", "next_chapter_button", "browser_margin_container", "chapters_v_box_container", "reading_v_box_container", "cross_referencing_margin_container", "cross_referencing_v_box_container", "reader_book_selector", "chapers_scroll_container", "reading_scroll_container", "cross_referencing_scroll_container", "distraction_free_button", "font_size_spin_box")]
+[node name="Reader" type="Control" unique_id=1281666617 node_paths=PackedStringArray("books_button", "previous_chapter_button", "cross_refs_button", "next_chapter_button", "browser_margin_container", "chapters_v_box_container", "reading_v_box_container", "cross_referencing_margin_container", "cross_referencing_v_box_container", "reader_book_selector", "chapers_scroll_container", "reading_scroll_container", "cross_referencing_scroll_container", "distraction_free_button", "font_size_spin_box")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = SubResource("Theme_v725r")
+theme = ExtResource("1_dbrbt")
 script = ExtResource("1_qr023")
 books_button = NodePath("MarginContainer/VBoxContainer/NavigatorMarginContainer/HBoxContainer/BooksButton")
 previous_chapter_button = NodePath("MarginContainer/VBoxContainer/NavigatorMarginContainer/HBoxContainer/PreviousChapterButton")
@@ -42,16 +37,15 @@ cross_referencing_scroll_container = NodePath("MarginContainer/VBoxContainer/HBo
 distraction_free_button = NodePath("MarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer/HBoxContainer/DistractionFreeButton")
 font_size_spin_box = NodePath("MarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer/HBoxContainer/FontSizeSpinBox")
 
-[node name="BackgroundPanel" type="Panel" parent="."]
+[node name="BackgroundPanel" type="Panel" parent="." unique_id=1531612236]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_f53hr")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1445413163]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,52 +57,52 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1690155337]
 layout_mode = 2
 
-[node name="NavigatorMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="NavigatorMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1932027355]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/NavigatorMarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/NavigatorMarginContainer" unique_id=2065414449]
 layout_mode = 2
 alignment = 1
 
-[node name="PreviousChapterButton" type="Button" parent="MarginContainer/VBoxContainer/NavigatorMarginContainer/HBoxContainer"]
+[node name="PreviousChapterButton" type="Button" parent="MarginContainer/VBoxContainer/NavigatorMarginContainer/HBoxContainer" unique_id=1864896625]
 layout_mode = 2
 text = "Previous Chapter
 "
 icon = ExtResource("2_n0qoh")
 
-[node name="BooksButton" type="Button" parent="MarginContainer/VBoxContainer/NavigatorMarginContainer/HBoxContainer"]
+[node name="BooksButton" type="Button" parent="MarginContainer/VBoxContainer/NavigatorMarginContainer/HBoxContainer" unique_id=1840590460]
 layout_mode = 2
 text = "Books"
 icon = ExtResource("3_6tww0")
 
-[node name="CrossRefsButton" type="Button" parent="MarginContainer/VBoxContainer/NavigatorMarginContainer/HBoxContainer"]
+[node name="CrossRefsButton" type="Button" parent="MarginContainer/VBoxContainer/NavigatorMarginContainer/HBoxContainer" unique_id=361997888]
 layout_mode = 2
 text = "Cross-References"
 icon = ExtResource("4_6rmyb")
 
-[node name="NextChapterButton" type="Button" parent="MarginContainer/VBoxContainer/NavigatorMarginContainer/HBoxContainer"]
+[node name="NextChapterButton" type="Button" parent="MarginContainer/VBoxContainer/NavigatorMarginContainer/HBoxContainer" unique_id=1072742237]
 layout_mode = 2
 text = "Next Chapter"
 icon = ExtResource("3_omuql")
 icon_alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1158001436]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="BrowserMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="BrowserMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1179695906]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="ChapersScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/BrowserMarginContainer"]
+[node name="ChapersScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/BrowserMarginContainer" unique_id=1999546302]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/BrowserMarginContainer/ChapersScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/BrowserMarginContainer/ChapersScrollContainer" unique_id=952796403]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -117,19 +111,19 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 0
 
-[node name="ChaptersVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/BrowserMarginContainer/ChapersScrollContainer/MarginContainer"]
+[node name="ChaptersVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/BrowserMarginContainer/ChapersScrollContainer/MarginContainer" unique_id=850320083]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ReadingMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ReadingMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1003738364]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ReadingScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ReadingMarginContainer"]
+[node name="ReadingScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ReadingMarginContainer" unique_id=378050320]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ReadingMarginContainer/ReadingScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ReadingMarginContainer/ReadingScrollContainer" unique_id=827625232]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -138,17 +132,17 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="ReadingVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ReadingMarginContainer/ReadingScrollContainer/MarginContainer"]
+[node name="ReadingVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ReadingMarginContainer/ReadingScrollContainer/MarginContainer" unique_id=1079876667]
 layout_mode = 2
 
-[node name="CrossReferencingMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CrossReferencingMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=158174068]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CrossReferencingScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/CrossReferencingMarginContainer"]
+[node name="CrossReferencingScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/CrossReferencingMarginContainer" unique_id=721348173]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/CrossReferencingMarginContainer/CrossReferencingScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/CrossReferencingMarginContainer/CrossReferencingScrollContainer" unique_id=1849735785]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -157,29 +151,29 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="CrossReferencingVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/CrossReferencingMarginContainer/CrossReferencingScrollContainer/MarginContainer"]
+[node name="CrossReferencingVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/CrossReferencingMarginContainer/CrossReferencingScrollContainer/MarginContainer" unique_id=120744006]
 layout_mode = 2
 
-[node name="FooterMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="FooterMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=764859633]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/FooterMarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/FooterMarginContainer" unique_id=1893518198]
 layout_mode = 2
 alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer" unique_id=603755439]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DistractionFreeButton" type="Button" parent="MarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer/HBoxContainer"]
+[node name="DistractionFreeButton" type="Button" parent="MarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer/HBoxContainer" unique_id=1523235500]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 toggle_mode = true
 icon = ExtResource("6_53t8h")
 icon_alignment = 1
 
-[node name="FontSizeSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer/HBoxContainer"]
+[node name="FontSizeSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer/HBoxContainer" unique_id=579902890]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -187,9 +181,9 @@ min_value = 12.0
 value = 12.0
 prefix = "Font Size:"
 
-[node name="ExitButton" parent="MarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer" instance=ExtResource("6_w6xnn")]
+[node name="ExitButton" parent="MarginContainer/VBoxContainer/FooterMarginContainer/HBoxContainer" unique_id=1362009204 instance=ExtResource("6_w6xnn")]
 layout_mode = 2
 
-[node name="ReaderBookSelector" parent="." instance=ExtResource("5_ueijh")]
+[node name="ReaderBookSelector" parent="." unique_id=854202925 instance=ExtResource("5_ueijh")]
 visible = false
 layout_mode = 1

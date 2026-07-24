@@ -1,6 +1,7 @@
-[gd_scene load_steps=60 format=3 uid="uid://dy38u7aepqhkl"]
+[gd_scene format=3 uid="uid://dy38u7aepqhkl"]
 
-[ext_resource type="Script" path="res://cross_referenced_books_selector.gd" id="1_gtjhh"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_82xln"]
+[ext_resource type="Script" uid="uid://cj0p843sf5pn2" path="res://cross_referenced_books_selector.gd" id="1_gtjhh"]
 [ext_resource type="Texture2D" uid="uid://b5mpvku1gxyg3" path="res://theme/icons/scroll_sprites/32/scrolls_pack_1_33.png" id="2_6irab"]
 [ext_resource type="Texture2D" uid="uid://h15aucjggn6p" path="res://theme/icons/scroll_sprites/32/scrolls_pack_1_94.png" id="3_e7bsp"]
 [ext_resource type="Texture2D" uid="uid://sy8ryyrb3xh5" path="res://theme/icons/scroll_sprites/32/scrolls_pack_1_39.png" id="3_ly48s"]
@@ -60,12 +61,13 @@
 [ext_resource type="Texture2D" uid="uid://dka5rbpsti1fk" path="res://theme/icons/scroll_sprites/32/scrolls_pack_1_572.png" id="58_cdjo8"]
 [ext_resource type="Texture2D" uid="uid://bqcgomdsdvj2f" path="res://theme/icons/scroll_sprites/32/scrolls_pack_1_580.png" id="59_wvawh"]
 
-[node name="CrossReferencedBooksSelector" type="MarginContainer" node_paths=PackedStringArray("book_item_list", "selected_count_rich_text_label", "select_all_button", "select_none_button")]
+[node name="CrossReferencedBooksSelector" type="MarginContainer" unique_id=1162673574 node_paths=PackedStringArray("book_item_list", "selected_count_rich_text_label", "select_all_button", "select_none_button")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_82xln")
 script = ExtResource("1_gtjhh")
 book_item_list = NodePath("VBoxContainer/ScrollContainer/BookItemList")
 scroll_icons = Array[Texture2D]([ExtResource("2_6irab"), ExtResource("3_ly48s"), ExtResource("4_uvu2p"), ExtResource("5_vn8ni"), ExtResource("6_7r2so"), ExtResource("7_afub7"), ExtResource("8_gsjps"), ExtResource("9_vnjne"), ExtResource("10_4fvn0"), ExtResource("11_hlfw8"), ExtResource("12_4peef"), ExtResource("3_e7bsp"), ExtResource("14_hns4f"), ExtResource("15_14b8j"), ExtResource("16_4vodv"), ExtResource("17_3f13k"), ExtResource("18_7rx7g"), ExtResource("19_o3tet"), ExtResource("20_n64b3"), ExtResource("21_5fjnk"), ExtResource("22_yatst"), ExtResource("23_e0ml8"), ExtResource("24_vhadt"), ExtResource("25_hbiou"), ExtResource("26_gcadr"), ExtResource("27_40xad"), ExtResource("28_v3uks"), ExtResource("29_cxjwl"), ExtResource("30_xfayy"), ExtResource("31_qe840"), ExtResource("32_tnujh"), ExtResource("33_qj5qr"), ExtResource("34_thmwt"), ExtResource("35_p43p7"), ExtResource("36_0nl7w"), ExtResource("37_wwopf"), ExtResource("38_irlr2"), ExtResource("39_f00tr"), ExtResource("40_ejh40"), ExtResource("41_5pa74"), ExtResource("42_fvo2o"), ExtResource("43_fdfb3"), ExtResource("44_l0gbm"), ExtResource("45_ittqc"), ExtResource("46_6er2l"), ExtResource("47_vbc1o"), ExtResource("48_c2cwa"), ExtResource("49_6x7a7"), ExtResource("50_p1a10"), ExtResource("51_aejax"), ExtResource("52_87ssp"), ExtResource("53_io73a"), ExtResource("54_3b6vq"), ExtResource("55_r31p2"), ExtResource("56_bqneu"), ExtResource("57_3g0dj"), ExtResource("58_cdjo8"), ExtResource("59_wvawh")])
@@ -73,14 +75,14 @@ selected_count_rich_text_label = NodePath("VBoxContainer/HBoxContainer/SelectedC
 select_all_button = NodePath("VBoxContainer/HBoxContainer/SelectAllButton")
 select_none_button = NodePath("VBoxContainer/HBoxContainer/SelectNoneButton")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2029523036]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=244092669]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="BookItemList" type="ItemList" parent="VBoxContainer/ScrollContainer"]
+[node name="BookItemList" type="ItemList" parent="VBoxContainer/ScrollContainer" unique_id=1179467700]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -91,20 +93,20 @@ item_0/icon = ExtResource("2_6irab")
 item_1/text = "Second Item"
 item_1/icon = ExtResource("3_e7bsp")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=147611928]
 layout_mode = 2
 
-[node name="SelectAllButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="SelectAllButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1964861709]
 layout_mode = 2
 text = "Select All"
 flat = true
 
-[node name="SelectNoneButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="SelectNoneButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=410827793]
 layout_mode = 2
 text = "Select None"
 flat = true
 
-[node name="SelectedCountRichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+[node name="SelectedCountRichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer" unique_id=1776627553]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4

@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bs0uifavbkart"]
+[gd_scene format=3 uid="uid://bs0uifavbkart"]
 
-[ext_resource type="Script" path="res://scenes/modules/cross_reference/cross_reference.gd" id="1_nkbkw"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_m4k7c"]
+[ext_resource type="Script" uid="uid://dxcfigk6876w3" path="res://scenes/modules/cross_reference/cross_reference.gd" id="1_nkbkw"]
 
-[node name="CrossReference" type="MarginContainer"]
+[node name="CrossReference" type="MarginContainer" unique_id=1171245710]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -10,12 +11,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_m4k7c")
 script = ExtResource("1_nkbkw")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2090928742]
 layout_mode = 2
 
-[node name="ScriptureContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="ScriptureContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=247303736]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

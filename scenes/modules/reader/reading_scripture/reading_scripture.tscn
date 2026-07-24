@@ -1,34 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://doykeu7yg7i7c"]
+[gd_scene format=3 uid="uid://doykeu7yg7i7c"]
 
-[ext_resource type="Script" path="res://scenes/modules/reader/reading_scripture/reading_scripture.gd" id="1_1wdtk"]
+[ext_resource type="Script" uid="uid://b18im8sso1v6x" path="res://scenes/modules/reader/reading_scripture/reading_scripture.gd" id="1_1wdtk"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_5tb2g"]
 
-[node name="ReadingScripture" type="MarginContainer" node_paths=PackedStringArray("interaction_button", "verse_number_text_rich_text_label", "text_rich_text_label")]
+[node name="ReadingScripture" type="MarginContainer" unique_id=774420079 node_paths=PackedStringArray("interaction_button", "verse_number_text_rich_text_label", "text_rich_text_label")]
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_5tb2g")
 theme_override_constants/margin_bottom = 10
 script = ExtResource("1_1wdtk")
 interaction_button = NodePath("InteractionButton")
 verse_number_text_rich_text_label = NodePath("HBoxContainer/VerseNumberTextRichTextLabel")
 text_rich_text_label = NodePath("HBoxContainer/TextRichTextLabel")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=812216179]
 layout_mode = 2
 
-[node name="VerseNumberTextRichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+[node name="VerseNumberTextRichTextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=317767371]
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "77"
 fit_content = true
 
-[node name="TextRichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+[node name="TextRichTextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=889753804]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "In the beginning God created the heaven and the earth."
 fit_content = true
 
-[node name="InteractionButton" type="Button" parent="."]
+[node name="InteractionButton" type="Button" parent="." unique_id=1848388881]
 layout_mode = 2
 flat = true

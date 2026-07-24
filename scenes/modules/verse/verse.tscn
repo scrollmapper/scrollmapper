@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjjabscd5p82s"]
+[gd_scene format=3 uid="uid://cjjabscd5p82s"]
 
-[ext_resource type="Script" path="res://scenes/modules/verse/verse.gd" id="1_v4g5i"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_h716d"]
+[ext_resource type="Script" uid="uid://c7dgfaeve5fc8" path="res://scenes/modules/verse/verse.gd" id="1_v4g5i"]
 [ext_resource type="Texture2D" uid="uid://b7tufcdoeiawf" path="res://images/icons/TripleBar.svg" id="2_vbi5p"]
 [ext_resource type="Texture2D" uid="uid://jfe22xmju6ad" path="res://images/icons/MirrorX.svg" id="3_3f2fi"]
 [ext_resource type="Texture2D" uid="uid://caxxpma6u0fkx" path="res://images/icons/ScriptRemove.svg" id="3_rcrxc"]
@@ -11,10 +12,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_su3bk"]
 size = Vector2(171, 90)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rnvi"]
-bg_color = Color(0, 0, 0, 0.67451)
-
-[node name="Verse" type="MarginContainer" node_paths=PackedStringArray("scripture_reference", "scripture_text", "actions_buttons", "button_action_context", "button_action_cross_reference", "button_action_copy", "button_action_add_to_export_list", "button_action_to_work_station", "hover_sensor", "hover_sensor_collision", "action_backdrop", "meta_info_top", "meta_info_bottom", "meta_info_top_text", "meta_info_bottom_text")]
+[node name="Verse" type="MarginContainer" unique_id=410574349 node_paths=PackedStringArray("scripture_reference", "scripture_text", "actions_buttons", "button_action_context", "button_action_cross_reference", "button_action_copy", "button_action_add_to_export_list", "button_action_to_work_station", "hover_sensor", "hover_sensor_collision", "action_backdrop", "meta_info_top", "meta_info_bottom", "meta_info_top_text", "meta_info_bottom_text")]
 custom_minimum_size = Vector2(0, 74)
 anchors_preset = 14
 anchor_top = 0.5
@@ -24,6 +22,7 @@ offset_top = -51.0
 offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_h716d")
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
@@ -47,26 +46,26 @@ meta_info_bottom = NodePath("MainContainer/MetaInfoBottom")
 meta_info_top_text = NodePath("MainContainer/MetaInfoTop/MetaInfo")
 meta_info_bottom_text = NodePath("MainContainer/MetaInfoBottom/MetaInfo")
 
-[node name="MainContainer" type="VBoxContainer" parent="."]
+[node name="MainContainer" type="VBoxContainer" parent="." unique_id=860840145]
 layout_mode = 2
 
-[node name="MetaInfoTop" type="MarginContainer" parent="MainContainer"]
+[node name="MetaInfoTop" type="MarginContainer" parent="MainContainer" unique_id=1247514014]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 5
 
-[node name="MetaInfo" type="RichTextLabel" parent="MainContainer/MetaInfoTop"]
+[node name="MetaInfo" type="RichTextLabel" parent="MainContainer/MetaInfoTop" unique_id=294361248]
 layout_mode = 2
 text = "Meta Info Top"
 fit_content = true
 
-[node name="VerseContainer" type="HBoxContainer" parent="MainContainer"]
+[node name="VerseContainer" type="HBoxContainer" parent="MainContainer" unique_id=215690310]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="ScriptureContainer" type="MarginContainer" parent="MainContainer/VerseContainer"]
+[node name="ScriptureContainer" type="MarginContainer" parent="MainContainer/VerseContainer" unique_id=572740210]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 5
@@ -74,7 +73,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="ScriptureReference" type="RichTextLabel" parent="MainContainer/VerseContainer/ScriptureContainer"]
+[node name="ScriptureReference" type="RichTextLabel" parent="MainContainer/VerseContainer/ScriptureContainer" unique_id=1702273937]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 focus_mode = 2
@@ -84,7 +83,7 @@ text = "Scripture"
 fit_content = true
 selection_enabled = true
 
-[node name="ScriptureTextContainer" type="MarginContainer" parent="MainContainer/VerseContainer"]
+[node name="ScriptureTextContainer" type="MarginContainer" parent="MainContainer/VerseContainer" unique_id=1786969647]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -93,7 +92,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="ScriptureText" type="RichTextLabel" parent="MainContainer/VerseContainer/ScriptureTextContainer"]
+[node name="ScriptureText" type="RichTextLabel" parent="MainContainer/VerseContainer/ScriptureTextContainer" unique_id=1677000714]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -105,66 +104,65 @@ fit_content = true
 context_menu_enabled = true
 selection_enabled = true
 
-[node name="MetaInfoBottom" type="MarginContainer" parent="MainContainer"]
+[node name="MetaInfoBottom" type="MarginContainer" parent="MainContainer" unique_id=1111838031]
 layout_mode = 2
 
-[node name="MetaInfo" type="RichTextLabel" parent="MainContainer/MetaInfoBottom"]
+[node name="MetaInfo" type="RichTextLabel" parent="MainContainer/MetaInfoBottom" unique_id=512708958]
 layout_mode = 2
 text = "Meta Info Bottom"
 fit_content = true
 
-[node name="HoverSensor" type="Area2D" parent="."]
+[node name="HoverSensor" type="Area2D" parent="." unique_id=208083347]
 
-[node name="HoverSensorCollision" type="CollisionShape2D" parent="HoverSensor"]
+[node name="HoverSensorCollision" type="CollisionShape2D" parent="HoverSensor" unique_id=250430610]
 position = Vector2(85.5, 45)
 shape = SubResource("RectangleShape2D_su3bk")
 
-[node name="ActionBackdrop" type="Panel" parent="."]
+[node name="ActionBackdrop" type="Panel" parent="." unique_id=1865985207]
 layout_mode = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7rnvi")
 
-[node name="ActionsButtons" type="AspectRatioContainer" parent="."]
+[node name="ActionsButtons" type="AspectRatioContainer" parent="." unique_id=645505761]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 alignment_horizontal = 0
 
-[node name="ActionsContainer" type="HBoxContainer" parent="ActionsButtons"]
+[node name="ActionsContainer" type="HBoxContainer" parent="ActionsButtons" unique_id=1576012607]
 layout_mode = 2
 mouse_filter = 2
 alignment = 1
 
-[node name="ButtonActionContext" type="Button" parent="ActionsButtons/ActionsContainer"]
+[node name="ButtonActionContext" type="Button" parent="ActionsButtons/ActionsContainer" unique_id=190173680]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 tooltip_text = "Etc"
 icon = ExtResource("2_vbi5p")
 
-[node name="ButtonActionCrossReference" type="Button" parent="ActionsButtons/ActionsContainer"]
+[node name="ButtonActionCrossReference" type="Button" parent="ActionsButtons/ActionsContainer" unique_id=940504612]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 tooltip_text = "Cross References"
 icon = ExtResource("3_3f2fi")
 
-[node name="ButtonActionCopy" type="Button" parent="ActionsButtons/ActionsContainer"]
+[node name="ButtonActionCopy" type="Button" parent="ActionsButtons/ActionsContainer" unique_id=1567512110]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 tooltip_text = "Copy Text"
 icon = ExtResource("4_wfaa5")
 
-[node name="ButtonActionAddToExportlist" type="Button" parent="ActionsButtons/ActionsContainer"]
+[node name="ButtonActionAddToExportlist" type="Button" parent="ActionsButtons/ActionsContainer" unique_id=699498240]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 tooltip_text = "Add to selected verses..."
 icon = ExtResource("5_odcsl")
 
-[node name="ButtonActionToWorkStation" type="Button" parent="ActionsButtons/ActionsContainer"]
+[node name="ButtonActionToWorkStation" type="Button" parent="ActionsButtons/ActionsContainer" unique_id=551977295]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

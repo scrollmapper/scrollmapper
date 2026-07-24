@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://wsudt3gy208e"]
 
 [ext_resource type="Script" uid="uid://bieibhdp3k3ld" path="res://scenes/modules/meta_editor/meta_editor.gd" id="1_apfka"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_edh6t"]
 [ext_resource type="PackedScene" uid="uid://b47hcwlb6la61" path="res://scenes/modules/search/search.tscn" id="2_hvipb"]
 [ext_resource type="PackedScene" uid="uid://c88o0hnxbt2a5" path="res://scenes/modules/meta_editor/meta_elements/meta_fliter.tscn" id="2_w24kb"]
 [ext_resource type="PackedScene" uid="uid://bp6wpif7dba1a" path="res://scenes/modules/meta_editor/meta_elements/scripture_meta_listing.tscn" id="4_7xfgp"]
 [ext_resource type="PackedScene" uid="uid://cboro7vr8pa53" path="res://scenes/modules/shared/exit_button.tscn" id="4_tcnqq"]
 [ext_resource type="PackedScene" uid="uid://dvdlml77qcu2m" path="res://scenes/modules/meta_editor/meta_elements/meta_key_browser_option.tscn" id="5_3v47g"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyxnh"]
-bg_color = Color(0.180005, 0.180005, 0.180005, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_157lq"]
+bg_color = Color(0.03137255, 0.09019608, 0.16078432, 1)
 
 [sub_resource type="GDScript" id="GDScript_a68tc"]
 script/source = "extends Panel
@@ -31,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_edh6t")
 script = ExtResource("1_apfka")
 search = NodePath("VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/ScriptureSearchVBoxContainer/VBoxContainer/Search")
 search_mode_check_button = NodePath("VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/SearchVBoxContainer/VBoxContainer/SearchModeCheckButton")
@@ -192,7 +194,7 @@ layout_mode = 2
 
 [node name="MetaBrowsePanel" type="Panel" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer" unique_id=184665385]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_lyxnh")
+theme_override_styles/panel = SubResource("StyleBoxFlat_157lq")
 script = SubResource("GDScript_a68tc")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/SearchMarginContainer/MetaBrowsePanel" unique_id=257606932]
