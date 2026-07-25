@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://pku1xa1knrt3"]
+[gd_scene format=3 uid="uid://pku1xa1knrt3"]
 
 [ext_resource type="PackedScene" uid="uid://b47hcwlb6la61" path="res://scenes/modules/search/search.tscn" id="1_ffcbf"]
-[ext_resource type="Script" path="res://scenes/modules/explore/explorer.gd" id="1_w2l1c"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_qggrf"]
+[ext_resource type="Script" uid="uid://cowt5qbsu7gah" path="res://scenes/modules/explore/explorer.gd" id="1_w2l1c"]
 [ext_resource type="PackedScene" uid="uid://b5um2unhlx8ye" path="res://scenes/modules/explore/explore.tscn" id="2_w35ag"]
 [ext_resource type="PackedScene" uid="uid://bs0uifavbkart" path="res://scenes/modules/cross_reference/cross_reference.tscn" id="3_8oc6i"]
 [ext_resource type="PackedScene" uid="uid://cboro7vr8pa53" path="res://scenes/modules/shared/exit_button.tscn" id="5_wl7ne"]
 
-[node name="Explorer" type="HBoxContainer"]
+[node name="Explorer" type="HBoxContainer" unique_id=210757830]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,9 +16,19 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+theme = ExtResource("1_qggrf")
+theme_override_constants/separation = 0
 script = ExtResource("1_w2l1c")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1786833167]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=2141645210]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=1348340020]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
@@ -25,36 +36,36 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer" unique_id=1878573713]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1645718807]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SearchAndExplore" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="SearchAndExplore" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1016624517]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="Search" parent="MarginContainer/VBoxContainer/HBoxContainer/SearchAndExplore" instance=ExtResource("1_ffcbf")]
+[node name="Search" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/SearchAndExplore" unique_id=1091164397 instance=ExtResource("1_ffcbf")]
 layout_mode = 2
 
-[node name="Explore" parent="MarginContainer/VBoxContainer/HBoxContainer/SearchAndExplore" instance=ExtResource("2_w35ag")]
+[node name="Explore" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/SearchAndExplore" unique_id=1701698003 instance=ExtResource("2_w35ag")]
 layout_mode = 2
 
-[node name="StudyAndCompare" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="StudyAndCompare" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1221411604]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CrossReference" parent="MarginContainer/VBoxContainer/HBoxContainer/StudyAndCompare" instance=ExtResource("3_8oc6i")]
+[node name="CrossReference" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/StudyAndCompare" unique_id=675712894 instance=ExtResource("3_8oc6i")]
 layout_mode = 2
 
-[node name="FooterHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="FooterHBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1817287866]
 layout_mode = 2
 alignment = 2
 
-[node name="ExitButton" parent="MarginContainer/VBoxContainer/FooterHBoxContainer" instance=ExtResource("5_wl7ne")]
+[node name="ExitButton" parent="MarginContainer/MarginContainer/VBoxContainer/FooterHBoxContainer" unique_id=955868236 instance=ExtResource("5_wl7ne")]
 layout_mode = 2

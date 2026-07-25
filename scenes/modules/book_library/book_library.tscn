@@ -79,6 +79,14 @@ update_list_button = NodePath("MarginContainer/VBoxContainer/ControlsContainer/C
 syncronize_button = NodePath("MarginContainer/VBoxContainer/ControlsContainer/Controls/SyncronizeButton")
 done_button = NodePath("MarginContainer/VBoxContainer/ControlsContainer/Controls/DoneButton")
 
+[node name="Panel" type="Panel" parent="." unique_id=1509955097]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=315995180]
 layout_mode = 1
 anchors_preset = 15

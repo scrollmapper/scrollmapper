@@ -207,7 +207,6 @@ custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_li6p2")
 vx_editor = NodePath("../..")
 
 [node name="DeleteGraphDialogue" parent="VXEditor/Dialogues" unique_id=1830001552 node_paths=PackedStringArray("vx_editor") instance=ExtResource("6_xma0l")]
@@ -216,7 +215,6 @@ custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_li6p2")
 vx_editor = NodePath("../..")
 
 [node name="NewGraphDialogue" parent="VXEditor/Dialogues" unique_id=1697070770 instance=ExtResource("7_4fwow")]
@@ -225,7 +223,6 @@ custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1_li6p2")
 
 [node name="LoadGraphsDialogue" parent="VXEditor/Dialogues" unique_id=281763522 node_paths=PackedStringArray("vx_editor") instance=ExtResource("8_3crsv")]
 visible = false
@@ -317,4 +314,4 @@ volume_db = -9.222
 
 [node name="CursorMoved" type="AudioStreamPlayer" parent="VXSound" unique_id=1011089151]
 stream = ExtResource("28_3c8ex")
-volume_db = -15.369
+volume_db = -0.75
