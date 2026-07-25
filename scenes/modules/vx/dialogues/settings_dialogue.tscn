@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt4kol5jle5rl"]
+[gd_scene format=3 uid="uid://bt4kol5jle5rl"]
 
-[ext_resource type="Script" path="res://scenes/modules/vx/dialogues/settings_dialogue.gd" id="1_q615n"]
-[ext_resource type="StyleBox" uid="uid://dnd12tvsyrwgb" path="res://scenes/modules/vx/dialogues/styles/dialogue_panel_style.tres" id="2_qeya4"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_mixxb"]
+[ext_resource type="Script" uid="uid://3sqq4c77ar3e" path="res://scenes/modules/vx/dialogues/settings_dialogue.gd" id="1_q615n"]
 [ext_resource type="PackedScene" uid="uid://dqn8pxre4u575" path="res://scenes/modules/vx/dialogues/divider.tscn" id="3_73h5u"]
 
-[node name="SettingsDialogue" type="MarginContainer" node_paths=PackedStringArray("line_edit_graph_name", "text_edit_graph_description", "button_save")]
+[node name="SettingsDialogue" type="MarginContainer" unique_id=1898746191 node_paths=PackedStringArray("line_edit_graph_name", "text_edit_graph_description", "button_save")]
 custom_minimum_size = Vector2(300, 0)
 anchors_preset = 8
 anchor_left = 0.5
@@ -17,16 +17,16 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_mixxb")
 script = ExtResource("1_q615n")
 line_edit_graph_name = NodePath("MarginContainer/VBoxContainer/LineEditGraphName")
 text_edit_graph_description = NodePath("MarginContainer/VBoxContainer/TextEditGraphDescription")
 button_save = NodePath("MarginContainer/VBoxContainer/ButtonSave")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=840998923]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("2_qeya4")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1784700064]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 20
@@ -34,36 +34,36 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=660647565]
 layout_mode = 2
 
-[node name="RichTextLabelSettings" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="RichTextLabelSettings" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=2056007325]
 layout_mode = 2
 text = "Settings
 "
 fit_content = true
 
-[node name="Divider" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_73h5u")]
+[node name="Divider" parent="MarginContainer/VBoxContainer" unique_id=1952052878 instance=ExtResource("3_73h5u")]
 layout_mode = 2
 
-[node name="RichTextLabelGraphName" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="RichTextLabelGraphName" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=488158866]
 layout_mode = 2
 text = "Graph Name
 "
 fit_content = true
 
-[node name="LineEditGraphName" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+[node name="LineEditGraphName" type="LineEdit" parent="MarginContainer/VBoxContainer" unique_id=905977865]
 layout_mode = 2
 
-[node name="RichTextLabelGraphDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="RichTextLabelGraphDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=650930889]
 layout_mode = 2
 text = "Graph Description"
 fit_content = true
 
-[node name="TextEditGraphDescription" type="TextEdit" parent="MarginContainer/VBoxContainer"]
+[node name="TextEditGraphDescription" type="TextEdit" parent="MarginContainer/VBoxContainer" unique_id=1211400149]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
-[node name="ButtonSave" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="ButtonSave" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1664499021]
 layout_mode = 2
 text = "Accept"

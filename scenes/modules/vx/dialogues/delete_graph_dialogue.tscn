@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cslgs5p2xsfmf"]
+[gd_scene format=3 uid="uid://cslgs5p2xsfmf"]
 
-[ext_resource type="StyleBox" uid="uid://dnd12tvsyrwgb" path="res://scenes/modules/vx/dialogues/styles/dialogue_panel_style.tres" id="1_85frh"]
-[ext_resource type="Script" path="res://scenes/modules/vx/dialogues/delete_graph_dialogue.gd" id="1_uxmcp"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_034sp"]
+[ext_resource type="Script" uid="uid://bidstylvg50tc" path="res://scenes/modules/vx/dialogues/delete_graph_dialogue.gd" id="1_uxmcp"]
 [ext_resource type="PackedScene" uid="uid://dqn8pxre4u575" path="res://scenes/modules/vx/dialogues/divider.tscn" id="3_ebsu0"]
 
-[node name="DeleteGraphDialogue" type="MarginContainer" node_paths=PackedStringArray("delete_button", "cancel_button")]
+[node name="DeleteGraphDialogue" type="MarginContainer" unique_id=1708669959 node_paths=PackedStringArray("delete_button", "cancel_button")]
 custom_minimum_size = Vector2(300, 0)
 anchors_preset = 8
 anchor_left = 0.5
@@ -17,15 +17,15 @@ offset_right = 150.0
 offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_034sp")
 script = ExtResource("1_uxmcp")
 delete_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/DeleteButton")
 cancel_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/CancelButton")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=2037834442]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("1_85frh")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=642795317]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 20
@@ -33,27 +33,27 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2018630651]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1921977916]
 layout_mode = 2
 text = "Delete Graph?"
 fit_content = true
 
-[node name="Divider" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_ebsu0")]
+[node name="Divider" parent="MarginContainer/VBoxContainer" unique_id=159734214 instance=ExtResource("3_ebsu0")]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=911764898]
 layout_mode = 2
 alignment = 1
 
-[node name="DeleteButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="DeleteButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=463759870]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Delete"
 
-[node name="CancelButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CancelButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=808837722]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cancel"

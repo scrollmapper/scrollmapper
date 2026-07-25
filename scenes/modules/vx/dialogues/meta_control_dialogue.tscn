@@ -1,14 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://8m2hmqh70q4q"]
+[gd_scene format=3 uid="uid://8m2hmqh70q4q"]
 
-[ext_resource type="Script" path="res://scenes/modules/vx/dialogues/meta_control_dialogue.gd" id="1_yv82a"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_76rep"]
+[ext_resource type="Script" uid="uid://dcbuykyw166h6" path="res://scenes/modules/vx/dialogues/meta_control_dialogue.gd" id="1_yv82a"]
 [ext_resource type="PackedScene" uid="uid://dedffxldjfm5g" path="res://scenes/modules/meta_editor/meta_elements/meta_entry_vx.tscn" id="2_xhvik"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibdfk"]
-bg_color = Color(0.180392, 0.180392, 0.180392, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4tl7r"]
 
-[node name="MetaControlDialogue" type="MarginContainer" node_paths=PackedStringArray("vx_node_item_list", "close_button", "selected_node_info_rich_text_label", "selected_nodes_rich_text_label", "add_meta_key_line_edit", "add_meta_value_line_edit", "add_meta_button", "delete_meta_line_edit", "delete_meta_button", "meta_entries_v_box_container")]
+[node name="MetaControlDialogue" type="MarginContainer" unique_id=228321867 node_paths=PackedStringArray("vx_node_item_list", "close_button", "selected_node_info_rich_text_label", "selected_nodes_rich_text_label", "add_meta_key_line_edit", "add_meta_value_line_edit", "add_meta_button", "delete_meta_line_edit", "delete_meta_button", "meta_entries_v_box_container")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,6 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_76rep")
 script = ExtResource("1_yv82a")
 vx_node_item_list = NodePath("MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/NodesSelectorScrollContainer/MarginContainer/VBoxContainer/VXNodeItemList")
 close_button = NodePath("MarginContainer/VBoxContainer/FooterHBoxContainer/CloseButton")
@@ -28,55 +27,54 @@ delete_meta_line_edit = NodePath("MarginContainer/VBoxContainer/MarginContainer/
 delete_meta_button = NodePath("MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Delete Meta/VBoxContainer/HBoxContainer/DeleteMetaButton")
 meta_entries_v_box_container = NodePath("MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/MarginContainer/MetaEntriesVBoxContainer")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=942805680]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ibdfk")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1296531758]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=942420306]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=2084745532]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 20
 text = "Meta Manager"
 fit_content = true
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1560345273]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=437255903]
 layout_mode = 2
 
-[node name="NodesSelectorScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="NodesSelectorScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1688103696]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/NodesSelectorScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/NodesSelectorScrollContainer" unique_id=1836464469]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_right = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/NodesSelectorScrollContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/NodesSelectorScrollContainer/MarginContainer" unique_id=283871917]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/NodesSelectorScrollContainer/MarginContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/NodesSelectorScrollContainer/MarginContainer/VBoxContainer" unique_id=2030123918]
 layout_mode = 2
 text = "Graph Nodes:"
 fit_content = true
 
-[node name="VXNodeItemList" type="ItemList" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/NodesSelectorScrollContainer/MarginContainer/VBoxContainer"]
+[node name="VXNodeItemList" type="ItemList" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/NodesSelectorScrollContainer/MarginContainer/VBoxContainer" unique_id=525920211]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4tl7r")
@@ -87,29 +85,29 @@ item_0/text = "First Option"
 item_1/text = "Second Option"
 item_2/text = "Third Option"
 
-[node name="MetaAssignorScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="MetaAssignorScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1550005565]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MetaAssignorMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer"]
+[node name="MetaAssignorMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer" unique_id=910673257]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer" unique_id=424024363]
 layout_mode = 2
 
-[node name="SelectedNodesRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer"]
+[node name="SelectedNodesRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer" unique_id=925323768]
 layout_mode = 2
 text = "Edited Nodes (0)"
 fit_content = true
 
-[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer"]
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer" unique_id=1904373668]
 layout_mode = 2
 current_tab = 0
 
-[node name="Add Meta" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer"]
+[node name="Add Meta" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer" unique_id=708955597]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
@@ -117,34 +115,34 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Add Meta"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Add Meta" unique_id=1223760092]
 layout_mode = 2
 
-[node name="AddMetaTitleRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Add Meta/VBoxContainer"]
+[node name="AddMetaTitleRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Add Meta/VBoxContainer" unique_id=2145026281]
 layout_mode = 2
 tooltip_text = "This will add the specified meta to all selected nodes."
 text = "Add meta to selected nodes ..."
 fit_content = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Add Meta/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Add Meta/VBoxContainer" unique_id=1483010066]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="AddMetaKeyLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Add Meta/VBoxContainer/HBoxContainer"]
+[node name="AddMetaKeyLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Add Meta/VBoxContainer/HBoxContainer" unique_id=960336700]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Meta Key"
 
-[node name="AddMetaValueLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Add Meta/VBoxContainer/HBoxContainer"]
+[node name="AddMetaValueLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Add Meta/VBoxContainer/HBoxContainer" unique_id=909233766]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Meta Value"
 
-[node name="AddMetaButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Add Meta/VBoxContainer/HBoxContainer"]
+[node name="AddMetaButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Add Meta/VBoxContainer/HBoxContainer" unique_id=1701153193]
 layout_mode = 2
 text = "Add Meta"
 
-[node name="Delete Meta" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer"]
+[node name="Delete Meta" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer" unique_id=1353157956]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 10
@@ -153,67 +151,67 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 metadata/_tab_index = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Delete Meta"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Delete Meta" unique_id=1709604701]
 layout_mode = 2
 
-[node name="DeleteMetaRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Delete Meta/VBoxContainer"]
+[node name="DeleteMetaRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Delete Meta/VBoxContainer" unique_id=302853415]
 layout_mode = 2
 text = "Delete meta by key..."
 fit_content = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Delete Meta/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Delete Meta/VBoxContainer" unique_id=1428591466]
 layout_mode = 2
 
-[node name="DeleteMetaLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Delete Meta/VBoxContainer/HBoxContainer"]
+[node name="DeleteMetaLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Delete Meta/VBoxContainer/HBoxContainer" unique_id=1287471210]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Meta key..."
 
-[node name="DeleteMetaButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Delete Meta/VBoxContainer/HBoxContainer"]
+[node name="DeleteMetaButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/TabContainer/Delete Meta/VBoxContainer/HBoxContainer" unique_id=997886503]
 layout_mode = 2
 text = "Delete Meta"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer" unique_id=802306669]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MetaEntriesVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/MarginContainer"]
+[node name="MetaEntriesVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/MarginContainer" unique_id=1454275546]
 layout_mode = 2
 
-[node name="MetaEntryVX" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/MarginContainer/MetaEntriesVBoxContainer" instance=ExtResource("2_xhvik")]
+[node name="MetaEntryVX" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MetaAssignorScrollContainer/MetaAssignorMarginContainer/VBoxContainer/MarginContainer/MetaEntriesVBoxContainer" unique_id=352483655 instance=ExtResource("2_xhvik")]
 layout_mode = 2
 
-[node name="ScripturePreviewMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ScripturePreviewMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=2019778941]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/ScripturePreviewMarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/ScripturePreviewMarginContainer" unique_id=1723491569]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScripturePreviewMarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScripturePreviewMarginContainer/ScrollContainer" unique_id=60527441]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SelectedNodeRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ScripturePreviewMarginContainer/ScrollContainer/VBoxContainer"]
+[node name="SelectedNodeRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ScripturePreviewMarginContainer/ScrollContainer/VBoxContainer" unique_id=1169044574]
 layout_mode = 2
 text = "Last Selected Node:"
 fit_content = true
 
-[node name="SelectedNodeInfoRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ScripturePreviewMarginContainer/ScrollContainer/VBoxContainer"]
+[node name="SelectedNodeInfoRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ScripturePreviewMarginContainer/ScrollContainer/VBoxContainer" unique_id=288201496]
 layout_mode = 2
 bbcode_enabled = true
 text = "[b]Genesis 1:1[/b]
 In the beginning..."
 fit_content = true
 
-[node name="FooterHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="FooterHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=856103493]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/FooterHBoxContainer"]
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/FooterHBoxContainer" unique_id=334725259]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Close"

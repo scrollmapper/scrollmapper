@@ -9,8 +9,25 @@
 [ext_resource type="Texture2D" uid="uid://iojiwo60qrsj" path="res://images/icons/ScriptExtend.svg" id="5_31fkt"]
 [ext_resource type="Texture2D" uid="uid://cm4bohpq708t5" path="res://images/icons/ScriptCreate.svg" id="5_odcsl"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sm5ja"]
+bg_color = Color(0.004019165, 0.004019165, 0.004019165, 0)
+border_width_left = 3
+border_color = Color(0.95686275, 0.8117647, 0.47058824, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_su3bk"]
 size = Vector2(171, 90)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cynxa"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.004019165, 0.004019165, 0.004019165, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.28627452, 0.39607844, 0.4745098, 1)
 
 [node name="Verse" type="MarginContainer" unique_id=410574349 node_paths=PackedStringArray("scripture_reference", "scripture_text", "actions_buttons", "button_action_context", "button_action_cross_reference", "button_action_copy", "button_action_add_to_export_list", "button_action_to_work_station", "hover_sensor", "hover_sensor_collision", "action_backdrop", "meta_info_top", "meta_info_bottom", "meta_info_top_text", "meta_info_bottom_text")]
 custom_minimum_size = Vector2(0, 74)
@@ -28,7 +45,7 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 script = ExtResource("1_v4g5i")
-scripture_reference = NodePath("MainContainer/VerseContainer/ScriptureContainer/ScriptureReference")
+scripture_reference = NodePath("MainContainer/VerseContainer/ScriptureContainer/MarginContainer/MarginContainer/ScriptureReference")
 scripture_text = NodePath("MainContainer/VerseContainer/ScriptureTextContainer/ScriptureText")
 actions_buttons = NodePath("ActionsButtons")
 button_action_context = NodePath("ActionsButtons/ActionsContainer/ButtonActionContext")
@@ -68,19 +85,38 @@ mouse_filter = 2
 [node name="ScriptureContainer" type="MarginContainer" parent="MainContainer/VerseContainer" unique_id=572740210]
 layout_mode = 2
 mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContainer/VerseContainer/ScriptureContainer" unique_id=1694795426]
+layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="ScriptureReference" type="RichTextLabel" parent="MainContainer/VerseContainer/ScriptureContainer" unique_id=1702273937]
+[node name="Panel" type="Panel" parent="MainContainer/VerseContainer/ScriptureContainer/MarginContainer" unique_id=1424838473]
+custom_minimum_size = Vector2(5, 30)
+custom_maximum_size = Vector2(-1, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_sm5ja")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContainer/VerseContainer/ScriptureContainer/MarginContainer" unique_id=872432930]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="ScriptureReference" type="RichTextLabel" parent="MainContainer/VerseContainer/ScriptureContainer/MarginContainer/MarginContainer" unique_id=1702273937]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 focus_mode = 2
 mouse_filter = 2
+theme_override_colors/default_color = Color(0.95686275, 0.8117647, 0.47058824, 1)
 bbcode_enabled = true
 text = "Scripture"
 fit_content = true
+vertical_alignment = 1
 selection_enabled = true
 
 [node name="ScriptureTextContainer" type="MarginContainer" parent="MainContainer/VerseContainer" unique_id=1786969647]
@@ -102,6 +138,7 @@ bbcode_enabled = true
 text = "Scripture text"
 fit_content = true
 context_menu_enabled = true
+vertical_alignment = 1
 selection_enabled = true
 
 [node name="MetaInfoBottom" type="MarginContainer" parent="MainContainer" unique_id=1111838031]
@@ -121,6 +158,7 @@ shape = SubResource("RectangleShape2D_su3bk")
 [node name="ActionBackdrop" type="Panel" parent="." unique_id=1865985207]
 layout_mode = 2
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cynxa")
 
 [node name="ActionsButtons" type="AspectRatioContainer" parent="." unique_id=645505761]
 layout_mode = 2

@@ -186,12 +186,10 @@ text = "Snap"
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -18.0
-offset_top = -2.0
-offset_right = -18.0
-offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 0
@@ -205,40 +203,52 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="SettingsDialogue" parent="VXEditor/Dialogues" unique_id=195939414 node_paths=PackedStringArray("vx_editor") instance=ExtResource("5_32rsg")]
-visible = false
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_li6p2")
 vx_editor = NodePath("../..")
 
 [node name="DeleteGraphDialogue" parent="VXEditor/Dialogues" unique_id=1830001552 node_paths=PackedStringArray("vx_editor") instance=ExtResource("6_xma0l")]
 visible = false
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_li6p2")
 vx_editor = NodePath("../..")
 
 [node name="NewGraphDialogue" parent="VXEditor/Dialogues" unique_id=1697070770 instance=ExtResource("7_4fwow")]
 visible = false
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_li6p2")
 
 [node name="LoadGraphsDialogue" parent="VXEditor/Dialogues" unique_id=281763522 node_paths=PackedStringArray("vx_editor") instance=ExtResource("8_3crsv")]
 visible = false
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 1
+size_flags_vertical = 1
 vx_editor = NodePath("../..")
 
 [node name="NodeControlDialogue" parent="VXEditor/Dialogues" unique_id=45363931 node_paths=PackedStringArray("vx_editor") instance=ExtResource("9_uamg3")]
 visible = false
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
 vx_editor = NodePath("../..")
 
 [node name="MetaControlDialogue" parent="VXEditor/Dialogues" unique_id=1037997397 node_paths=PackedStringArray("vx_graph") instance=ExtResource("10_tyroj")]
 visible = false
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
 vx_graph = NodePath("../../..")
 
 [node name="VXCanvas" parent="." unique_id=1426450468 instance=ExtResource("2_jc8ca")]

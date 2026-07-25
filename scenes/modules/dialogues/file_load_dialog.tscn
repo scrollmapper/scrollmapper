@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://1ktbbcdyghyj"]
 
-[node name="FilesSaveDialog" type="FileDialog"]
+[node name="FilesSaveDialog" type="FileDialog" unique_id=1179195056]
+oversampling_override = 1.0
 title = "Open a File"
 initial_position = 2
-size = Vector2i(400, 400)
-visible = false
+size = Vector2i(515, 400)
 ok_button_text = "Open"
 file_mode = 0
 access = 2

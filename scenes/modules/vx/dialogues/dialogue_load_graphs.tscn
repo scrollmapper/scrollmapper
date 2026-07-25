@@ -1,33 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt43vy44qgas7"]
+[gd_scene format=3 uid="uid://bt43vy44qgas7"]
 
-[ext_resource type="StyleBox" uid="uid://dnd12tvsyrwgb" path="res://scenes/modules/vx/dialogues/styles/dialogue_panel_style.tres" id="1_ghxe2"]
-[ext_resource type="Script" path="res://scenes/modules/vx/dialogues/dialogue_load_graphs.gd" id="1_tg4vd"]
+[ext_resource type="Script" uid="uid://d1kre16atqwth" path="res://scenes/modules/vx/dialogues/dialogue_load_graphs.gd" id="1_tg4vd"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_vl0b2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7g5p"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="LoadGraphsDialogue" type="MarginContainer" node_paths=PackedStringArray("item_list", "close_button")]
-custom_minimum_size = Vector2(300, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="LoadGraphsDialogue" type="MarginContainer" unique_id=1544776474 node_paths=PackedStringArray("item_list", "close_button")]
+custom_minimum_size = Vector2(400, 0)
+propagate_maximum_size = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_vl0b2")
 script = ExtResource("1_tg4vd")
-item_list = NodePath("MarginContainer/VBoxContainer/ItemList")
+item_list = NodePath("MarginContainer/VBoxContainer/ScrollContainer/ItemList")
 close_button = NodePath("MarginContainer/VBoxContainer/CloseButton")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1566417058]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("1_ghxe2")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1306998279]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 20
@@ -35,27 +32,32 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=501930107]
 layout_mode = 2
 
-[node name="LoadGraphRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="LoadGraphRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=663857423]
 layout_mode = 2
 text = "Load Graph"
 fit_content = true
 
-[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=157382961]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_w7g5p")
 
-[node name="ItemList" type="ItemList" parent="MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=156725742]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemList" type="ItemList" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=1743009217]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 auto_height = true
 item_count = 2
 item_0/text = "first item"
 item_1/text = "second itme"
 
-[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1077733101]
 layout_mode = 2
 text = "Close"

@@ -58,6 +58,14 @@ add_meta_button = NodePath("VBoxContainer/MarginContainer/HBoxContainer/MarginCo
 delete_meta_button = NodePath("VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/DeleteMetaButton")
 connected_meta_browser_v_box_container = NodePath("VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/ConnectedMetaBrowserScrollContainer/ConnectedMetaBrowserVBoxContainer")
 
+[node name="Panel" type="Panel" parent="." unique_id=822385872]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=701345755]
 layout_mode = 1
 anchors_preset = 15

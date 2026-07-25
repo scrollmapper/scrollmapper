@@ -1,38 +1,61 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxvpvgnaquqyu"]
+[gd_scene format=3 uid="uid://bxvpvgnaquqyu"]
 
-[ext_resource type="Script" path="res://scenes/modules/vx/dialogues/dialogue_node_control.gd" id="1_5ka8k"]
-[ext_resource type="StyleBox" uid="uid://dnd12tvsyrwgb" path="res://scenes/modules/vx/dialogues/styles/dialogue_panel_style.tres" id="2_rsyv6"]
+[ext_resource type="Script" uid="uid://dmg210xrjoob2" path="res://scenes/modules/vx/dialogues/dialogue_node_control.gd" id="1_5ka8k"]
+[ext_resource type="Theme" uid="uid://0bd041bfrxwd" path="res://theme/scrollmapper_theme.tres" id="1_jma02"]
 [ext_resource type="PackedScene" uid="uid://bs0uifavbkart" path="res://scenes/modules/cross_reference/cross_reference.tscn" id="3_b6xad"]
-[ext_resource type="PackedScene" uid="uid://dqn8pxre4u575" path="res://scenes/modules/vx/dialogues/divider.tscn" id="3_c7v0v"]
 [ext_resource type="Texture2D" uid="uid://bae24mbqtje8b" path="res://images/icons/editor/Close.svg" id="4_2b5wp"]
 [ext_resource type="PackedScene" uid="uid://dedffxldjfm5g" path="res://scenes/modules/meta_editor/meta_elements/meta_entry_vx.tscn" id="4_4h0ns"]
+[ext_resource type="Theme" uid="uid://d2ejh87o2t2hb" path="res://theme/headings.tres" id="4_jma02"]
 
-[node name="NodeControlDialogue" type="MarginContainer" node_paths=PackedStringArray("scripture_location_rich_text_label", "scripture_text_rich_text_label", "cross_reference", "connections_v_box_container", "meta_list_v_box_container", "meta_key_add_line_edit", "meta_value_add_line_edit", "meta_add_button", "close_button")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w54dg"]
+bg_color = Color(0.5882353, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.28627452, 0.39607844, 0.4745098, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sm5ja"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_right = 2
+border_color = Color(0.28627452, 0.39607844, 0.4745098, 1)
+
+[node name="NodeControlDialogue" type="MarginContainer" unique_id=2077674991 node_paths=PackedStringArray("scripture_location_rich_text_label", "scripture_text_rich_text_label", "cross_reference", "connections_v_box_container", "meta_list_v_box_container", "meta_key_add_line_edit", "meta_value_add_line_edit", "meta_add_button", "close_button")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_jma02")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 script = ExtResource("1_5ka8k")
-scripture_location_rich_text_label = NodePath("MarginContainer/VBoxContainer/ScriptureLocationRichTextLabel")
-scripture_text_rich_text_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/ScriptureTextRichTextLabel")
-cross_reference = NodePath("MarginContainer/VBoxContainer/HBoxContainer/CrossReferencesMarginContainer/CrossReference")
-connections_v_box_container = NodePath("MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/ConnectionsMarginContainer/ConnectionsVBoxContainer")
-meta_list_v_box_container = NodePath("MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/MetaVBoxContainer/ScrollContainer/MetaListVBoxContainer")
-meta_key_add_line_edit = NodePath("MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer/MarginContainer/HBoxContainer/MetaKeyAddLineEdit")
-meta_value_add_line_edit = NodePath("MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer/MarginContainer/HBoxContainer/MetaValueAddLineEdit")
-meta_add_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer/MarginContainer/HBoxContainer/MetaAddButton")
-close_button = NodePath("MarginContainer/VBoxContainer/FooterMarginContainer/CloseButton")
+scripture_location_rich_text_label = NodePath("MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/ScriptureLocationRichTextLabel")
+scripture_text_rich_text_label = NodePath("MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/ScriptureTextRichTextLabel")
+cross_reference = NodePath("MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CrossReferencesMarginContainer/VBoxContainer/CrossReference")
+connections_v_box_container = NodePath("MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/ConnectionsMarginContainer/ConnectionsVBoxContainer")
+meta_list_v_box_container = NodePath("MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/MetaVBoxContainer/ScrollContainer/MetaListVBoxContainer")
+meta_key_add_line_edit = NodePath("MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer/MarginContainer/HBoxContainer/MetaKeyAddLineEdit")
+meta_value_add_line_edit = NodePath("MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer/MarginContainer/HBoxContainer/MetaValueAddLineEdit")
+meta_add_button = NodePath("MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer/MarginContainer/HBoxContainer/MetaAddButton")
+close_button = NodePath("MarginContainer/MarginContainer/VBoxContainer/FooterMarginContainer/CloseButton")
 top_connections_color = Color(0.71, 0, 0.224833, 1)
 bottom_connections_color = Color(0.709804, 0.223529, 0, 1)
 left_connections_color = Color(0.709804, 0.701961, 0, 1)
 right_connections_color = Color(0.223529, 0.709804, 0, 1)
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=973824681]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("2_rsyv6")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1419377892]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 20
@@ -40,112 +63,145 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1506036372]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w54dg")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=1685189315]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer" unique_id=559947845]
 layout_mode = 2
 
-[node name="ScriptureLocationRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1768274629]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=249507815]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer" unique_id=1108621327]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sm5ja")
+
+[node name="ScriptureMarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer" unique_id=942161434]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer" unique_id=835309522]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer" unique_id=1184599417]
+layout_mode = 2
+theme = ExtResource("4_jma02")
+text = "NODE INSPECTOR - Scripture"
+
+[node name="ScriptureLocationRichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer" unique_id=243685434]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 24
 text = "Genesis 1:1"
 fit_content = true
 
-[node name="Divider" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_c7v0v")]
+[node name="ScriptureTextRichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer" unique_id=1824860175]
 layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="ScriptureMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_right = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer"]
-layout_mode = 2
-
-[node name="ScriptureTextRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer"]
-layout_mode = 2
+theme_override_colors/default_color = Color(1, 0.84313726, 0.47843137, 1)
 text = "In the beginning God created the heaven and the earth. "
 fit_content = true
 
-[node name="MetaVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer"]
+[node name="MetaVBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer" unique_id=90618398]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/MetaVBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/MetaVBoxContainer" unique_id=2096005339]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="MetaTitleRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/MetaVBoxContainer/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/MetaVBoxContainer/MarginContainer" unique_id=1952352880]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 20
-text = "Meta"
-fit_content = true
+theme = ExtResource("4_jma02")
+text = "METADATA & RELATIONSHIPS"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/MetaVBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/MetaVBoxContainer" unique_id=1542482067]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MetaListVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/MetaVBoxContainer/ScrollContainer"]
+[node name="MetaListVBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/MetaVBoxContainer/ScrollContainer" unique_id=2026545668]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MetaEntryVX" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/MetaVBoxContainer/ScrollContainer/MetaListVBoxContainer" instance=ExtResource("4_4h0ns")]
+[node name="MetaEntryVX" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/MetaVBoxContainer/ScrollContainer/MetaListVBoxContainer" unique_id=1643457085 instance=ExtResource("4_4h0ns")]
 layout_mode = 2
 
-[node name="MetaFooterMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer"]
+[node name="MetaFooterMarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer" unique_id=628657359]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer" unique_id=881859012]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer/MarginContainer" unique_id=447598639]
 layout_mode = 2
 
-[node name="MetaKeyAddLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer/MarginContainer/HBoxContainer"]
+[node name="MetaKeyAddLineEdit" type="LineEdit" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer/MarginContainer/HBoxContainer" unique_id=851165743]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Meta Key"
 
-[node name="MetaValueAddLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer/MarginContainer/HBoxContainer"]
+[node name="MetaValueAddLineEdit" type="LineEdit" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer/MarginContainer/HBoxContainer" unique_id=95003476]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Meta Value"
 
-[node name="MetaAddButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer/MarginContainer/HBoxContainer"]
+[node name="MetaAddButton" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/MetaFooterMarginContainer/MarginContainer/HBoxContainer" unique_id=327229851]
 layout_mode = 2
 tooltip_text = "Adds a meta entry to this verse."
 text = "Add Meta"
 
-[node name="ConnectionsMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer"]
+[node name="ConnectionsMarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer" unique_id=720457200]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 10
 
-[node name="ConnectionsVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/ScriptureMarginContainer/VBoxContainer/ConnectionsMarginContainer"]
+[node name="ConnectionsVBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/ScriptureMarginContainer/VBoxContainer/ConnectionsMarginContainer" unique_id=769598569]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CrossReferencesMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CrossReferencesMarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1007904248]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
 
-[node name="CrossReference" parent="MarginContainer/VBoxContainer/HBoxContainer/CrossReferencesMarginContainer" instance=ExtResource("3_b6xad")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CrossReferencesMarginContainer" unique_id=2146092873]
 layout_mode = 2
 
-[node name="FooterMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CrossReferencesMarginContainer/VBoxContainer" unique_id=1625478012]
+layout_mode = 2
+theme = ExtResource("4_jma02")
+
+[node name="RankCrossReferencesLabel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CrossReferencesMarginContainer/VBoxContainer/MarginContainer" unique_id=1619396655]
+layout_mode = 2
+text = "RANKED CROSS REFERENCES
+Ordered by Votes"
+
+[node name="CrossReference" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer/CrossReferencesMarginContainer/VBoxContainer" unique_id=1942609534 instance=ExtResource("3_b6xad")]
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/FooterMarginContainer"]
+[node name="FooterMarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=121812190]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer/FooterMarginContainer" unique_id=797373875]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Close"
