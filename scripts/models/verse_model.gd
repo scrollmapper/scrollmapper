@@ -210,11 +210,11 @@ func get_verses_by_verse_hashes(verse_hashes: Array) -> Array:
 # Get verses by range
 func get_verses_by_range(start_book: String, start_chapter: int, start_verse: int, end_book: String, end_chapter: int, end_verse: int) -> Array:
 	var start_book_model = BookModel.new(translation)
-	start_book_model.find_book_by_name(start_book)
+	start_book_model.get_book_by_name(start_book)
 	var start_book_id = start_book_model.id
 
 	var end_book_model = BookModel.new(translation)
-	end_book_model.find_book_by_name(end_book)
+	end_book_model.get_book_by_name(end_book)
 	var end_book_id = end_book_model.id
 
 	var query = """
